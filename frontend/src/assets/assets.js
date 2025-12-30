@@ -13,7 +13,7 @@ import cert_tssa from './TSSA logo.png';
 import canada_map_img from './Canada_Map.png';
 import industrial_workers_image from './Industrial_Workers.png';
 import welding_image from './Welding_img.png';
-import laser_welding_machine from './laser_Machine_image.png';
+import laser_welding_machine from './Laser_Machine_Image.png';
 import Industrial_Maintenance_Image from './Industrial_Maintenance_Image.png';
 import Planning_Image from './Planning_image.png';
 import Fabrication_Image from './Fabrication_image.png';
