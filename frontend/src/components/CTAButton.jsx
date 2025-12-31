@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -15,7 +16,7 @@ const CTAButton = ({
   const colorProgress = useMotionValue(0);
 
   const colorClipPathValue = useTransform(colorProgress, (value) => {
-    return `inset(0 0 0 ${Math.max(-0.5, 100 - value)}%)`;
+    return `inset( 0 0 0  ${Math.max(-10, 100 - value)}%)`;
   });
 
   const BRONZE_GOLD = '#ae8f62';
@@ -88,7 +89,7 @@ const CTAButton = ({
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative inline-flex items-center justify-center gap-2 bg-black text-white font-semibold transition-all duration-100 overflow-hidden ${height} ${width} ${widthClass} ${className}`}
+      className={`relative inline-flex items-center justify-center gap-2 border border-accent bg-black text-white font-semibold transition-all duration-100 overflow-hidden ${height} ${width} ${widthClass} ${className}`}
       style={{
         boxShadow: isHovered ? '0 20px 40px rgba(174, 143, 98, 0.3)' : 'none',
       }}

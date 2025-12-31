@@ -49,6 +49,19 @@ const IndustrialSerpApiMap = () => {
       mapUrl:
         'https://maps.google.com/maps?q=46.08859577186401,-64.79452728988272&output=embed',
     },
+    capsante: {
+      id: 'capsante',
+      title: 'Espace manufacturier et entreposage',
+      address: '23 Rte DelageCap-Santé, QC G0A 1L0',
+      coordinates: { lat: 46.728339, lng: -71.801867 },
+      phone: '+1 (418) 555-1234',
+      email: 'capsante@stipsolutions.com',
+      hours: 'Lun-Sam: 7h00 - 17h00',
+      description:
+        'Espace de fabrication et entreposage pour la production manufacturière.',
+      mapUrl:
+        'https://maps.google.com/maps?q=46.728339,-71.801867&output=embed',
+    },
   };
 
   return (
@@ -140,10 +153,10 @@ const IndustrialSerpApiMap = () => {
             className={`px-4 py-2 text-sm font-semibold transition-all backdrop-blur-sm border ${
               activeLocation === key
                 ? 'bg-primary text-white border-primary'
-                : 'bg-white/10 text-white hover:bg-white/20 border-white/30'
+                : 'bg-gray-900/70 text-gray-100 hover:bg-gray-800/80 border-gray-700 hover:border-gray-600'
             }`}
           >
-            {key === 'montreal' ? 'Siège social' : 'Usine'}
+            {key === 'montreal' ? 'Siège social' : key === 'quebec' ? 'Usine de Québec' : 'Cap-Santé'}
           </motion.button>
         ))}
       </div>

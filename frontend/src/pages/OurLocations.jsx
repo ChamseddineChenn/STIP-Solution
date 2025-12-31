@@ -37,6 +37,17 @@ const OurLocations = () => {
       email: 'operations@stipsolutions.com',
       coordinates: { top: '65%', left: '42%' },
     },
+    capsante: {
+      id: 'capsante',
+      title: 'Espace manufacturier et entreposage',
+      city: 'Cap-Santé, Québec',
+      address: '23 Rte DelageCap-Santé, QC G0A 1L0',
+      image: assets.Warehouse_Image,
+      icon: <FiPackage className="w-8 h-8" />,
+      phone: '+1 (418) 555-1234',
+      email: 'capsante@stipsolutions.com',
+      coordinates: { top: '62%', left: '38%' },
+    },
   };
 
   const handleMouseEnter = (locationId) => {
@@ -168,6 +179,12 @@ const OurLocations = () => {
                   Usine de production
                 </span>
               </div>
+              <div className="flex items-center">
+                <div className="w-4 h-4 bg-accent mr-3" />
+                <span className="text-gray-900 font-medium">
+                  Espace manufacturier
+                </span>
+              </div>
             </div>
           </div>
 
@@ -181,11 +198,11 @@ const OurLocations = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">2</div>
+                <div className="text-2xl font-bold text-primary">3</div>
                 <div className="text-sm text-gray-600">Emplacements</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">75K+</div>
+                <div className="text-2xl font-bold text-primary">120K+</div>
                 <div className="text-sm text-gray-600">pi²</div>
               </div>
             </div>
@@ -239,6 +256,32 @@ const OurLocations = () => {
                 className="absolute inset-0 w-16 h-16 bg-gray-800 rounded-full opacity-30 border-4 border-white"
                 animate={{ scale: [1, 1.8, 1] }}
                 transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+              />
+            </motion.div>
+          </div>
+
+          {/* Cap-Santé Marker - Manufacturing Space */}
+          <div
+            className="absolute z-20 group"
+            style={{
+              top: locations.capsante.coordinates.top,
+              left: locations.capsante.coordinates.left,
+            }}
+            onMouseEnter={() => handleMouseEnter('capsante')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
+                <FiMapPin className="w-8 h-8" />
+              </div>
+              <motion.div
+                className="absolute inset-0 w-16 h-16 bg-accent rounded-full opacity-30 border-4 border-white"
+                animate={{ scale: [1, 1.8, 1] }}
+                transition={{ repeat: Infinity, duration: 2, delay: 1 }}
               />
             </motion.div>
           </div>

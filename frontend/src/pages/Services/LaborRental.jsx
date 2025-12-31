@@ -83,14 +83,18 @@ const LaborRental = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ ease: 'linear', duration: 0.6 }}
-                className="mb-12"
+                className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
                   Une Solution Flexible pour Optimiser votre ROI
                 </h2>
+                <p className="text-accent font-semibold mb-4">
+                  Faites face aux fluctuations du marché sans alourdir votre
+                  structure fixe.
+                </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   L'externalisation de vos besoins en personnel avec STIP vous
                   permet de transformer vos coûts fixes en coûts variables, tout
@@ -99,22 +103,53 @@ const LaborRental = () => {
                   capacité à s'intégrer rapidement dans des environnements
                   techniques complexes.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-4">
-                  <li>
-                    <strong>Agilité de Production :</strong> Que ce soit pour
-                    une opération ponctuelle ou la prise en charge complète
-                    d'une ligne de fabrication.
-                  </li>
-                  <li>
-                    <strong>Scalabilité Immédiate :</strong> Adaptez la taille
-                    de votre équipe en fonction de vos contrats, que ce soit
-                    pour de la petite, moyenne ou grande série.
-                  </li>
-                  <li>
-                    <strong>Réduction des Risques RH :</strong> Économisez sur
-                    le recrutement et la formation. Nous fournissons des experts
-                    opérationnels dès leur arrivée.
-                  </li>
+                <ul className="space-y-3">
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Agilité de Production :
+                      </strong>{' '}
+                      Que ce soit pour une opération ponctuelle ou la prise en
+                      charge complète d'une ligne de fabrication.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Scalabilité Immédiate :
+                      </strong>{' '}
+                      Adaptez la taille de votre équipe en fonction de vos
+                      contrats, que ce soit pour de la petite, moyenne ou grande
+                      série.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Réduction des Risques RH :
+                      </strong>{' '}
+                      Économisez sur le recrutement et la formation. Nous
+                      fournissons des experts opérationnels dès leur arrivée.
+                    </span>
+                  </motion.li>
                 </ul>
               </motion.div>
 
@@ -211,9 +246,12 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
-                <h3 className="text-2xl font-bold text-accent mb-6">
-                  Notre Main d'Œuvre Qualifiée
-                </h3>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-0.5 w-12 bg-accent" />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Notre Main d'Œuvre Qualifiée
+                  </h3>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     'Soudeurs Qualifiés',

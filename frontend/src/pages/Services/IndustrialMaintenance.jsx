@@ -341,9 +341,13 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
-                <h3 className="text-2xl font-bold text-accent mb-6">
-                  Nos Services de Maintenance
-                </h3>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-0.5 w-12 bg-accent" />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Nos Services de Maintenance
+                  </h3>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     'Maintenance Préventive',
