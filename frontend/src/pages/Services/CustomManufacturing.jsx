@@ -68,10 +68,13 @@ const CustomManufacturing = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Fabrication sur mesure et Réparation
             </h1>
-            <p className="text-xl text-white max-w-2xl leading-relaxed">
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
               L'Ingénierie de Précision par STIP Solution. Chez STIP Solution,
               nous ne nous contentons pas de souder : nous bâtissons la
-              fiabilité de vos infrastructures.
+              fiabilité de vos infrastructures. Que ce soit pour des composantes
+              de haute précision ou des structures industrielles massives, notre
+              approche repose sur une synergie entre agilité technique et
+              capacité de production.
             </p>
           </motion.div>
         </div>
@@ -95,10 +98,7 @@ const CustomManufacturing = () => {
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Nous transformons vos concepts les plus complexes en réalités
                   tangibles. Notre service de fabrication couvre 100 % du cycle
-                  de vie du produit. Que ce soit pour des composantes de haute
-                  précision ou des structures industrielles massives, notre
-                  approche repose sur une synergie entre agilité technique et
-                  capacité de production.
+                  de vie du produit.
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -159,7 +159,8 @@ const CustomManufacturing = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Réparation et Remise à Neuf
+                  Réparation et Remise à Neuf : Maximisez la Durée de Vie de vos
+                  Actifs
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   L'usure industrielle ne doit pas freiner votre productivité.

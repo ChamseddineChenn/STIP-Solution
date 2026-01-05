@@ -134,9 +134,27 @@ const ServicesSection = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideDirection, setSlideDirection] = useState(0); // eslint-disable-line no-unused-vars
+  const [itemsPerView, setItemsPerView] = useState(4);
   const detailsRef = useRef(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  // Handle responsive items per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(4);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const services = [
     {
@@ -301,10 +319,10 @@ const ServicesSection = () => {
     },
   ];
 
-  // Get visible services for the current slide (4 at a time)
+  // Get visible services for the current slide
   const getVisibleServices = () => {
     const visible = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < itemsPerView; i++) {
       const index = (currentSlide + i) % services.length;
       visible.push(services[index]);
     }
@@ -313,7 +331,7 @@ const ServicesSection = () => {
 
   const visibleServices = getVisibleServices(); // eslint-disable-line no-unused-vars
 
-  const maxPosition = services.length - 3; // 8 - 3 = 5 positions (0-4)
+  const maxPosition = services.length - itemsPerView + 1;
 
   const nextSlide = () => {
     setSlideDirection(1);
@@ -376,20 +394,30 @@ const ServicesSection = () => {
             {/* Carousel content */}
             <motion.div
               animate={{
-                x: -currentSlide * (100 / 4) + '%',
+                x: -currentSlide * (100 / itemsPerView) + '%',
               }}
               transition={{
                 duration: 0.8,
                 ease: 'easeInOut',
               }}
-              className="flex gap-4"
+              drag="x"
+              dragElastic={0.3}
+              onDragEnd={(e, info) => {
+                const swipeThreshold = 50;
+                if (info.offset.x > swipeThreshold) {
+                  prevSlide();
+                } else if (info.offset.x < -swipeThreshold) {
+                  nextSlide();
+                }
+              }}
+              className="flex gap-4 cursor-grab active:cursor-grabbing"
             >
               {services.map((service) => (
                 <div
                   key={service.id}
                   className="relative overflow-hidden cursor-pointer sharp group"
                   style={{
-                    width: 'calc(25% - 1rem)',
+                    width: `calc(${100 / itemsPerView}% - 1rem)`,
                     height: '500px',
                     flexShrink: 0,
                     borderRight: '1px solid rgba(174, 143, 98, 0.3)',
@@ -519,35 +547,35 @@ const ServicesSection = () => {
             </motion.div>
           </div>
 
-          {/* Navigation Arrows - Outside and proper positioning */}
+          {/* Navigation Arrows - Hidden on mobile, visible on desktop */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 border-2 flex items-center justify-center text-white backdrop-blur-sm hover:bg-[#ae8f62] hover:border-[#ae8f62] transition-all duration-300 -ml-16 md:-ml-20"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 border-2 items-center justify-center text-white backdrop-blur-sm hover:bg-[#ae8f62] hover:border-[#ae8f62] transition-all duration-300 -ml-20 p-2"
             style={{
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
               borderColor: '#ae8f62',
             }}
             aria-label="Previous services"
           >
-            <FiChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <FiChevronLeft className="w-6 h-6" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 border-2 flex items-center justify-center text-white backdrop-blur-sm hover:bg-[#ae8f62] hover:border-[#ae8f62] transition-all duration-300 -mr-16 md:-mr-20"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 border-2 items-center justify-center text-white backdrop-blur-sm hover:bg-[#ae8f62] hover:border-[#ae8f62] transition-all duration-300 -mr-20 p-2"
             style={{
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
               borderColor: '#ae8f62',
             }}
             aria-label="Next services"
           >
-            <FiChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            <FiChevronRight className="w-6 h-6" />
           </button>
         </div>
 
         {/* Carousel Dots Indicator */}
         <div className="flex justify-center mt-12 space-x-2">
-          {Array.from({ length: services.length - 3 }).map((_, index) => (
+          {Array.from({ length: maxPosition }).map((_, index) => (
             <button
               key={index}
               onClick={() => {

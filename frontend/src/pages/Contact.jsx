@@ -34,7 +34,7 @@ const IndustrialSerpApiMap = () => {
       description:
         "Bureau principal avec la gestion générale et les équipes d'ingénierie.",
       mapUrl:
-        'https://maps.google.com/maps?q=46.76791850281603,-71.28880097450394&output=embed',
+        'https://maps.google.com/maps?q=46.76791850281603,-71.28880097450394&z=9&output=embed',
     },
     quebec: {
       id: 'quebec',
@@ -47,7 +47,7 @@ const IndustrialSerpApiMap = () => {
       description:
         "Installation d'entreposage et d'opérations avec accès complet aux services logistiques.",
       mapUrl:
-        'https://maps.google.com/maps?q=46.08859577186401,-64.79452728988272&output=embed',
+        'https://maps.google.com/maps?q=46.08859577186401,-64.79452728988272&z=9&output=embed',
     },
     capsante: {
       id: 'capsante',
@@ -60,7 +60,7 @@ const IndustrialSerpApiMap = () => {
       description:
         'Espace de fabrication et entreposage pour la production manufacturière.',
       mapUrl:
-        'https://maps.google.com/maps?q=46.728339,-71.801867&output=embed',
+        'https://maps.google.com/maps?q=46.728339,-71.801867&z=9&output=embed',
     },
   };
 
@@ -156,7 +156,11 @@ const IndustrialSerpApiMap = () => {
                 : 'bg-gray-900/70 text-gray-100 hover:bg-gray-800/80 border-gray-700 hover:border-gray-600'
             }`}
           >
-            {key === 'montreal' ? 'Siège social' : key === 'quebec' ? 'Usine de Québec' : 'Cap-Santé'}
+            {key === 'montreal'
+              ? 'Siège social'
+              : key === 'quebec'
+              ? 'Usine de Québec'
+              : 'Cap-Santé'}
           </motion.button>
         ))}
       </div>
@@ -1321,7 +1325,7 @@ const Contact = () => {
             >
               Expertise industrielle
               <br />
-              <span className="text-primary-light">Au votre service</span>
+              <span className="text-primary-light">A votre service</span>
             </motion.h1>
 
             <motion.p

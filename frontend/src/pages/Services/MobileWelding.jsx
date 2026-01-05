@@ -68,9 +68,13 @@ const MobileWelding = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Soudage Mobile & Unités d'Intervention
             </h1>
-            <p className="text-xl text-white max-w-2xl">
-              L'Excellence sur votre Terrain. Nous déployons nos ateliers
-              mobiles autonomes directement chez vous.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              L'Excellence sur votre Terrain. Une urgence sur un chantier ? Une
+              réparation critique en pleine usine ? STIP Solution déploie ses
+              ateliers mobiles autonomes directement chez vous. Nous ne nous
+              contentons pas de souder ; nous restaurons votre capacité
+              opérationnelle là où vous en avez besoin, quand vous en avez
+              besoin.
             </p>
           </motion.div>
         </div>
@@ -83,34 +87,67 @@ const MobileWelding = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ ease: 'linear', duration: 0.6 }}
-                className="mb-12"
+                className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Mobilité Totale et Autonomie Technique
+                  1. Mobilité Totale et Autonomie Technique
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Nos unités mobiles sont de véritables usines sur roues. Chaque
                   véhicule est configuré pour répondre aux standards industriels
                   les plus élevés sans dépendre de vos infrastructures internes.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-4">
-                  <li>
-                    <strong>Équipement de Pointe :</strong> Soudeuses
-                    multiprocédés haute performance, outils de découpe plasma et
-                    matériel de manutention intégrés.
-                  </li>
-                  <li>
-                    <strong>Intervention Tout-Terrain :</strong> Que ce soit en
-                    milieu urbain, sur des sites de construction complexes ou
-                    dans des zones industrielles restreintes.
-                  </li>
-                  <li>
-                    <strong>Consommables Inclus :</strong> Nous arrivons avec
-                    tout le matériel nécessaire pour finaliser le projet.
-                  </li>
+                <ul className="space-y-3">
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Équipement de Pointe :
+                      </strong>{' '}
+                      Soudeuses multiprocédés haute performance, outils de
+                      découpe plasma et matériel de manutention intégrés.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Intervention Tout-Terrain :
+                      </strong>{' '}
+                      Que ce soit en milieu urbain, sur des sites de
+                      construction complexes ou dans des zones industrielles
+                      restreintes.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">■</span>
+                    <span>
+                      <strong className="text-accent">
+                        Consommables Inclus :
+                      </strong>{' '}
+                      Nous arrivons avec tout le matériel nécessaire pour
+                      finaliser le projet, éliminant les allées-retours
+                      inutiles.
+                    </span>
+                  </motion.li>
                 </ul>
               </motion.div>
 
@@ -121,7 +158,7 @@ const MobileWelding = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Rigueur et Contrôle Qualité Hors-Site
+                  2. Rigueur et Contrôle Qualité Hors-Site
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   L'aspect mobile ne sacrifie jamais la précision. Nous
@@ -140,8 +177,8 @@ const MobileWelding = () => {
                       <strong className="text-accent">
                         Suivi des Procédés :
                       </strong>{' '}
-                      Respect strict des procédures de soudage adaptées à chaque
-                      type d'alliage.
+                      Respect strict des procédures de soudage (WPS) adaptées à
+                      chaque type d'alliage et de structure.
                     </span>
                   </motion.li>
                   <motion.li
@@ -155,7 +192,8 @@ const MobileWelding = () => {
                       <strong className="text-accent">
                         Inspection Rigoureuse :
                       </strong>{' '}
-                      Contrôle visuel et tests de conformité systématiques.
+                      Contrôle visuel et tests de conformité systématiques pour
+                      garantir la solidité des réparations.
                     </span>
                   </motion.li>
                   <motion.li
@@ -168,7 +206,8 @@ const MobileWelding = () => {
                     <span>
                       <strong className="text-accent">Traçabilité :</strong> Un
                       suivi complet de l'intervention est fourni, assurant que
-                      vos standards sont respectés à 100 %.
+                      vos standards de qualité et d'assurance sont respectés à
+                      100 %.
                     </span>
                   </motion.li>
                 </ul>

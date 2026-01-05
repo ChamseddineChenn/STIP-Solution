@@ -16,125 +16,7 @@ const Blogs = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tous');
 
-  const blogs = [
-    {
-      id: 1,
-      title: 'Avancées en technologie de soudage 3D',
-      category: 'Technologie',
-      author: 'Jean Dupont',
-      date: '15 décembre 2024',
-      image: 'https://picsum.photos/800/600?random=1',
-      excerpt:
-        'Découvrez comment les innovations en soudage 3D transforment la fabrication industrielle et améliorent la précision des projets complexes.',
-      content:
-        'La technologie de soudage 3D révolutionne le secteur industriel en permettant une fabrication plus précise et efficace. Les systèmes automatisés réduisent les défauts et accélèrent les délais de production.',
-    },
-    {
-      id: 2,
-      title: 'Guide complet des certifications ISO pour les industriels',
-      category: 'Conformité',
-      author: 'Marie Leclerc',
-      date: '10 décembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        'Comprendre les exigences ISO 9001 et comment les obtenir pour améliorer vos opérations et votre crédibilité auprès des clients.',
-      content:
-        'Les certifications ISO sont essentielles pour la qualité et la confiance des clients. Cet article explique les étapes clés pour obtenir et maintenir ces certifications.',
-    },
-    {
-      id: 3,
-      title: 'Sécurité sur les chantiers industriels : bonnes pratiques 2024',
-      category: 'Sécurité',
-      author: 'Pierre Martin',
-      date: '5 décembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        'Les protocoles de sécurité essentiels pour minimiser les risques et créer un environnement de travail sûr dans le secteur industriel.',
-      content:
-        'La sécurité est la priorité absolue. Cet article couvre les normes actuelles, les équipements de protection et les formations requises pour une sécurité optimale.',
-    },
-    {
-      id: 4,
-      title: 'Durabilité dans la fabrication : réduire votre empreinte carbone',
-      category: 'Durabilité',
-      author: 'Sophie Renard',
-      date: '28 novembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        "Comment les processus de fabrication durables peuvent réduire les coûts tout en respectant l'environnement et les réglementations.",
-      content:
-        "Les pratiques durables dans la fabrication industrielle ne sont plus optionnelles. Découvrez comment optimiser vos opérations pour la durabilité et l'efficacité.",
-    },
-    {
-      id: 5,
-      title: "Automatisation vs. main-d'œuvre qualifiée : trouver l'équilibre",
-      category: 'Tendances',
-      author: 'Marc Leblanc',
-      date: '20 novembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1625948515291-69613efd103f?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        "Analyser les avantages de l'automatisation tout en reconnaissant l'importance cruciale de la main-d'œuvre spécialisée dans les opérations industrielles.",
-      content:
-        "L'automatisation et la main-d'œuvre qualifiée jouent des rôles complémentaires. Cet article explore comment les deux peuvent coexister efficacement.",
-    },
-    {
-      id: 6,
-      title: 'Gestion de projet industriel : méthodologies éprouvées',
-      category: 'Gestion',
-      author: 'Nathalie Fournier',
-      date: '12 novembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        'Les meilleures pratiques de gestion de projet pour assurer la livraison à temps, dans le budget et selon les spécifications convenues.',
-      content:
-        'Une gestion de projet efficace est cruciale pour le succès. Découvrez les méthodologies Agile, Waterfall et hybrides adaptées aux projets industriels.',
-    },
-    {
-      id: 7,
-      title:
-        'Maintenance préventive : économiser des millions en coûts de réparation',
-      category: 'Maintenance',
-      author: 'Claude Moreau',
-      date: '5 novembre 2024',
-      image:
-        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        "La maintenance préventive réduit les temps d'arrêt non planifiés et prolonge la durée de vie des équipements industriels cruciaux.",
-      content:
-        'Investir dans la maintenance préventive est plus économique que de gérer les urgences. Cet article détaille un plan de maintenance efficace.',
-    },
-    {
-      id: 8,
-      title: 'Formation des employés : investir dans votre principal atout',
-      category: 'Ressources humaines',
-      author: 'Isabelle Dupuis',
-      date: '28 octobre 2024',
-      image:
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        'La formation continue des employés améliore la productivité, réduit les erreurs et augmente la satisfaction et la rétention du personnel.',
-      content:
-        "Les employés bien formés sont le cœur d'une entreprise prospère. Découvrez les programmes de formation les plus efficaces pour votre industrie.",
-    },
-    {
-      id: 9,
-      title: 'Impact des normes de qualité sur la rentabilité',
-      category: 'Qualité',
-      author: 'Laurent Gauthier',
-      date: '20 octobre 2024',
-      image:
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
-      excerpt:
-        'Comment maintenir des normes de qualité strictes améliore la rentabilité, la réputation et la fidélité des clients à long terme.',
-      content:
-        "La qualité n'est pas un coût supplémentaire, c'est un investissement. Cet article montre comment la qualité impacte positivement votre résultat net.",
-    },
-  ];
+  const blogs = [];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -385,12 +267,196 @@ const Blogs = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-center py-16"
+                transition={{ duration: 0.6 }}
+                className="text-center py-20 md:py-32"
               >
-                <p className="text-lg text-gray-500">
-                  Aucun article ne correspond à votre recherche. Essayez
-                  d'autres mots-clés.
-                </p>
+                {/* Animated SVG Icon */}
+                <motion.div
+                  className="flex justify-center mb-8"
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <svg
+                    width="120"
+                    height="120"
+                    viewBox="0 0 120 120"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-primary"
+                  >
+                    {/* Animated book/document */}
+                    <motion.g
+                      animate={{ rotate: [0, 5, 0, -5, 0] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                    >
+                      <path
+                        d="M30 20C30 18.8954 30.8954 18 32 18H88C89.1046 18 90 18.8954 90 20V100C90 101.105 89.1046 102 88 102H32C30.8954 102 30 101.105 30 100V20Z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                      />
+                      <line
+                        x1="60"
+                        y1="18"
+                        x2="60"
+                        y2="102"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        opacity="0.3"
+                      />
+                      <rect
+                        x="38"
+                        y="35"
+                        width="18"
+                        height="12"
+                        rx="1"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                      />
+                      <rect
+                        x="64"
+                        y="35"
+                        width="18"
+                        height="12"
+                        rx="1"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                      />
+                      <line
+                        x1="38"
+                        y1="55"
+                        x2="56"
+                        y2="55"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="38"
+                        y1="65"
+                        x2="56"
+                        y2="65"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="38"
+                        y1="75"
+                        x2="56"
+                        y2="75"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="64"
+                        y1="55"
+                        x2="82"
+                        y2="55"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="64"
+                        y1="65"
+                        x2="82"
+                        y2="65"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="64"
+                        y1="75"
+                        x2="82"
+                        y2="75"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                    </motion.g>
+
+                    {/* Animated sparkles */}
+                    <motion.circle
+                      cx="35"
+                      cy="25"
+                      r="3"
+                      fill="currentColor"
+                      animate={{ opacity: [0.3, 1, 0.3] }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0,
+                      }}
+                    />
+                    <motion.circle
+                      cx="95"
+                      cy="35"
+                      r="2.5"
+                      fill="currentColor"
+                      animate={{ opacity: [0.3, 1, 0.3] }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.3,
+                      }}
+                    />
+                    <motion.circle
+                      cx="40"
+                      cy="105"
+                      r="2"
+                      fill="currentColor"
+                      animate={{ opacity: [0.3, 1, 0.3] }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: 0.6,
+                      }}
+                    />
+                  </svg>
+                </motion.div>
+
+                {/* Animated Text */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    Aucun contenu pour le moment
+                  </h3>
+                  <motion.p
+                    className="text-gray-600 text-base md:text-lg max-w-md mx-auto leading-relaxed"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  >
+                    Nos articles arrivent bientôt ! Revenez plus tard pour
+                    découvrir les dernières tendances et insights du secteur
+                    industriel.
+                  </motion.p>
+                </motion.div>
+
+                {/* Animated dots */}
+                <motion.div className="flex gap-2 justify-center mt-8">
+                  {[0, 1, 2].map((i) => (
+                    <motion.div
+                      key={i}
+                      className="w-2 h-2 bg-primary rounded-full"
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                      }}
+                    />
+                  ))}
+                </motion.div>
               </motion.div>
             );
           })()}

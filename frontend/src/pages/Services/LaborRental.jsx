@@ -68,9 +68,13 @@ const LaborRental = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Location de Main-d'Œuvre Spécialisée
             </h1>
-            <p className="text-xl text-white max-w-2xl">
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
               Une Solution Flexible pour Optimiser votre ROI. Faites face aux
-              fluctuations du marché sans alourdir votre structure fixe.
+              fluctuations du marché et boostez votre capacité de production
+              sans alourdir votre structure fixe. STIP Solution offre un service
+              de location de main-d'œuvre hautement qualifiée, conçu pour les
+              entreprises exigeantes qui visent l'excellence opérationnelle, de
+              la production à l'unité jusqu'aux grandes séries.
             </p>
           </motion.div>
         </div>
@@ -91,17 +95,10 @@ const LaborRental = () => {
                 <h2 className="text-3xl font-bold text-accent mb-6">
                   Une Solution Flexible pour Optimiser votre ROI
                 </h2>
-                <p className="text-accent font-semibold mb-4">
-                  Faites face aux fluctuations du marché sans alourdir votre
-                  structure fixe.
-                </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   L'externalisation de vos besoins en personnel avec STIP vous
                   permet de transformer vos coûts fixes en coûts variables, tout
-                  en accélérant vos cycles de livraison. Tous nos employés sont
-                  rigoureusement sélectionnés pour leur polyvalence et leur
-                  capacité à s'intégrer rapidement dans des environnements
-                  techniques complexes.
+                  en accélérant vos cycles de livraison.
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -116,7 +113,8 @@ const LaborRental = () => {
                         Agilité de Production :
                       </strong>{' '}
                       Que ce soit pour une opération ponctuelle ou la prise en
-                      charge complète d'une ligne de fabrication.
+                      charge complète d'une ligne de fabrication (acier, acier
+                      inoxydable, aluminium).
                     </span>
                   </motion.li>
                   <motion.li
@@ -147,7 +145,8 @@ const LaborRental = () => {
                         Réduction des Risques RH :
                       </strong>{' '}
                       Économisez sur le recrutement et la formation. Nous
-                      fournissons des experts opérationnels dès leur arrivée.
+                      fournissons des experts opérationnels dès leur arrivée sur
+                      votre site.
                     </span>
                   </motion.li>
                 </ul>
@@ -159,8 +158,21 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  Tous nos employés sont rigoureusement sélectionnés pour leur
+                  polyvalence et leur capacité à s'intégrer rapidement dans des
+                  environnements techniques complexes.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
+                className="mb-12 pl-6 border-l-4 border-accent"
+              >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Nos Corps de Métiers Disponibles
+                  Nos Corps de Métiers Disponibles :
                 </h2>
                 <ul className="space-y-3">
                   <motion.li
@@ -186,7 +198,7 @@ const LaborRental = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Soudeurs-Ajusteurs :
+                        Soudeurs-Ajusteurs (Lecture de plans) :
                       </strong>{' '}
                       Experts en interprétation technique pour une exécution
                       sans erreur.
@@ -216,7 +228,7 @@ const LaborRental = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Mécaniciens Industriels :
+                        Mécaniciens Industriels (Fixes et Mobiles) :
                       </strong>{' '}
                       Maintenance proactive et dépannage d'équipements de
                       production.

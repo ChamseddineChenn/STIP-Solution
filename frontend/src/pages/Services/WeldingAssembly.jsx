@@ -64,10 +64,12 @@ const WeldingAssembly = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Soudage et Chaudronnerie Industrielle
             </h1>
-            <p className="text-xl text-white max-w-2xl leading-relaxed">
-              L'Ingénierie de l'Acier. Nous transformons la matière brute —
-              tôles, tubes et profilés — en équipements industriels de haute
-              performance.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              L'Ingénierie de l'Acier. Chez STIP Solution, nous transformons la
+              matière brute — tôles, tubes et profilés — en équipements
+              industriels de haute performance. Notre expertise en chaudronnerie
+              allie une maîtrise technique rigoureuse à une capacité de
+              production adaptée aux projets les plus complexes et volumineux.
             </p>
           </motion.div>
         </div>
@@ -79,6 +81,21 @@ const WeldingAssembly = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'linear', duration: 0.6 }}
+                className="mb-12"
+              >
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  Chez STIP Solution, nous ne nous contentons pas de souder :
+                  nous bâtissons la fiabilité de vos infrastructures. Que ce
+                  soit pour des composantes de haute précision ou des structures
+                  industrielles massives, notre approche repose sur une synergie
+                  entre agilité technique et capacité de production.
+                </p>
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

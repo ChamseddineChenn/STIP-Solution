@@ -64,9 +64,13 @@ const IndustrialCleaning = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Nettoyage Industriel de Haute Performance
             </h1>
-            <p className="text-xl text-white max-w-2xl">
-              Hygiène, Sécurité et Conformité. Le nettoyage industriel est un
-              pilier de votre stratégie de maintenance.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              Hygiène, Sécurité et Conformité. Le nettoyage industriel ne se
+              limite pas à l'entretien de surface ; c'est un pilier de votre
+              stratégie de maintenance. Chez STIP Solution, nous intervenons là
+              où la propreté devient une question de sécurité et d'efficacité
+              opérationnelle. Nos équipes spécialisées traitent les
+              environnements les plus exigeants avec une rigueur mathématique.
             </p>
           </motion.div>
         </div>
@@ -85,7 +89,7 @@ const IndustrialCleaning = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Expertise en Environnements à Haut Risque
+                  1. Expertise en Environnements à Haut Risque
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Nous formons nos experts pour intervenir dans des zones
@@ -104,8 +108,8 @@ const IndustrialCleaning = () => {
                       <strong className="text-accent">
                         Espaces Clos et Confinés :
                       </strong>{' '}
-                      Maîtrise totale des protocoles d'entrée et de
-                      surveillance.
+                      Maîtrise totale des protocoles d'entrée et de surveillance
+                      pour un nettoyage sécuritaire.
                     </span>
                   </motion.li>
                   <motion.li
@@ -120,7 +124,8 @@ const IndustrialCleaning = () => {
                         Travaux en Hauteur :
                       </strong>{' '}
                       Utilisation d'équipements d'accès spécialisés pour
-                      l'assainissement.
+                      l'assainissement de structures complexes et de plafonds
+                      industriels.
                     </span>
                   </motion.li>
                   <motion.li
@@ -132,10 +137,11 @@ const IndustrialCleaning = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Gestion des Produits :
+                        Gestion des Produits Spécifiques :
                       </strong>{' '}
                       Sélection rigoureuse de solvants et d'agents de nettoyage
-                      adaptés.
+                      adaptés à vos types de contaminants (graisses, poudres,
+                      résidus chimiques).
                     </span>
                   </motion.li>
                 </ul>
@@ -148,7 +154,7 @@ const IndustrialCleaning = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  La Sécurité : Notre Standard de Performance
+                  2. La Sécurité : Notre Standard de Performance
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Pour STIP Solution, une intervention réussie se mesure par
@@ -180,7 +186,7 @@ const IndustrialCleaning = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Contrôles Qualité :
+                        Contrôles Qualité Fréquents :
                       </strong>{' '}
                       Audit post-intervention pour valider l'atteinte des
                       objectifs de salubrité.
@@ -198,7 +204,8 @@ const IndustrialCleaning = () => {
                         Formation Continue :
                       </strong>{' '}
                       Nos techniciens sont régulièrement recyclés sur les
-                      dernières normes.
+                      dernières normes de sécurité et les nouvelles technologies
+                      de nettoyage industriel.
                     </span>
                   </motion.li>
                 </ul>

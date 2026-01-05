@@ -64,10 +64,12 @@ const Engineering3DScanning = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Ingénierie Mécanique & Modélisation 3D
             </h1>
-            <p className="text-xl text-white max-w-2xl">
-              À l'ère de l'industrie 4.0, la marge d'erreur n'existe plus. Nous
-              transformons vos défis complexes en modèles mathématiques
-              parfaits.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              À l'ère de l'industrie 4.0, la marge d'erreur n'existe plus. STIP
+              Solution combine une expertise en ingénierie de pointe avec les
+              technologies de numérisation les plus avancées du marché pour
+              transformer vos défis complexes en modèles mathématiques parfaits
+              et en plans de fabrication infaillibles.
             </p>
           </motion.div>
         </div>
@@ -86,7 +88,7 @@ const Engineering3DScanning = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Numérisation 3D et Inspection de Haute Précision
+                  1. Numérisation 3D et Inspection de Haute Précision
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Grâce à nos équipements de métrologie portables, nous
@@ -106,7 +108,7 @@ const Engineering3DScanning = () => {
                         Scanners Faro S70 & Creaform :
                       </strong>{' '}
                       Capture de données à haute vitesse pour des relevés de
-                      sites à grande échelle.
+                      sites à grande échelle ou des pièces mécaniques complexes.
                     </span>
                   </motion.li>
                   <motion.li
@@ -149,7 +151,7 @@ const Engineering3DScanning = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Conception et Design Industriel Avancé
+                  2. Conception et Design Industriel Avancé
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Nos ingénieurs et dessinateurs utilisent les suites
@@ -182,10 +184,10 @@ const Engineering3DScanning = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Dessins de Fabrication :
+                        Dessins de Fabrication Détaillés :
                       </strong>{' '}
-                      Livraison de plans de production complets, prêts pour
-                      l'atelier.
+                      Livraison de plans de production complets, prêtets pour
+                      l'atelier, garantissant un assemblage sans friction.
                     </span>
                   </motion.li>
                   <motion.li
@@ -199,10 +201,81 @@ const Engineering3DScanning = () => {
                       <strong className="text-accent">
                         Simulation et Analyse :
                       </strong>{' '}
-                      Validation virtuelle des concepts avant la production.
+                      Validation virtuelle des concepts avant la production pour
+                      minimiser les prototypes et les coûts de développement.
                     </span>
                   </motion.li>
                 </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
+                className="mb-12 pl-6 border-l-4 border-accent"
+              >
+                <h2 className="text-3xl font-bold text-accent mb-6">
+                  Pourquoi choisir notre pôle Ingénierie ?
+                </h2>
+                <ul className="space-y-3">
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">1.</span>
+                    <span>
+                      <strong className="text-accent">
+                        Fiabilité des Données :
+                      </strong>{' '}
+                      Nous fournissons des mesures certifiées qui servent de
+                      base solide à vos décisions d'investissement et de
+                      maintenance.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">2.</span>
+                    <span>
+                      <strong className="text-accent">
+                        Complexité Maîtrisée :
+                      </strong>{' '}
+                      Des systèmes de tuyauterie denses aux structures de
+                      chaudronnerie complexes, nous modélisons l'impossible.
+                    </span>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="flex gap-3 text-gray-700 leading-relaxed"
+                  >
+                    <span className="text-accent font-bold mt-1">3.</span>
+                    <span>
+                      <strong className="text-accent">Vision 360° :</strong> De
+                      l'inspection initiale par scanner laser au dessin de
+                      fabrication final, nous assurons une continuité numérique
+                      totale.
+                    </span>
+                  </motion.li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.3 }}
+                className="mb-12"
+              >
+                <p className="text-gray-700 leading-relaxed text-lg italic">
+                  Passez de l'idée à la réalité avec une précision absolue.
+                  Confiez-nous la modélisation de vos futurs succès industriels.
+                </p>
               </motion.div>
 
               {/* Features */}

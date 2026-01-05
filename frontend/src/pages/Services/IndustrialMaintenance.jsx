@@ -62,9 +62,13 @@ const IndustrialMaintenance = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Maintenance Industrielle & Mécanique
             </h1>
-            <p className="text-xl text-white max-w-2xl">
-              Performance et Disponibilité 24/7. Chaque minute d'arrêt a un
-              coût.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              Performance et Disponibilité 24/7. Dans un environnement de
+              production, chaque minute d'arrêt a un coût. Chez STIP Solution,
+              nous comprenons l'urgence de vos opérations. C'est pourquoi nous
+              offrons un service de maintenance agile, expert et disponible 24
+              heures sur 24, 7 jours sur 7, pour garantir la continuité de vos
+              actifs les plus critiques.
             </p>
           </motion.div>
         </div>
@@ -86,11 +90,10 @@ const IndustrialMaintenance = () => {
                   Une Expertise Multidisciplinaire pour une Usine Performante
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Chez STIP Solution, nous comprenons l'urgence de vos
-                  opérations. C'est pourquoi nous offrons un service de
-                  maintenance agile, expert et disponible 24 heures sur 24, 7
-                  jours sur 7, pour garantir la continuité de vos actifs les
-                  plus critiques.
+                  Notre approche de la maintenance ne se limite pas à la
+                  réparation. Nous intervenons sur l'ensemble du cycle de vie de
+                  vos machines grâce à une équipe de mécaniciens industriels et
+                  de techniciens polyvalents.
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -148,13 +151,11 @@ const IndustrialMaintenance = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Maintenance Stratégique et Préventive
+                  1. Maintenance Stratégique et Préventive
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Anticipez les pannes avant qu'elles ne surviennent. Nous
-                  élaborons avec vous des plans de maintenance rigoureux pour
-                  augmenter le MTBF, optimiser le rendement énergétique et
-                  sécuriser vos lignes de production.
+                  élaborons avec vous des plans de maintenance rigoureux pour :
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -165,11 +166,7 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Plans de Maintenance Préventive :
-                      </strong>{' '}
-                      Analyses thermographiques et vibratoires pour détecter les
-                      défauts avant qu'ils ne causent une panne.
+                      Augmenter le MTBF (temps moyen entre deux pannes).
                     </span>
                   </motion.li>
                   <motion.li
@@ -180,11 +177,8 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Optimisation de la Performance :
-                      </strong>{' '}
-                      Augmentation du temps de fonctionnement moyen sans
-                      défaillance (MTBF) et réduction des coûts opérationnels.
+                      Optimiser le rendement énergétique et mécanique de vos
+                      installations.
                     </span>
                   </motion.li>
                   <motion.li
@@ -195,11 +189,8 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Expertise Énergétique :
-                      </strong>{' '}
-                      Réduction de la consommation énergétique par optimisation
-                      des équipements et des processus.
+                      Sécuriser vos lignes de production selon les normes en
+                      vigueur.
                     </span>
                   </motion.li>
                 </ul>
@@ -212,13 +203,11 @@ const IndustrialMaintenance = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Installation, Modification et Relocalisation
+                  2. Installation, Modification et Relocalisation
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Que vous fassiez l'acquisition de nouvelles technologies ou
-                  que vous modernisiez vos lignes existantes, nous assurons
-                  l'installation, le démontage de machines avec une précision
-                  millimétrique, et la modification d'équipements.
+                  que vous modernisiez vos lignes existantes, nous assurons :
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -229,12 +218,8 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Installation Précise :
-                      </strong>{' '}
-                      Mise en place d'équipements neufs ou relocalisés avec
-                      respect des tolérances critiques et des normes de
-                      sécurité.
+                      Installation et démontage de machines avec une précision
+                      millimetétrique.
                     </span>
                   </motion.li>
                   <motion.li
@@ -245,11 +230,8 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Démontage Professionnel :
-                      </strong>{' '}
-                      Retrait sécurisé et méticuleux des équipements anciens,
-                      préservant les structures existantes.
+                      Modification d'équipements pour adapter votre capacité de
+                      production.
                     </span>
                   </motion.li>
                   <motion.li
@@ -260,11 +242,8 @@ const IndustrialMaintenance = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Modernisation Progressive :
-                      </strong>{' '}
-                      Modification d'équipements existants pour améliorer la
-                      performance sans interruption prolongée de production.
+                      Fabrication sur site de pièces de rechange ou de
+                      structures de support.
                     </span>
                   </motion.li>
                 </ul>
@@ -277,13 +256,12 @@ const IndustrialMaintenance = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  Services Auxiliaires de Chantier
+                  3. Services Auxiliaires de Chantier
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Pour vous offrir une solution véritablement « clés en main »,
-                  nous intégrons des métiers complémentaires : sablage et
-                  peinture industrielle, menuiserie et coffrage industriel,
-                  rénovation et réparation complète.
+                  Pour vous offrir une solution véritablement « clés en main »,
+                  nous intégrons des métiers complémentaires indispensables à la
+                  remise à neuf de vos installations :
                 </p>
                 <ul className="space-y-3">
                   <motion.li
@@ -295,10 +273,9 @@ const IndustrialMaintenance = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Sablage et Peinture Industrielle :
+                        Sablage et Peinture industrielle :
                       </strong>{' '}
-                      Préparation et protection des surfaces métalliques pour
-                      prolonger la durée de vie des équipements.
+                      Protection anticorrosion haute durabilité.
                     </span>
                   </motion.li>
                   <motion.li
@@ -310,10 +287,9 @@ const IndustrialMaintenance = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Menuiserie et Coffrage :
+                        Menuiserie et Coffrage industriel :
                       </strong>{' '}
-                      Construction et réparation de structures de support pour
-                      machines et équipements.
+                      Aménagements spécifiques et supports de machinerie.
                     </span>
                   </motion.li>
                   <motion.li
@@ -325,10 +301,9 @@ const IndustrialMaintenance = () => {
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
                       <strong className="text-accent">
-                        Rénovation Complète :
+                        Rénovation et Réparation :
                       </strong>{' '}
-                      Restauration intégrale des installations et des
-                      équipements à des standards neufs.
+                      Remise en état complète après sinistre ou usure prolongée.
                     </span>
                   </motion.li>
                 </ul>

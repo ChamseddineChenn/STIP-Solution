@@ -240,6 +240,19 @@ const Navbar = () => {
     };
   }, []);
 
+  // Handle body overflow when mobile menu opens
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   // Auto scroll to top on route change
   useEffect(() => {
     window.scrollTo({
@@ -514,13 +527,13 @@ const Navbar = () => {
             />
 
             <motion.div
-              className="fixed top-0 right-0 h-full w-80 bg-dark-blue shadow-2xl z-50"
+              className="fixed top-0 right-0 h-full w-80 bg-dark-blue shadow-2xl z-50 flex flex-col"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30 }}
             >
-              <div className="flex justify-end p-6">
+              <div className="flex justify-end px-6 pt-3 shrink-0">
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-text-light hover:text-primary transition-colors"
@@ -542,7 +555,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <ul className="flex flex-col p-8 mt-4">
+              <ul className="flex flex-col px-8 overflow-y-auto flex-grow">
                 {navItems.map((item) => (
                   <React.Fragment key={item.label}>
                     {item.hasDropdown ? (
@@ -551,7 +564,7 @@ const Navbar = () => {
                           onClick={() =>
                             setServicesMobileOpen(!servicesMobileOpen)
                           }
-                          className="w-full flex items-center justify-between text-xl font-medium text-text-light hover:text-primary transition-colors py-4"
+                          className="w-full flex items-center justify-between text-xl font-medium text-text-light hover:text-primary active:text-primary/80 transition-colors py-4 active:scale-95"
                         >
                           <span>{item.label}</span>
                           <motion.div
@@ -576,7 +589,7 @@ const Navbar = () => {
                                   <Link
                                     key={service.href}
                                     to={service.href}
-                                    className="flex items-center py-3 text-text-light hover:text-primary transition-colors border-b border-card-bg last:border-0"
+                                    className="flex items-center py-3 text-text-light hover:text-primary active:text-primary/80 active:scale-95 transition-all duration-150 border-b border-card-bg last:border-0"
                                     onClick={() => setMobileMenuOpen(false)}
                                   >
                                     <div className="w-8 h-8 flex items-center justify-center bg-primary/20 text-primary mr-3">
@@ -601,14 +614,14 @@ const Navbar = () => {
                           <a
                             href={item.href}
                             onClick={(e) => handleLinkClick(e, item.href)}
-                            className="block text-xl font-medium text-text-light hover:text-primary transition-colors py-4"
+                            className="block text-xl font-medium text-text-light hover:text-primary active:text-primary/80 active:scale-95 transition-all duration-150 py-4"
                           >
                             {item.label}
                           </a>
                         ) : (
                           <Link
                             to={item.href}
-                            className="block text-xl font-medium text-text-light hover:text-primary transition-colors py-4"
+                            className="block text-xl font-medium text-text-light hover:text-primary active:text-primary/80 active:scale-95 transition-all duration-150 py-4"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.label}
@@ -622,20 +635,20 @@ const Navbar = () => {
                 {/* Mobile CTA */}
                 <div className="mt-8 pt-8 border-t border-primary/20">
                   <div className="p-4 bg-primary/10 mb-6">
-                    <h4 className="text-text-light font-bold mb-2">
-                      Besoin d'une solution personnalis\u00e9e?
+                    <h4 className="text-text-light font-bold mb-2 text-sm md:text-base">
+                      Besoin d'une solution personnalisée?
                     </h4>
-                    <p className="text-text-secondary text-sm mb-4">
-                      Nos experts peuvent adapter les services \u00e0 vos
-                      exigences sp\u00e9cifiques
+                    <p className="text-text-secondary text-xs md:text-sm mb-4 leading-relaxed">
+                      Nos experts peuvent adapter les services à vos exigences
+                      spécifiques
                     </p>
                   </div>
                   <Link
                     to="/contact"
-                    className="btn-primary btn-modern w-full text-center justify-center"
+                    className="block w-full px-6 py-3 bg-primary text-dark-blue font-bold text-center rounded transition-all duration-150 hover:bg-primary/90 active:scale-95 active:bg-primary/80"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Button text="Demander un devis" duration={0.5} />
+                    Demander un devis
                   </Link>
                 </div>
               </ul>
