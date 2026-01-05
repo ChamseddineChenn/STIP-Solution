@@ -20,6 +20,10 @@ import Fabrication_Image from './Fabrication_image.png';
 import Quality_Image from './Quality_image.png';
 import STIP_Siege_Image from './STIP_Siege_image.png';
 import Warehouse_Image from './Warehouse_image.png';
+import twentyfourseven_image from './24 hours support.svg';
+import certified_image from './certified.svg';
+import precision_image from './precision.svg';
+import security_image from './security.svg';
 
 export const assets = {
   hero_bg_vid,
@@ -44,4 +48,8 @@ export const assets = {
   Quality_Image,
   STIP_Siege_Image,
   Warehouse_Image,
+  twentyfourseven_image,
+  certified_image,
+  precision_image,
+  security_image,
 };

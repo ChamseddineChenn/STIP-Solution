@@ -697,112 +697,116 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section - Cinematic */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-24"
-            >
+      {/* Timeline Section - Cinematic - COMMENTED OUT FOR LATER USE */}
+      {false && (
+        <section className="py-32 bg-white relative overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
               <motion.div
-                className="h-1 w-20 bg-primary mx-auto mb-8"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tighter">
-                Notre évolution
-              </h2>
-              <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-                Bâtir la confiance par des livraisons constantes et l'excellence
-              </p>
-            </motion.div>
+                className="text-center mb-24"
+              >
+                <motion.div
+                  className="h-1 w-20 bg-primary mx-auto mb-8"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: 80 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                />
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tighter">
+                  Notre évolution
+                </h2>
+                <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+                  Bâtir la confiance par des livraisons constantes et
+                  l'excellence
+                </p>
+              </motion.div>
 
-            {/* Timeline */}
-            <div className="relative">
-              {/* Central timeline line with gradient */}
-              <motion.div
-                className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-linear-to-b from-primary via-primary/50 to-primary"
-                initial={{ height: 0 }}
-                whileInView={{ height: '100%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5 }}
-              />
+              {/* Timeline */}
+              <div className="relative">
+                {/* Central timeline line with gradient */}
+                <motion.div
+                  className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-linear-to-b from-primary via-primary/50 to-primary"
+                  initial={{ height: 0 }}
+                  whileInView={{ height: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5 }}
+                />
 
-              <div className="space-y-20">
-                {timeline.map((item, idx) => (
-                  <motion.div
-                    key={item.year}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                    className={`relative flex ${
-                      idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                    } items-center`}
-                  >
-                    {/* Content card */}
-                    <div
-                      className={`w-5/12 ${
-                        idx % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'
-                      }`}
+                <div className="space-y-20">
+                  {timeline.map((item, idx) => (
+                    <motion.div
+                      key={item.year}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true, margin: '-100px' }}
+                      transition={{ duration: 0.6, delay: idx * 0.1 }}
+                      className={`relative flex ${
+                        idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                      } items-center`}
                     >
-                      <motion.div
-                        className="bg-white border border-gray-300 hover:border-primary transition-all duration-300 p-8 relative group overflow-hidden"
-                        whileHover={{
-                          boxShadow: '0 10px 40px -10px rgba(16, 67, 119, 0.2)',
-                        }}
+                      {/* Content card */}
+                      <div
+                        className={`w-5/12 ${
+                          idx % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'
+                        }`}
                       >
-                        {/* Animated background */}
                         <motion.div
-                          className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100"
-                          initial={{ x: '-100%' }}
-                          whileHover={{ x: '100%' }}
-                          transition={{ duration: 0.6 }}
-                        />
+                          className="bg-white border border-gray-300 hover:border-primary transition-all duration-300 p-8 relative group overflow-hidden"
+                          whileHover={{
+                            boxShadow:
+                              '0 10px 40px -10px rgba(16, 67, 119, 0.2)',
+                          }}
+                        >
+                          {/* Animated background */}
+                          <motion.div
+                            className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100"
+                            initial={{ x: '-100%' }}
+                            whileHover={{ x: '100%' }}
+                            transition={{ duration: 0.6 }}
+                          />
 
-                        <div className="relative z-10">
-                          <p className="text-primary font-bold text-2xl mb-3">
-                            {item.year}
-                          </p>
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-700 leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </motion.div>
-                    </div>
+                          <div className="relative z-10">
+                            <p className="text-primary font-bold text-2xl mb-3">
+                              {item.year}
+                            </p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
+                              {item.title}
+                            </h3>
+                            <p className="text-gray-700 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </motion.div>
+                      </div>
 
-                    {/* Center dot */}
-                    <div className="w-2/12 flex justify-center">
-                      <motion.div
-                        className="relative"
-                        animate={{ scale: [1, 1.3, 1] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: idx * 0.2,
-                        }}
-                      >
-                        <motion.div className="w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
-                        <motion.div className="absolute inset-0 w-4 h-4 border-2 border-primary rounded-full" />
-                      </motion.div>
-                    </div>
+                      {/* Center dot */}
+                      <div className="w-2/12 flex justify-center">
+                        <motion.div
+                          className="relative"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: idx * 0.2,
+                          }}
+                        >
+                          <motion.div className="w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
+                          <motion.div className="absolute inset-0 w-4 h-4 border-2 border-primary rounded-full" />
+                        </motion.div>
+                      </div>
 
-                    <div className="w-5/12" />
-                  </motion.div>
-                ))}
+                      <div className="w-5/12" />
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section - Industrial */}
       <section className="py-32 bg-dark-blue relative overflow-hidden">

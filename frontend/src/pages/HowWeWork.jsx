@@ -40,7 +40,7 @@ const HowWeWork = () => {
     },
     {
       number: '03',
-      title: 'Assurance qualité et livraison',
+      title: 'Assurance qualité',
       description:
         "Chaque projet fait l'objet d'inspections et d'essais rigoureux avant la livraison sur site, accompagnés d'une documentation complète.",
       features: [
