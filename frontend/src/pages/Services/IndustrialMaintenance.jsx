@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -29,7 +30,7 @@ const IndustrialMaintenance = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0">
           <img
-            src={assets.industrial_workers_image}
+            src={assets.Maintenance_Industrielle_Image}
             alt="Industrial Maintenance"
             className="w-full h-full object-cover"
           />
@@ -259,7 +260,7 @@ const IndustrialMaintenance = () => {
                   3. Services Auxiliaires de Chantier
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Pour vous offrir une solution véritablement « clés en main »,
+                  Pour vous offrir une solution véritablement «clés en main»,
                   nous intégrons des métiers complémentaires indispensables à la
                   remise à neuf de vos installations :
                 </p>

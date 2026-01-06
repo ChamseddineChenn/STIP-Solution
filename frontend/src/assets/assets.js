@@ -11,13 +11,17 @@ import cert_aws_ins from './AWS Inspector logo.png';
 import cert_asme_bpvc from './ASME BPVC logo.png';
 import cert_tssa from './TSSA logo.png';
 import canada_map_img from './Canada_Map.png';
-import industrial_workers_image from './Industrial_Workers.png';
-import welding_image from './Welding_img.png';
-import laser_welding_machine from './Laser_Machine_Image.png';
-import Industrial_Maintenance_Image from './Industrial_Maintenance_Image.png';
-import Planning_Image from './Planning_image.png';
-import Fabrication_Image from './Fabrication_image.png';
-import Quality_Image from './Quality_image.png';
+import Fabrication_Perso_Image from './Fabrication_Perso_Image.jpg';
+import Soudage_Assemblage_Image from './Soudage_Assemblage_Image.jpg';
+import Engineering_3D_Image from './Engineering_3D_Image.jpg';
+import Nettoyage_Industrielle_Image from './Nettoyage_Industrielle_Image.jpg';
+import Maintenance_Industrielle_Image from './Maintenance_Industrielle_Image.jpg';
+import Peinture_Sablage_Image from './Peinture_Sablage_Image.jpg';
+import Soudage_Mobile_Image from './Soudage_Mobile_Image.jpg';
+import Location_Main_Oeuvre_Image from './Location_Main_Oeuvre_Image.jpg';
+import Work_Etape_1_Image from './Work_Etape_1_Image.jpg';
+import Work_Etape_2_Image from './Work_Etape_2_Image.jpg';
+import Work_Etape_3_Image from './Work_Etape_3_Image.jpg';
 import STIP_Siege_Image from './STIP_Siege_image.png';
 import Warehouse_Image from './Warehouse_image.png';
 import twentyfourseven_image from './24 hours support.svg';
@@ -39,13 +43,17 @@ export const assets = {
   cert_asme_bpvc,
   cert_tssa,
   canada_map_img,
-  industrial_workers_image,
-  welding_image,
-  laser_welding_machine,
-  Industrial_Maintenance_Image,
-  Planning_Image,
-  Fabrication_Image,
-  Quality_Image,
+  Fabrication_Perso_Image,
+  Soudage_Assemblage_Image,
+  Engineering_3D_Image,
+  Maintenance_Industrielle_Image,
+  Nettoyage_Industrielle_Image,
+  Peinture_Sablage_Image,
+  Soudage_Mobile_Image,
+  Location_Main_Oeuvre_Image,
+  Work_Etape_1_Image,
+  Work_Etape_2_Image,
+  Work_Etape_3_Image,
   STIP_Siege_Image,
   Warehouse_Image,
   twentyfourseven_image,

@@ -33,7 +33,7 @@ const MobileWelding = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0">
           <img
-            src={assets.laser_welding_machine}
+            src={assets.Soudage_Mobile_Image}
             alt="Mobile Welding"
             className="w-full h-full object-cover"
           />

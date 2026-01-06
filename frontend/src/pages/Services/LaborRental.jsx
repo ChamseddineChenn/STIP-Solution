@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -33,7 +34,7 @@ const LaborRental = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0">
           <img
-            src={assets.Industrial_Maintenance_Image}
+            src={assets.Location_Main_Oeuvre_Image}
             alt="Labor Rental"
             className="w-full h-full object-cover"
           />
@@ -351,7 +352,7 @@ const LaborRental = () => {
                 </div>
 
                 {/* Contact Info */}
-                <div className="mt-8 bg-gradient-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
+                <div className="mt-8 bg-linear-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-0.5 w-8 bg-accent" />
                     <h4 className="text-lg font-bold text-gray-900">

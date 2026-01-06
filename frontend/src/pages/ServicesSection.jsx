@@ -174,7 +174,7 @@ const ServicesSection = () => {
         { label: 'Tolérance de précision', value: '±0.05mm' },
         { label: 'Livraison à temps', value: '99%' },
       ],
-      image: assets.industrial_workers_image,
+      image: assets.Fabrication_Perso_Image,
       overlayType: 'blue',
     },
     {
@@ -194,7 +194,7 @@ const ServicesSection = () => {
         { label: 'Certification de soudure', value: '100%' },
         { label: 'Matériaux disponibles', value: '45+' },
       ],
-      image: assets.welding_image,
+      image: assets.Soudage_Assemblage_Image,
       overlayType: 'black',
     },
     {
@@ -214,7 +214,7 @@ const ServicesSection = () => {
         { label: 'Précision de balayage', value: '±0.1mm' },
         { label: "Délai d'exécution du projet", value: '24-48h' },
       ],
-      image: assets.laser_welding_machine,
+      image: assets.Engineering_3D_Image,
       overlayType: 'blue',
     },
     {
@@ -234,7 +234,7 @@ const ServicesSection = () => {
         { label: 'Temps de réponse', value: '24/7' },
         { label: 'Dossier de sécurité', value: '100%' },
       ],
-      image: assets.Industrial_Maintenance_Image,
+      image: assets.Nettoyage_Industrielle_Image,
       overlayType: 'black',
     },
     {
@@ -254,7 +254,7 @@ const ServicesSection = () => {
         { label: 'Temps de réponse', value: '24/7' },
         { label: 'Garantie de disponibilité', value: '99.5%' },
       ],
-      image: assets.industrial_workers_image,
+      image: assets.Maintenance_Industrielle_Image,
       overlayType: 'blue',
     },
     {
@@ -274,7 +274,7 @@ const ServicesSection = () => {
         { label: 'Durabilité du revêtement', value: '10+ ans' },
         { label: 'Options de finition', value: '30+' },
       ],
-      image: assets.welding_image,
+      image: assets.Peinture_Sablage_Image,
       overlayType: 'black',
     },
     {
@@ -294,12 +294,12 @@ const ServicesSection = () => {
         { label: 'Rayon de mobilité', value: '500km' },
         { label: 'Temps de réponse', value: '2-4h' },
       ],
-      image: assets.laser_welding_machine,
+      image: assets.Soudage_Mobile_Image,
       overlayType: 'blue',
     },
     {
       id: 8,
-      title: "Location de main-d'uvre",
+      title: "Location main d'oeuvre",
       shortDescription:
         "Main-d'uvre industrielle qualifiée pour projets court ou long terme.",
       fullDescription:
@@ -314,7 +314,7 @@ const ServicesSection = () => {
         { label: 'Temps de réponse', value: '2-4 heures' },
         { label: 'Taux de certification', value: '98%' },
       ],
-      image: assets.Industrial_Maintenance_Image,
+      image: assets.Location_Main_Oeuvre_Image,
       overlayType: 'black',
     },
   ];

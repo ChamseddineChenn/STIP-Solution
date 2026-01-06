@@ -23,7 +23,7 @@ const HowWeWork = () => {
         'Planification de la sécurité',
         'Calendrier du projet',
       ],
-      image: assets.Planning_Image,
+      image: assets.Work_Etape_1_Image,
     },
     {
       number: '02',
@@ -36,7 +36,7 @@ const HowWeWork = () => {
         'Technologie Industrie 4.0',
         'Déploiement qualifié',
       ],
-      image: assets.Fabrication_Image,
+      image: assets.Work_Etape_2_Image,
     },
     {
       number: '03',
@@ -49,7 +49,7 @@ const HowWeWork = () => {
         'Livraison sur site',
         'Documentation complète',
       ],
-      image: assets.Quality_Image,
+      image: assets.Work_Etape_3_Image,
     },
   ];
 

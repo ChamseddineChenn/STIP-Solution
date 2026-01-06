@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -29,7 +30,7 @@ const WeldingAssembly = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0">
           <img
-            src={assets.welding_image}
+            src={assets.Soudage_Assemblage_Image}
             alt="Welding & Assembly"
             className="w-full h-full object-cover"
           />

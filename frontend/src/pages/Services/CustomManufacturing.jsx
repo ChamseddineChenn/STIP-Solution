@@ -33,7 +33,7 @@ const CustomManufacturing = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0">
           <img
-            src={assets.industrial_workers_image}
+            src={assets.Fabrication_Perso_Image}
             alt="Custom Manufacturing"
             className="w-full h-full object-cover"
           />
