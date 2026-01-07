@@ -279,13 +279,8 @@ const WhyChooseStip = () => {
                 <div className="flex items-start gap-4 relative z-10">
                   <motion.div
                     className="flex-shrink-0 w-6 h-6 text-[#104377]"
-                    animate={{ rotate: [0, 360] }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      repeatType: 'loop',
-                      ease: 'linear',
-                    }}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6, ease: 'easeInOut' }}
                   >
                     <FiCheckCircle className="w-6 h-6" />
                   </motion.div>

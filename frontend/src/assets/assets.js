@@ -28,6 +28,8 @@ import twentyfourseven_image from './24 hours support.svg';
 import certified_image from './certified.svg';
 import precision_image from './precision.svg';
 import security_image from './security.svg';
+import cnesst_image from './cnesst_icon.png';
+import cognibox_image from './cognibox_icon.png';
 
 export const assets = {
   hero_bg_vid,
@@ -60,4 +62,6 @@ export const assets = {
   certified_image,
   precision_image,
   security_image,
+  cnesst_image,
+  cognibox_image,
 };

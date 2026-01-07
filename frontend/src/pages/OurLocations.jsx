@@ -19,23 +19,23 @@ const OurLocations = () => {
       id: 'headquarters',
       title: 'Siège social et bureau principal',
       city: 'Montréal, Québec',
-      address: '123 Industrial Blvd, Montreal, QC H3B 2B5',
+      address: '2828 Boul Laurier Tour 1 Étage 7, Québec, QC G1V 0B9',
       image: assets.STIP_Siege_Image,
       icon: <FiHome className="w-8 h-8" />,
-      phone: '+1 (514) 123-4567',
-      email: 'headquarters@stipsolutions.com',
-      coordinates: { top: '55%', left: '32%' },
+      phone: '+1 (418) 990-4459 / +1 (501) 458-5859',
+      email: 'contact@stip.ca',
+      coordinates: { top: '76%', left: '62.5%' },
     },
     facility: {
       id: 'facility',
-      title: 'Usine de production et entrepôt',
+      title: 'Centre opérationnel',
       city: 'Québec, Québec',
-      address: '456 Industrial Park Rd, Quebec City, QC G1K 8T6',
+      address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       image: assets.Warehouse_Image,
       icon: <FiPackage className="w-8 h-8" />,
-      phone: '+1 (418) 987-6543',
-      email: 'operations@stipsolutions.com',
-      coordinates: { top: '65%', left: '42%' },
+      phone: '+1 (418) 990-4459 / +1 (501) 458-5859',
+      email: 'contact@stip.ca',
+      coordinates: { top: '73%', left: '68%' },
     },
     capsante: {
       id: 'capsante',
@@ -44,9 +44,9 @@ const OurLocations = () => {
       address: '23 Rte DelageCap-Santé, QC G0A 1L0',
       image: assets.Warehouse_Image,
       icon: <FiPackage className="w-8 h-8" />,
-      phone: '+1 (418) 555-1234',
-      email: 'capsante@stipsolutions.com',
-      coordinates: { top: '62%', left: '38%' },
+      phone: '+1 (418) 990-4459 / +1 (501) 458-5859',
+      email: 'contact@stip.ca',
+      coordinates: { top: '80%', left: '60%' },
     },
   };
 
@@ -176,7 +176,7 @@ const OurLocations = () => {
               <div className="flex items-center">
                 <div className="w-4 h-4 bg-gray-800 mr-3" />
                 <span className="text-gray-900 font-medium">
-                  Usine de production
+                  Centre opérationnel
                 </span>
               </div>
               <div className="flex items-center">
@@ -223,11 +223,11 @@ const OurLocations = () => {
               whileHover={{ scale: 1.4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
-                <FiMapPin className="w-8 h-8" />
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
+                <FiMapPin className="w-6 h-6" />
               </div>
               <motion.div
-                className="absolute inset-0 w-16 h-16 bg-primary rounded-full opacity-30 border-4 border-white"
+                className="absolute inset-0 w-10 h- bg-primary rounded-full opacity-30 border-4 border-white"
                 animate={{ scale: [1, 1.8, 1] }}
                 transition={{ repeat: Infinity, duration: 2 }}
               />
@@ -249,11 +249,11 @@ const OurLocations = () => {
               whileHover={{ scale: 1.4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
-                <FiMapPin className="w-8 h-8" />
+              <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
+                <FiMapPin className="w-6 h-6" />
               </div>
               <motion.div
-                className="absolute inset-0 w-16 h-16 bg-gray-800 rounded-full opacity-30 border-4 border-white"
+                className="absolute inset-0 w-10 h-10 bg-gray-800 rounded-full opacity-30 border-4 border-white"
                 animate={{ scale: [1, 1.8, 1] }}
                 transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
               />
@@ -275,11 +275,11 @@ const OurLocations = () => {
               whileHover={{ scale: 1.4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
-                <FiMapPin className="w-8 h-8" />
+              <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white shadow-2xl group-hover:shadow-3xl transition-all duration-300 border-4 border-white">
+                <FiMapPin className="w-6 h-6" />
               </div>
               <motion.div
-                className="absolute inset-0 w-16 h-16 bg-accent rounded-full opacity-30 border-4 border-white"
+                className="absolute inset-0 w-10 h-10 bg-accent rounded-full opacity-30 border-4 border-white"
                 animate={{ scale: [1, 1.8, 1] }}
                 transition={{ repeat: Infinity, duration: 2, delay: 1 }}
               />

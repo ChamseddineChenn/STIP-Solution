@@ -55,7 +55,7 @@ const HowWeWork = () => {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 pt-20">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -93,7 +93,7 @@ const HowWeWork = () => {
                 />
 
                 {/* Step Number on Image */}
-                <div className="absolute top-6 left-6 w-16 h-16 bg-dark-blue text-accent group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center text-2xl font-bold transition-colors duration-500">
+                <div className="absolute top-6 left-6 w-16 h-16 bg-dark-blue text-accent group-hover:bg-[#12a6e0] group-hover:text-white flex items-center justify-center text-2xl font-bold transition-colors duration-500">
                   {step.number}
                 </div>
               </div>
@@ -101,7 +101,7 @@ const HowWeWork = () => {
               {/* Content Column */}
               <div className="w-full md:w-1/2 z-10 p-8 md:p-12">
                 <div className="mb-6">
-                  <div className="text-sm font-semibold tracking-wider text-blue-600 group-hover:text-blue-400 uppercase mb-2 transition-colors duration-500">
+                  <div className="text-sm font-semibold tracking-wider text-[#12a6e0] group-hover:text-[#12a6e0] uppercase mb-2 transition-colors duration-500">
                     Étape {step.number}
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-white mb-4 transition-colors duration-500">
@@ -125,12 +125,6 @@ const HowWeWork = () => {
                       </span>
                     </div>
                   ))}
-                </div>
-
-                {/* Learn More Link */}
-                <div className="flex items-center text-blue-600 group-hover:text-blue-400 font-semibold transition-colors duration-500">
-                  <span className="mr-2">En savoir plus sur cette étape</span>
-                  <FiChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
                 </div>
               </div>
             </motion.div>

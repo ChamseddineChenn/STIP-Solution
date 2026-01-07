@@ -5,7 +5,7 @@ import { assets } from '../assets/assets';
 import Button from './Button.jsx';
 import {
   FiChevronDown,
-  FiChevronRight,
+  FiZap,
   FiTool,
   FiCpu,
   FiDroplet,
@@ -49,14 +49,14 @@ const ServicesDropdown = React.memo(
                 onClick={onClose}
               >
                 {/* Minimal underline on hover */}
-                <div className="absolute bottom-0 left-4 right-4 h-px bg-primary/0 group-hover:bg-primary transition-all duration-300" />
+                <div className="absolute bottom-0 left-4 right-4 h-px bg-primary-50/0 group-hover:bg-primary-50 transition-all duration-300" />
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 flex items-center justify-center text-primary/70 group-hover:text-primary transition-colors shrink-0 mt-0.5">
+                  <div className="w-8 h-8 flex items-center justify-center text-primary-50/70 group-hover:text-primary-50 transition-colors shrink-0 mt-0.5">
                     {service.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold text-text-light group-hover:text-primary transition-colors leading-tight">
+                    <div className="text-sm font-semibold text-text-light group-hover:text-primary-50 transition-colors leading-tight">
                       {service.label}
                     </div>
                     <div className="text-xs text-text-secondary mt-1">
@@ -69,7 +69,7 @@ const ServicesDropdown = React.memo(
           </div>
 
           {/* CTA Section - Minimal Design */}
-          <div className="mt-8 pt-6 border-t border-primary/10">
+          <div className="mt-8 pt-6 border-t border-primary-50/10">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-sm font-bold text-text-light mb-1">
@@ -122,7 +122,7 @@ const Navbar = () => {
       {
         label: 'Soudage et assemblage',
         href: '/services/welding-assembly',
-        icon: <FiTool className="w-5 h-5" />,
+        icon: <FiZap className="w-5 h-5" />,
         category: 'Fabrication',
       },
       {
@@ -156,7 +156,7 @@ const Navbar = () => {
         category: 'Services mobiles',
       },
       {
-        label: "Location de main-d'uvre",
+        label: "Location de main d'oeuvre",
         href: '/services/labor-rental',
         icon: <FiUsers className="w-5 h-5" />,
         category: "Main-d'uvre",
@@ -416,7 +416,7 @@ const Navbar = () => {
               <img
                 src={assets.stip_logo}
                 alt="STIP Solutions"
-                className="h-30 w-auto object-contain"
+                className="h-12 lg:h-30 w-auto object-contain"
                 style={{
                   filter: shouldShowBackground
                     ? 'brightness(1)'

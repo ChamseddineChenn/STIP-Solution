@@ -28,39 +28,39 @@ const IndustrialSerpApiMap = () => {
       title: 'Siège social et bureau principal',
       address: '2828 Boul Laurier Tour 1 Étage 7, Québec, QC G1V 0B9',
       coordinates: { lat: 46.76791850281603, lng: -71.28880097450394 },
-      phone: '+1 (418) 990-4459',
-      email: 'headquarters@stipsolutions.com',
+      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      email: 'contact@stip.ca',
       hours: 'Lun-Ven: 6h00 - 20h00',
       description:
         "Bureau principal avec la gestion générale et les équipes d'ingénierie.",
       mapUrl:
-        'https://maps.google.com/maps?q=46.76791850281603,-71.28880097450394&z=9&output=embed',
+        'https://maps.google.com/maps?q=2828+Boulevard+Laurier+Quebec+QC&output=embed',
     },
     quebec: {
       id: 'quebec',
-      title: "Espace d'entreposage et opérations",
+      title: 'Centre opérationnel',
       address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       coordinates: { lat: 46.08859577186401, lng: -64.79452728988272 },
-      phone: '+1 (506) 458-5859',
-      email: 'operations@stipsolutions.com',
+      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      email: 'contact@stip.ca',
       hours: 'Lun-Sam: Opérations 24/7',
       description:
-        "Installation d'entreposage et d'opérations avec accès complet aux services logistiques.",
+        'le cœur technique de notre activité. Ce site dédié regroupe nos équipes logistiques et nos services de gestion',
       mapUrl:
-        'https://maps.google.com/maps?q=46.08859577186401,-64.79452728988272&z=9&output=embed',
+        'https://maps.google.com/maps?q=500+Rue+St+George+Moncton+NB+E1C+1Y3&output=embed',
     },
     capsante: {
       id: 'capsante',
       title: 'Espace manufacturier et entreposage',
       address: '23 Rte DelageCap-Santé, QC G0A 1L0',
       coordinates: { lat: 46.728339, lng: -71.801867 },
-      phone: '+1 (418) 555-1234',
-      email: 'capsante@stipsolutions.com',
+      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      email: 'contact@stip.ca',
       hours: 'Lun-Sam: 7h00 - 17h00',
       description:
         'Espace de fabrication et entreposage pour la production manufacturière.',
       mapUrl:
-        'https://maps.google.com/maps?q=46.728339,-71.801867&z=9&output=embed',
+        'https://maps.google.com/maps?q=23+Rte+Delage+Cap+Santé+QC+G0A+1L0&output=embed',
     },
   };
 
@@ -1103,33 +1103,6 @@ const ContactInformation = () => {
     },
   ];
 
-  const departments = [
-    {
-      name: 'Ventes et devis',
-      email: 'sales@stipsolutions.com',
-      phone: 'Ext. 101',
-      icon: <FiDollarSign />,
-    },
-    {
-      name: 'Support technique',
-      email: 'tech@stipsolutions.com',
-      phone: 'Ext. 102',
-      icon: <FiSettings />,
-    },
-    {
-      name: 'Gestion de projet',
-      email: 'projects@stipsolutions.com',
-      phone: 'Ext. 103',
-      icon: <FiClipboard />,
-    },
-    {
-      name: 'Ingénierie',
-      email: 'engineering@stipsolutions.com',
-      phone: 'Ext. 104',
-      icon: <FiTool />,
-    },
-  ];
-
   return (
     <div ref={sectionRef} className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -1206,9 +1179,16 @@ const DepartmentsBanner = ({ departments, isInView }) => {
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-4">
                   {dept.icon}
                 </div>
-                <h4 className="text-lg font-semibold text-white">
-                  {dept.name}
-                </h4>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">
+                    {dept.name}
+                  </h4>
+                  {dept.contact && (
+                    <p className="text-sm text-text-secondary">
+                      {dept.contact}
+                    </p>
+                  )}
+                </div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center text-sm text-text-secondary">
@@ -1232,37 +1212,62 @@ const DepartmentsBanner = ({ departments, isInView }) => {
 const Contact = () => {
   const heroRef = useRef(null);
   const departmentsRef = useRef(null);
+  const departments = [
+    {
+      name: 'Le Président',
+      contact: 'Daly Bejaoui',
+      email: 'mbejaoui@stip.ca',
+      phone: '418-558-2557 | 418-990-4459 Ex 102',
+      icon: <FiPhone />,
+    },
+    {
+      name: 'Directeur des relations clients',
+      contact: 'Aziz Bahri',
+      email: 'mbahri@stip.ca',
+      phone: '418-990-4459 Ex 103',
+      icon: <FiSettings />,
+    },
+    {
+      name: "Directeur d'ingénierie",
+      contact: 'Sofien Dridi',
+      email: 'mbejaoui@stip.ca',
+      phone: '418-990-4459 Ex 104',
+      icon: <FiClipboard />,
+    },
+    {
+      name: 'Directeur de fabrication',
+      contact: 'André Lavoie',
+      email: 'mbejaoui@stip.ca',
+      phone: '418-990-4459 Ex 105',
+      icon: <FiTool />,
+    },
+    {
+      name: 'Directrice des ressources humaines',
+      contact: 'Véronique Clément',
+      email: 'mbejaoui@stip.ca',
+      phone: '418-990-4459 Ex 106',
+      icon: <FiUser />,
+    },
+    {
+      name: 'Chargé de projets',
+      contact: 'Dany Roy',
+      email: 'mbejaoui@stip.ca',
+      phone: '418-990-4459 Ex 107',
+      icon: <FiClipboard />,
+    },
+    {
+      name: 'Comptabilité',
+      contact: 'Guylaine Bédard',
+      email: 'payables@stip.ca',
+      phone: '418-990-4459 Ex 108',
+      icon: <FiDollarSign />,
+    },
+  ];
+
   const departmentsInView = useInView(departmentsRef, {
     once: true,
     amount: 0.2,
   });
-
-  const departments = [
-    {
-      name: 'Ventes et devis',
-      email: 'sales@stipsolutions.com',
-      phone: 'Ext. 101',
-      icon: <FiPhone />,
-    },
-    {
-      name: 'Support technique',
-      email: 'support@stipsolutions.com',
-      phone: 'Ext. 102',
-      icon: <FiSettings />,
-    },
-    {
-      name: 'Gestion de projet',
-      email: 'projects@stipsolutions.com',
-      phone: 'Ext. 103',
-      icon: <FiClipboard />,
-    },
-    {
-      name: 'Ingénierie',
-      email: 'engineering@stipsolutions.com',
-      phone: 'Ext. 104',
-      icon: <FiTool />,
-    },
-  ];
 
   return (
     <div className="min-h-screen">

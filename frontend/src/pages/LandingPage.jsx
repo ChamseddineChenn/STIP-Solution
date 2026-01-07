@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from './HeroSections';
 import ServicesSection from './ServicesSection';
-import CertificationsRow from './CertificationsRow';
+import TempCertifications from './TempCertifications';
 import QuoteForm from './QuoteForm';
 import HowWeWork from './HowWeWork';
 import CaseStudies from './CaseStudies';
@@ -13,11 +13,11 @@ const LandingPage = () => {
     <div>
       <HeroSection />
       <ServicesSection />
-      <CertificationsRow />
       <HowWeWork />
       <OurLocations />
       {/* <CaseStudies /> */}
       <WhyChooseStip />
+      <TempCertifications />
       <QuoteForm />
     </div>
   );
