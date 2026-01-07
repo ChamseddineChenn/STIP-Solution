@@ -7,11 +7,7 @@ import {
   FiMail,
   FiClock,
   FiUser,
-  FiBriefcase,
-  FiFileText,
   FiCheck,
-  FiAlertCircle,
-  FiChevronRight,
   FiDollarSign,
   FiClipboard,
   FiSettings,
@@ -28,7 +24,8 @@ const IndustrialSerpApiMap = () => {
       title: 'Siège social et bureau principal',
       address: '2828 Boul Laurier Tour 1 Étage 7, Québec, QC G1V 0B9',
       coordinates: { lat: 46.76791850281603, lng: -71.28880097450394 },
-      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      phone1: '+1 (418) 990-4459',
+      phone2: '+1 (506) 458-5859',
       email: 'contact@stip.ca',
       hours: 'Lun-Ven: 6h00 - 20h00',
       description:
@@ -41,7 +38,8 @@ const IndustrialSerpApiMap = () => {
       title: 'Centre opérationnel',
       address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       coordinates: { lat: 46.08859577186401, lng: -64.79452728988272 },
-      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      phone1: '+1 (418) 990-4459',
+      phone2: '+1 (506) 458-5859',
       email: 'contact@stip.ca',
       hours: 'Lun-Sam: Opérations 24/7',
       description:
@@ -54,7 +52,8 @@ const IndustrialSerpApiMap = () => {
       title: 'Espace manufacturier et entreposage',
       address: '23 Rte DelageCap-Santé, QC G0A 1L0',
       coordinates: { lat: 46.728339, lng: -71.801867 },
-      phone: '+1 (418) 990-4459 / +1 (506) 458-5859',
+      phone1: '+1 (418) 990-4459',
+      phone2: '+1 (506) 458-5859',
       email: 'contact@stip.ca',
       hours: 'Lun-Sam: 7h00 - 17h00',
       description:
@@ -118,7 +117,30 @@ const IndustrialSerpApiMap = () => {
           </div>
           <div className="flex items-center">
             <FiPhone className="w-4 h-4 text-primary mr-3" />
-            <span className="text-sm">{locations[activeLocation].phone}</span>
+            <div className="flex flex-col gap-1">
+              <a
+                href={`https://wa.me/${locations[activeLocation].phone1.replace(
+                  /[^0-9]/g,
+                  ''
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm hover:text-primary transition-colors"
+              >
+                {locations[activeLocation].phone1}
+              </a>
+              <a
+                href={`https://wa.me/${locations[activeLocation].phone2.replace(
+                  /[^0-9]/g,
+                  ''
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm hover:text-primary transition-colors"
+              >
+                {locations[activeLocation].phone2}
+              </a>
+            </div>
           </div>
           <div className="flex items-center">
             <FiClock className="w-4 h-4 text-primary mr-3" />
@@ -1050,11 +1072,18 @@ const DetailedQuoteForm = () => {
             </p>
             <p className="text-text-secondary mb-4">
               Appelez notre ligne d'assistance industrielle disponible 24h/24:
-              <span className="text-primary font-bold">(555) 911-STIP</span>
+              <a
+                href="https://wa.me/14189904459"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-50 font-bold ml-2 hover:text-primary-50/80 transition-colors"
+              >
+                +1 (418) 990-4459
+              </a>
             </p>
             <p className="text-sm text-text-secondary">
               Temps de réponse moyen pour les demandes de devis:
-              <span className="font-semibold">4 heures ouvrées</span>
+              <span className="font-semibold ml-2">4 heures ouvrées</span>
             </p>
           </div>
         </motion.div>
@@ -1072,24 +1101,27 @@ const ContactInformation = () => {
     {
       icon: <FiPhone />,
       title: 'Support téléphonique',
-      main: '(555) 123-4567',
-      sub: 'Urgence 24h: (555) 911-STIP',
+      main: '(418) 990-4459',
+      sub: 'Urgence 24h: 418-558-2557',
       color: 'bg-primary',
       description: 'Ligne directe vers notre équipe opérationnelle',
+      type: 'phone',
+      href: 'https://wa.me/14189904459',
     },
     {
       icon: <FiMail />,
       title: 'Email',
-      main: 'contact@stipsolutions.com',
-      sub: 'support@stipsolutions.com',
+      main: 'contact@stip.ca',
       color: 'bg-primary-dark',
       description: 'Réponse dans les 2 heures ouvrées',
+      type: 'email',
+      href: 'mailto:contact@stip.ca',
     },
     {
       icon: <FiMapPin />,
       title: 'Siège social',
-      main: 'Montreal, Quebec',
-      sub: '123 Industrial Blvd, QC H3B 2B5',
+      main: 'Quebec, Canada',
+      sub: '2828 Boul Laurier, Québec, QC G1V 0B9',
       color: 'bg-dark-blue',
       description: "Bureau principal de l'entreprise",
     },
@@ -1144,8 +1176,20 @@ const ContactInformation = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   {point.title}
                 </h3>
-                <p className="text-gray-900 font-semibold mb-1">{point.main}</p>
-                <p className="text-gray-600 text-sm mb-3">{point.sub}</p>
+                {point.href ? (
+                  <a
+                    href={point.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-900 font-semibold mb-1 hover:text-primary transition-colors"
+                  >
+                    {point.main}
+                  </a>
+                ) : (
+                  <p className="text-gray-900 font-semibold mb-1">
+                    {point.main}
+                  </p>
+                )}
                 <p className="text-gray-500 text-sm">{point.description}</p>
               </motion.div>
             ))}
@@ -1197,7 +1241,14 @@ const DepartmentsBanner = ({ departments, isInView }) => {
                 </div>
                 <div className="flex items-center text-sm text-text-secondary">
                   <FiPhone className="w-4 h-4 mr-2" />
-                  {dept.phone}
+                  <a
+                    href="https://wa.me/14189904459"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    {dept.phone}
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -1217,49 +1268,49 @@ const Contact = () => {
       name: 'Le Président',
       contact: 'Daly Bejaoui',
       email: 'mbejaoui@stip.ca',
-      phone: '418-558-2557 | 418-990-4459 Ex 102',
+      phone: '(418) 990-4459 Ex 102',
       icon: <FiPhone />,
     },
     {
       name: 'Directeur des relations clients',
       contact: 'Aziz Bahri',
       email: 'mbahri@stip.ca',
-      phone: '418-990-4459 Ex 103',
+      phone: '(418) 990-4459 Ex 103',
       icon: <FiSettings />,
     },
     {
       name: "Directeur d'ingénierie",
       contact: 'Sofien Dridi',
       email: 'mbejaoui@stip.ca',
-      phone: '418-990-4459 Ex 104',
+      phone: '(418) 990-4459 Ex 104',
       icon: <FiClipboard />,
     },
     {
       name: 'Directeur de fabrication',
       contact: 'André Lavoie',
       email: 'mbejaoui@stip.ca',
-      phone: '418-990-4459 Ex 105',
+      phone: '(418) 990-4459 Ex 105',
       icon: <FiTool />,
     },
     {
       name: 'Directrice des ressources humaines',
       contact: 'Véronique Clément',
       email: 'mbejaoui@stip.ca',
-      phone: '418-990-4459 Ex 106',
+      phone: '(418) 990-4459 Ex 106',
       icon: <FiUser />,
     },
     {
       name: 'Chargé de projets',
       contact: 'Dany Roy',
       email: 'mbejaoui@stip.ca',
-      phone: '418-990-4459 Ex 107',
+      phone: '(418) 990-4459 Ex 107',
       icon: <FiClipboard />,
     },
     {
       name: 'Comptabilité',
       contact: 'Guylaine Bédard',
       email: 'payables@stip.ca',
-      phone: '418-990-4459 Ex 108',
+      phone: '(418) 990-4459 Ex 108',
       icon: <FiDollarSign />,
     },
   ];
@@ -1425,11 +1476,13 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:5551234567"
+                href="https://wa.me/14189904459"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold text-lg transition-colors duration-300 inline-flex items-center justify-center"
               >
                 <FiPhone className="w-5 h-5 mr-3" />
-                Appelez maintenant: (555) 123-4567
+                Appelez maintenant: <br /> (418) 990-4459
               </a>
               <a
                 href="mailto:contact@stipsolutions.com"

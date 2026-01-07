@@ -331,6 +331,7 @@ const Navbar = () => {
     },
     { label: 'Blogues', href: '/case-studies', hasDropdown: false },
     { label: 'À propos', href: '/about', hasDropdown: false },
+    { label: 'Carrières', href: '/careers', hasDropdown: false },
     { label: 'Contact', href: '/contact', hasDropdown: false },
   ];
 

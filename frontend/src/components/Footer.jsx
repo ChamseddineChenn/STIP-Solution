@@ -212,9 +212,23 @@ const Footer = () => {
                     Téléphone
                   </div>
                   <div className="text-text-secondary text-sm">
-                    (555) 123-4567
+                    <a
+                      href="https://wa.me/14189904459"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      418-990-4459
+                    </a>
                     <br />
-                    <span className="text-primary">Support d'urgence 24/7</span>
+                    <a
+                      href="https://wa.me/14185582557"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 transition-colors"
+                    >
+                      Support d'urgence 24/7
+                    </a>
                   </div>
                 </div>
               </div>
@@ -329,13 +343,18 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-12 pt-8 text-center"
         >
-          <div className="inline-flex items-center space-x-3 px-6 py-3 bg-primary/10 backdrop-blur-sm">
+          <a
+            href="https://wa.me/14185582557"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-3 px-6 py-3 bg-primary/10 backdrop-blur-sm hover:bg-primary/20 transition-colors"
+          >
             <FaPhone className="w-5 h-5 text-primary animate-pulse" />
             <div className="text-text-light text-sm font-bold">
               Assistance industrielle d'urgence 24/7 :{' '}
-              <span className="text-primary">(555) 911-STIP</span>
+              <span className="text-primary">418-558-2557</span>
             </div>
-          </div>
+          </a>
         </motion.div>
       </div>
 
