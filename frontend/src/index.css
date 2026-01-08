@@ -134,6 +134,19 @@
     color: var(--color-white);
   }
 
+  /* Select/Dropdown styling */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 1rem !important;
+    background-clip: padding-box;
+  }
+
+  select:focus {
+    border-radius: 1rem !important;
+  }
+
   /* Sharp corners utility */
   .sharp {
     border-radius: var(--radius-none);

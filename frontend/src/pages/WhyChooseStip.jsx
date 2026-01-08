@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiArrowRight, FiTrendingUp } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 
 // Professional SVG Icons - Minimalistic & Modern with Creative Animations
@@ -55,6 +56,7 @@ const SafetyIcon = () => (
 );
 
 const WhyChooseStip = () => {
+  const navigate = useNavigate();
   const [activeFeature, setActiveFeature] = useState(null);
 
   const features = [
@@ -345,6 +347,7 @@ const WhyChooseStip = () => {
 
             {/* CTA Button */}
             <motion.button
+              onClick={() => navigate('/contact')}
               whileHover={{
                 scale: 1.05,
                 boxShadow: '0 0 20px rgba(255,255,255,0.4)',

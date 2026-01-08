@@ -1,9 +1,104 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiArrowRight, FiMail, FiPhone } from 'react-icons/fi';
-import { HiOutlineSparkles, HiOutlineCheckCircle } from 'react-icons/hi2';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  FiArrowRight,
+  FiMail,
+  FiPhone,
+  FiSearch,
+  FiMapPin,
+  FiBriefcase,
+  FiChevronDown,
+} from 'react-icons/fi';
+import {
+  HiOutlineSparkles,
+  HiOutlineCheckCircle,
+  HiOutlineBriefcase,
+} from 'react-icons/hi2';
+
+// Custom Dropdown Component
+const CustomDropdown = ({
+  value,
+  onChange,
+  options,
+  placeholder,
+  icon: Icon,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value);
+  const displayText = selectedOption ? selectedOption.label : placeholder;
+
+  return (
+    <div ref={dropdownRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full pl-12 pr-10 py-3 border-2 border-primary-50/40 rounded-2xl bg-white text-dark-blue font-medium focus:outline-none focus:border-primary-50 focus:ring-2 focus:ring-primary-50/30 transition-all duration-300 cursor-pointer hover:border-primary-50/60 text-left flex items-center justify-between"
+      >
+        <span className={value === 'all' ? 'text-gray-500' : 'text-dark-blue'}>
+          {displayText}
+        </span>
+      </button>
+      <Icon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary-50 w-5 h-5 pointer-events-none z-10" />
+      <FiChevronDown
+        className={`absolute right-4 top-1/2 transform -translate-y-1/2 text-primary-50 w-5 h-5 pointer-events-none transition-transform duration-300 ${
+          isOpen ? 'rotate-180' : ''
+        }`}
+      />
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-primary-50/40 rounded-2xl shadow-xl z-50 overflow-hidden"
+          >
+            {options.map((option, index) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => {
+                  onChange(option.value);
+                  setIsOpen(false);
+                }}
+                className={`w-full px-4 py-3 text-left font-medium transition-all duration-200 ${
+                  value === option.value
+                    ? 'bg-primary-50/20 text-primary'
+                    : 'text-dark-blue hover:bg-primary-50/10'
+                } ${index === 0 ? 'rounded-t-xl' : ''} ${
+                  index === options.length - 1 ? 'rounded-b-xl' : ''
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const Careers = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('all');
+  const [selectedType, setSelectedType] = useState('all');
+  const [selectedField, setSelectedField] = useState('all');
+
   const benefits = [
     {
       icon: <HiOutlineSparkles className="w-6 h-6" />,
@@ -31,11 +126,30 @@ const Careers = () => {
     },
   ];
 
-  const values = [
-    { title: 'Respect', description: 'Valoriser chaque membre de l\'équipe et leurs contributions.' },
-    { title: 'Excellence', description: 'Poursuivre les plus hauts standards professionnels.' },
-    { title: 'Sécurité', description: 'Maintenir un environnement de travail sûr et sain.' },
-    { title: 'Ouverture', description: 'Accueillir les idées nouvelles et les perspectives diverses.' },
+  const locations = ['Montréal', 'Québec', 'Cap-Santé', 'Télétravail'];
+  const jobTypes = ['CDI', 'Contrat', 'Temps partiel', 'Stage'];
+  const fields = [
+    'Soudage',
+    'Fabrication',
+    'Ingénierie',
+    'Maintenance',
+    'Gestion',
+  ];
+
+  // Dropdown options formatted for CustomDropdown component
+  const locationOptions = [
+    { value: 'all', label: 'Tous les lieux' },
+    ...locations.map((loc) => ({ value: loc.toLowerCase(), label: loc })),
+  ];
+
+  const typeOptions = [
+    { value: 'all', label: 'Tous les types' },
+    ...jobTypes.map((type) => ({ value: type.toLowerCase(), label: type })),
+  ];
+
+  const fieldOptions = [
+    { value: 'all', label: 'Tous les domaines' },
+    ...fields.map((field) => ({ value: field.toLowerCase(), label: field })),
   ];
 
   const containerVariants = {
@@ -59,53 +173,119 @@ const Careers = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-blue via-dark-blue to-dark-blue/95">
-      {/* Hero Section */}
-      <motion.section
-        className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Rejoignez l'équipe
-              <span className="block text-primary-50 mt-2">STIP Solutions</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-              Construisez une carrière enrichissante dans l'industrie manufacturière et de services
-              industriels avec une équipe qui valorise l'excellence et l'innovation.
-            </p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Cinematic */}
+      <section className="relative min-h-[90vh] overflow-hidden bg-linear-to-br from-dark-blue via-dark-blue to-black flex items-center">
+        {/* Animated background grid */}
+        <motion.div
+          className="absolute inset-0 opacity-10"
+          initial={{ backgroundPosition: '0% 0%' }}
+          animate={{ backgroundPosition: '100% 100%' }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          style={{
+            backgroundImage: `linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.1) 49%, rgba(59, 130, 246, 0.1) 51%, transparent 52%)`,
+            backgroundSize: '60px 60px',
+          }}
+        />
 
-            {/* No Open Positions Badge */}
-            <motion.div
-              className="inline-flex items-center gap-3 bg-primary-50/10 border border-primary-50/30 rounded-lg px-6 py-4 mb-8"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="w-3 h-3 bg-primary-50 rounded-full animate-pulse" />
-              <p className="text-primary-50 font-semibold">
-                Aucun poste ouvert actuellement
-              </p>
-            </motion.div>
-          </motion.div>
+        {/* Vertical accent lines */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute left-1/4 top-0 w-px h-full bg-linear-to-b from-primary via-primary/30 to-transparent"
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute right-1/4 top-0 w-px h-full bg-linear-to-b from-primary/50 via-primary/10 to-transparent"
+            animate={{ opacity: [0.1, 0.5, 0.1] }}
+            transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+          />
         </div>
 
-        {/* Background accent */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-50/5 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-50/5 rounded-full blur-3xl -z-10" />
-      </motion.section>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div
+                className="h-1 w-16 bg-primary mb-8"
+                initial={{ width: 0 }}
+                animate={{ width: 64 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              />
+
+              <motion.h1
+                className="text-6xl md:text-7xl font-bold text-white mb-6 tracking-tighter leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                Rejoignez notre équipe
+                <motion.span
+                  className="block text-primary mt-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  STIP Solutions
+                </motion.span>
+              </motion.h1>
+
+              <motion.p
+                className="text-lg md:text-xl text-text-secondary max-w-3xl leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Construisez une carrière enrichissante dans l'industrie
+                manufacturière avec une équipe qui valorise l'excellence,
+                l'innovation et le développement professionnel.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="mt-10"
+              >
+                <motion.a
+                  href="#job-listings"
+                  whileHover={{ x: 4 }}
+                  className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+                >
+                  Voir les opportunités
+                  <FiArrowRight className="ml-3" />
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
+          <div className="flex flex-col items-center">
+            <span className="text-xs uppercase tracking-widest mb-2 text-gray-300">
+              Faites défiler pour découvrir
+            </span>
+            <motion.div
+              className="w-px h-12 bg-linear-to-b from-primary to-transparent"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            />
+          </div>
+        </motion.div>
+      </section>
 
       {/* Why STIP Solutions Section */}
       <motion.section
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-sm"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -119,122 +299,138 @@ const Careers = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               Pourquoi rejoindre STIP Solutions?
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-              Découvrez ce qui rend STIP Solutions un employeur de choix dans le secteur industriel.
+            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+              Découvrez ce qui rend STIP Solutions un employeur de choix dans le
+              secteur industriel.
             </p>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-white/5 border border-primary-50/20 rounded-xl p-6 hover:bg-white/10 hover:border-primary-50/40 transition-all duration-300 group"
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/40 rounded-xl p-6 hover:shadow-lg hover:border-primary-50/60 transition-shadow duration-300"
               >
-                <div className="text-primary-50 mb-4 group-hover:text-white transition-colors duration-300">
-                  {benefit.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <div className="text-primary-50 mb-4">{benefit.icon}</div>
+                <h3 className="text-lg font-semibold text-dark-blue mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-gray-700 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </motion.section>
 
-      {/* Our Values Section */}
-      <motion.section
-        className="relative py-20 px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+      {/* Job Listings Section */}
+      <section
+        id="job-listings"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-dark-blue"
       >
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Nos valeurs fondamentales
+              Opportunités d'emploi
             </h2>
-            <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-              Les principes qui guident notre équipe et nos décisions au quotidien.
+            <p className="text-text-light text-lg max-w-2xl mx-auto">
+              Explorez nos postes actuellement disponibles et trouvez votre
+              place chez STIP Solutions.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/20 rounded-xl p-8 hover:border-primary-50/40 transition-all duration-300"
-                variants={itemVariants}
-                whileHover={{ x: 5 }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary-50/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-6 h-6 border-2 border-primary-50 rounded" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {value.title}
-                    </h3>
-                    <p className="text-text-secondary leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
+          {/* Filter Section */}
+          <div className="bg-gradient-to-br from-dark-blue/5 to-primary-50/10 border-2 border-primary-50/30 rounded-2xl p-8 mb-12">
+            <h3 className="text-xl font-semibold text-dark-blue mb-6">
+              Filtrer les offres
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Search Bar */}
+              <div className="relative">
+                <FiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary-50 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Rechercher un poste..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 border-2 border-primary-50/40 rounded-xl bg-white text-dark-blue placeholder-gray-500 focus:outline-none focus:border-primary-50 focus:ring-2 focus:ring-primary-50/30 transition-all duration-300 font-medium"
+                />
+              </div>
+
+              {/* Location Filter */}
+              <CustomDropdown
+                value={selectedLocation}
+                onChange={setSelectedLocation}
+                options={locationOptions}
+                placeholder="Tous les lieux"
+                icon={FiMapPin}
+              />
+
+              {/* Job Type Filter */}
+              <CustomDropdown
+                value={selectedType}
+                onChange={setSelectedType}
+                options={typeOptions}
+                placeholder="Tous les types"
+                icon={FiBriefcase}
+              />
+
+              {/* Field Filter */}
+              <CustomDropdown
+                value={selectedField}
+                onChange={setSelectedField}
+                options={fieldOptions}
+                placeholder="Tous les domaines"
+                icon={HiOutlineBriefcase}
+              />
+            </div>
+          </div>
+
+          {/* No Open Positions Display */}
+          <div className="flex flex-col items-center justify-center py-16">
+            <div className="text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
+                  <HiOutlineBriefcase className="w-12 h-12 text-primary-50" />
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Aucun poste ouvert actuellement
+              </h3>
+              <p className="text-text-light text-lg max-w-2xl mx-auto mb-8">
+                Nous ne recevons pas de demandes actuellement, mais nous
+                recrutons régulièrement. Restez en contact pour être alerté des
+                futures opportunités!
+              </p>
+
+              <div className="inline-flex items-center gap-3 bg-primary/20 border border-primary/50 rounded-2xl px-6 py-4">
+                <div className="w-3 h-3 bg-primary-50 rounded-full animate-pulse" />
+                <p className="text-primary-50 font-semibold">
+                  Consultez régulièrement cette page pour les nouvelles offres
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* CTA Section */}
-      <motion.section
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-sm"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="bg-gradient-to-r from-primary-50/10 via-primary-50/5 to-primary-50/10 border border-primary-50/20 rounded-2xl p-8 sm:p-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="bg-dark-blue rounded-2xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Intéressé par une opportunité chez STIP Solutions?
             </h2>
-            <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-              Bien qu'il n'y ait actuellement aucun poste ouvert, nous vous invitons à nous contacter
-              pour discuter des opportunités futures ou soumettre votre profil.
+            <p className="text-text-light text-lg mb-8 max-w-2xl mx-auto">
+              Soumettez votre CV ou contactez notre équipe des ressources
+              humaines pour discuter des opportunités futures ou envoyer une
+              candidature spontanée.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -254,99 +450,74 @@ const Careers = () => {
                 <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
-
-        {/* Background accent */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-50/5 rounded-full blur-3xl -z-10" />
-      </motion.section>
+      </section>
 
       {/* FAQ-like Section */}
-      <motion.section
-        className="relative py-20 px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               À propos de nos opportunités
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div
-              className="bg-white/5 border border-primary-50/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/40 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-dark-blue mb-3">
                 Quels types de postes offrez-vous?
               </h3>
-              <p className="text-text-secondary">
-                STIP Solutions recrute pour diverses positions, notamment des soudeurs, techniciens,
-                ingénieurs, superviseurs et personnel d'assistance. Nous valorisons l'expérience industrielle
-                et les certifications pertinentes.
+              <p className="text-gray-700">
+                STIP Solutions recrute pour diverses positions, notamment des
+                soudeurs, techniciens, ingénieurs, superviseurs et personnel
+                d'assistance. Nous valorisons l'expérience industrielle et les
+                certifications pertinentes.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="bg-white/5 border border-primary-50/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
+            <div className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/40 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-dark-blue mb-3">
                 Offrez-vous une formation?
               </h3>
-              <p className="text-text-secondary">
-                Oui! Nous investissons dans le développement professionnel de nos employés. Nous proposons
-                des formations continues, des certifications (AWS, CWB, etc.) et des opportunités de progression.
+              <p className="text-gray-700">
+                Oui! Nous investissons dans le développement professionnel de
+                nos employés. Nous proposons des formations continues, des
+                certifications (AWS, CWB, etc.) et des opportunités de
+                progression.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="bg-white/5 border border-primary-50/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
+            <div className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/40 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-dark-blue mb-3">
                 Comment puis-je soumettre mon candidature?
               </h3>
-              <p className="text-text-secondary">
+              <p className="text-gray-700">
                 Vous pouvez envoyer votre CV et une lettre de motivation à{' '}
-                <a href="mailto:careers@stipsolutions.com" className="text-primary-50 hover:underline">
+                <a
+                  href="mailto:careers@stipsolutions.com"
+                  className="text-primary-50 font-semibold hover:underline"
+                >
                   careers@stipsolutions.com
                 </a>
                 , ou nous contacter directement via le formulaire de contact.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="bg-white/5 border border-primary-50/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              variants={itemVariants}
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
+            <div className="bg-gradient-to-br from-primary-50/10 to-primary-50/5 border border-primary-50/40 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-dark-blue mb-3">
                 Quel est l'environnement de travail?
               </h3>
-              <p className="text-text-secondary">
-                Nous opérons dans des installations industrielles modernes et bien équipées. La sécurité est
-                notre priorité absolue, et nous maintenons les normes les plus élevées d'environnement de travail.
+              <p className="text-gray-700">
+                Nous opérons dans des installations industrielles modernes et
+                bien équipées. La sécurité est notre priorité absolue, et nous
+                maintenons les normes les plus élevées d'environnement de
+                travail.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };

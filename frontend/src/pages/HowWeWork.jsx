@@ -1,6 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   FiPlus,
   FiChevronRight,
@@ -11,6 +12,7 @@ import {
 import { assets } from '../assets/assets';
 
 const HowWeWork = () => {
+  const navigate = useNavigate();
   const steps = [
     {
       number: '01',
@@ -229,7 +231,10 @@ const HowWeWork = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group relative bg-primary text-white px-10 py-4 font-bold text-lg transition-all duration-300 hover:bg-primary-dark hover:scale-[1.02] min-w-[220px]">
+              <button
+                onClick={() => navigate('/contact')}
+                className="group relative bg-primary text-white px-10 py-4 font-bold text-lg transition-all duration-300 hover:bg-primary-dark hover:scale-[1.02] min-w-[220px]"
+              >
                 <span className="relative z-10">
                   Demander une évaluation de projet
                 </span>
@@ -237,10 +242,10 @@ const HowWeWork = () => {
                 <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary group-hover:w-20 transition-all duration-300" />
               </button>
 
-              <button className="group relative border-2 border-primary text-primary px-10 py-4 font-bold text-lg transition-all duration-300 hover:bg-primary hover:text-white min-w-[220px]">
+              {/* <button className="group relative border-2 border-primary text-primary px-10 py-4 font-bold text-lg transition-all duration-300 hover:bg-primary hover:text-white min-w-[220px]">
                 <span className="relative z-10">Voir les études de cas</span>
                 <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
+              </button> */}
             </div>
 
             {/* Additional Info */}

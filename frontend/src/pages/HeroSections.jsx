@@ -1,13 +1,14 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   // Use your video from assets
   const videoSrc = assets.hero_bg_vid;
-  const posterSrc =
-    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2070';
+  const posterSrc = assets.STIP_Website_Thumbnail;
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
@@ -75,23 +76,23 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={() => navigate('/contact')}
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Demandez une consultation gratuite
-            </motion.a>
+            </motion.button>
 
-            <motion.a
-              href="#projects"
+            <motion.button
+              onClick={() => navigate('/case-studies')}
               className="px-8 py-4 border-2 border-white hover:border-blue-400 text-white hover:text-blue-400 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Voir nos projets
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
 

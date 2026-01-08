@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   FiClipboard,
   FiCalendar,
@@ -16,7 +17,8 @@ import {
 
 // Move components outside of render to fix the error
 const InputField = ({
-  icon: Icon,
+  // eslint-disable-next-line no-unused-vars
+  icon: IconComponent,
   label,
   name,
   type = 'text',
@@ -31,7 +33,7 @@ const InputField = ({
   <div className="relative group">
     {/* Label */}
     <div className="flex items-center mb-4">
-      <Icon className="w-5 h-5 text-blue-600 mr-3" />
+      <IconComponent className="w-5 h-5 text-blue-600 mr-3" />
       <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
         {label} {required && '*'}
       </label>
@@ -46,13 +48,13 @@ const InputField = ({
     {/* Input Container */}
     <div
       className={`relative transition-all duration-300 ${
-        error ? 'bg-gradient-to-r from-red-50 to-white' : 'bg-gray-50'
+        error ? 'bg-linear-to-r from-red-50 to-white' : 'bg-gray-50'
       }`}
     >
       {/* Animated Background Line */}
       <motion.div
         className={`absolute left-0 right-0 bottom-0 h-0.5 ${
-          error ? 'bg-red-500' : 'bg-gradient-to-r from-blue-500 to-emerald-500'
+          error ? 'bg-red-500' : 'bg-linear-to-r from-blue-500 to-emerald-500'
         } opacity-0 group-hover:opacity-100`}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: activeInput === name ? 1 : 0 }}
@@ -118,12 +120,12 @@ const SelectField = ({
 
     <div
       className={`relative ${
-        error ? 'bg-gradient-to-r from-red-50 to-white' : 'bg-gray-50'
+        error ? 'bg-linear-to-r from-red-50 to-white' : 'bg-gray-50'
       }`}
     >
       <motion.div
         className={`absolute left-0 right-0 bottom-0 h-0.5 ${
-          error ? 'bg-red-500' : 'bg-gradient-to-r from-blue-500 to-emerald-500'
+          error ? 'bg-red-500' : 'bg-linear-to-r from-blue-500 to-emerald-500'
         } opacity-0 group-hover:opacity-100`}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: activeInput === name ? 1 : 0 }}
@@ -158,7 +160,7 @@ const SelectField = ({
 
 const CheckboxField = ({ checked, onChange, error, label }) => (
   <div className="mt-8">
-    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-gray-50 to-white">
+    <div className="flex items-start space-x-4 p-6 bg-linear-to-r from-gray-50 to-white">
       <div className="relative">
         <input
           type="checkbox"
@@ -203,6 +205,7 @@ const CheckboxField = ({ checked, onChange, error, label }) => (
 );
 
 const QuoteForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -352,7 +355,7 @@ const QuoteForm = () => {
                   </div>
                 </div>
 
-                <div className="h-0.5 w-full bg-gradient-to-r from-blue-600/20 via-emerald-500/20 to-transparent" />
+                <div className="h-0.5 w-full bg-linear-to-r from-blue-600/20 via-emerald-500/20 to-transparent" />
               </div>
 
               {/* Consultation Features */}
@@ -401,7 +404,7 @@ const QuoteForm = () => {
               </div>
 
               {/* Time Slots */}
-              <div className="mb-10">
+              <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
                   <span className="w-4 h-0.5 bg-blue-600 mr-3"></span>
                   Créneaux disponibles
@@ -412,7 +415,7 @@ const QuoteForm = () => {
                       key={index}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="py-3 px-4 bg-gradient-to-r from-gray-50 to-white text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 group"
+                      className="py-3 px-4 bg-linear-to-r from-gray-50 to-white text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 group"
                     >
                       <span className="relative">
                         {slot}
@@ -422,51 +425,16 @@ const QuoteForm = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Schedule Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-gradient-to-r from-blue-600 to-dark-blue text-white font-bold text-lg transition-all duration-300 group overflow-hidden relative"
-              >
-                <span className="relative z-10">Schedule Consultation</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-700 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.6 }}
-                />
-              </motion.button>
-
-              {/* Emergency Contact */}
-              <div className="mt-12 pt-10 border-t border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mr-4">
-                    <FiPhone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900">
-                      Assistance d'urgence
-                    </h4>
-                    <p className="text-2xl font-black text-gray-900 mt-1">
-                      (555) 123-4567
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Ligne d'urgence industrielle 24/7
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* Right Column - Quote Form */}
           <div className="lg:w-3/5">
-            <div className="bg-gradient-to-br from-white via-white to-gray-50">
+            <div className="bg-linear-to-br from-white via-white to-gray-50">
               {/* Form Header */}
               <div className="mb-10">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-gray-900 to-gray-800 flex items-center justify-center mr-4">
                     <FiClipboard className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -478,7 +446,7 @@ const QuoteForm = () => {
                     </p>
                   </div>
                 </div>
-                <div className="h-0.5 w-full bg-gradient-to-r from-gray-900/20 via-gray-800/20 to-transparent" />
+                <div className="h-0.5 w-full bg-linear-to-r from-gray-900/20 via-gray-800/20 to-transparent" />
               </div>
 
               {/* Success Message */}
@@ -488,7 +456,7 @@ const QuoteForm = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    className="mb-8 p-6 bg-gradient-to-r from-emerald-50 to-green-50"
+                    className="mb-8 p-6 bg-linear-to-r from-emerald-50 to-green-50"
                   >
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-emerald-500 flex items-center justify-center mr-4">
@@ -509,7 +477,11 @@ const QuoteForm = () => {
               </AnimatePresence>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form
+                id="quote-form"
+                onSubmit={handleSubmit}
+                className="space-y-8"
+              >
                 <div className="grid md:grid-cols-2 gap-8">
                   <InputField
                     icon={FiUser}
@@ -597,46 +569,6 @@ const QuoteForm = () => {
                   label="J'accepte les conditions générales et consens à recevoir des devis par e-mail/téléphone. Toutes les informations sont confidentielles. Nous ne partageons pas vos données avec des tiers."
                 />
 
-                {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full py-5 text-white font-bold text-lg transition-all duration-300 relative overflow-hidden ${
-                    isSubmitting
-                      ? 'bg-gradient-to-r from-gray-600 to-gray-500 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700'
-                  }`}
-                  whileHover={!isSubmitting ? { scale: 1.01 } : {}}
-                  whileTap={!isSubmitting ? { scale: 0.99 } : {}}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 1,
-                          repeat: Infinity,
-                          ease: 'linear',
-                        }}
-                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-3"
-                      />
-                      TRAITEMENT DE LA DEMANDE...
-                    </span>
-                  ) : (
-                    <>
-                      <span className="relative z-10">
-                        DEMANDER UN DEVIS DÉTAILLÉ
-                      </span>
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-blue-900 to-gray-900 opacity-0 hover:opacity-100 transition-opacity duration-300"
-                        initial={{ x: '-100%' }}
-                        whileHover={{ x: '100%' }}
-                        transition={{ duration: 0.6 }}
-                      />
-                    </>
-                  )}
-                </motion.button>
-
                 {/* Privacy Note */}
                 <div className="text-center pt-6 border-t border-gray-200">
                   <p className="text-sm text-gray-500">
@@ -646,6 +578,62 @@ const QuoteForm = () => {
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+
+        {/* Aligned Buttons Section - Both buttons at same level */}
+        <div className="flex flex-col lg:flex-row gap-12 mt-10">
+          {/* Left Button - Consultation */}
+          <div className="lg:w-2/5">
+            <motion.button
+              onClick={() => navigate('/contact')}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-4 bg-linear-to-r from-blue-600 to-dark-blue text-white font-bold text-lg transition-all duration-300 group overflow-hidden relative"
+            >
+              <span className="relative z-10">Planifier Une Consultation</span>
+              <motion.div
+                className="absolute inset-0 bg-linear-to-r from-blue-700 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6 }}
+              />
+            </motion.button>
+          </div>
+
+          {/* Right Button - Submit Form */}
+          <div className="lg:w-3/5">
+            <motion.button
+              type="submit"
+              form="quote-form"
+              disabled={isSubmitting}
+              className={`w-full py-4 text-white font-bold text-lg transition-all duration-300 relative overflow-hidden ${
+                isSubmitting
+                  ? 'bg-linear-to-r from-gray-600 to-gray-500 cursor-not-allowed'
+                  : 'bg-linear-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700'
+              }`}
+              whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+              whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center justify-center">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-3"
+                  />
+                  TRAITEMENT...
+                </span>
+              ) : (
+                <span className="relative z-10">
+                  DEMANDER UN DEVIS DÉTAILLÉ
+                </span>
+              )}
+            </motion.button>
           </div>
         </div>
       </div>

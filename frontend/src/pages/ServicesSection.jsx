@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useTransform } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 
 // Explore Service Button Component with Color Fill Effect
@@ -130,12 +131,12 @@ const ExploreServiceButton = ({ onClick }) => {
 };
 
 const ServicesSection = () => {
-  const [activeService, setActiveService] = useState(null);
+  const navigate = useNavigate();
   const [hoveredService, setHoveredService] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideDirection, setSlideDirection] = useState(0); // eslint-disable-line no-unused-vars
   const [itemsPerView, setItemsPerView] = useState(4);
-  const detailsRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -343,17 +344,25 @@ const ServicesSection = () => {
     setCurrentSlide((prev) => (prev - 1 + maxPosition) % maxPosition);
   };
 
-  const handleServiceClick = (serviceId) => {
-    const wasActive = activeService === serviceId;
-    setActiveService(wasActive ? null : serviceId);
+  // Mapping of service IDs to their pages
+  const serviceRoutes = {
+    1: '/services/custom-manufacturing',
+    2: '/services/welding-assembly',
+    3: '/services/engineering-3d-scanning',
+    4: '/services/industrial-cleaning',
+    5: '/services/industrial-maintenance',
+    6: '/services/painting-sandblasting',
+    7: '/services/mobile-welding',
+    8: '/services/labor-rental',
+  };
 
-    if (!wasActive && detailsRef.current) {
-      setTimeout(() => {
-        detailsRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }, 100);
+  const handleServiceClick = (serviceId) => {
+    // Only navigate if NOT dragging
+    if (!isDragging) {
+      const route = serviceRoutes[serviceId];
+      if (route) {
+        navigate(route);
+      }
     }
   };
 
@@ -402,7 +411,9 @@ const ServicesSection = () => {
               }}
               drag="x"
               dragElastic={0.3}
+              onDragStart={() => setIsDragging(true)}
               onDragEnd={(e, info) => {
+                setIsDragging(false);
                 const swipeThreshold = 50;
                 if (info.offset.x > swipeThreshold) {
                   prevSlide();
@@ -590,149 +601,26 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Expanded Details Section */}
-        <div ref={detailsRef}>
-          {activeService && (
-            <motion.div
-              key={activeService}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.5, ease: 'linear' }}
-              className="overflow-hidden sharp section-dark"
-            >
-              {services
-                .filter((service) => service.id === activeService)
-                .map((service) => (
-                  <div key={service.id} className="p-8 md:p-12">
-                    <div className="flex flex-col md:flex-row md:items-start justify-between mb-12">
-                      <div className="mb-8 md:mb-0 md:pr-12">
-                        <div className="flex items-center mb-4">
-                          <div
-                            className="w-1 h-10 mr-4"
-                            style={{
-                              backgroundColor:
-                                service.overlayType === 'blue'
-                                  ? 'var(--color-primary)'
-                                  : 'var(--color-black)',
-                            }}
-                          />
-                          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-                            {service.title}
-                          </h3>
-                        </div>
-
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-300">
-                          {service.fullDescription}
-                        </p>
-                      </div>
-
-                      <button
-                        onClick={() => setActiveService(null)}
-                        className="p-3 hover:bg-gray-100 transition-colors self-start text-gray-300 hover:text-white"
-                      >
-                        <MdClose className="w-6 h-6" />
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                      <div>
-                        <h4 className="text-xl font-semibold mb-8 text-white">
-                          Caractéristiques principales
-                        </h4>
-
-                        <div className="space-y-6">
-                          {service.features.map((feature, index) => (
-                            <div key={index} className="flex items-start">
-                              <div className="w-2 h-2 bg-[#ae8f62] mr-4 mt-2" />
-                              <div className="text-lg text-gray-300">
-                                {feature}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="mt-16">
-                          <h4 className="text-xl font-semibold mb-8 text-white">
-                            Performance
-                          </h4>
-                          <div className="flex space-x-12">
-                            {service.stats.map((stat, index) => (
-                              <div key={index} className="text-center">
-                                <div className="text-3xl font-bold mb-1 text-[#ae8f62]">
-                                  {stat.value}
-                                </div>
-                                <div className="text-sm uppercase tracking-wide text-gray-400">
-                                  {stat.label}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="lg:pl-8">
-                        <div className="p-8 bg-gray-900/50 border border-gray-700">
-                          <h4 className="text-xl font-semibold mb-6 text-white">
-                            Commencer
-                          </h4>
-                          <div className="space-y-6 mb-8">
-                            {[
-                              {
-                                label: 'Délai',
-                                value: 'Réponse 24-48 heures',
-                              },
-                              {
-                                label: 'Support',
-                                value: 'Chef de projet dédié',
-                              },
-                              {
-                                label: 'Livraison',
-                                value: 'Solutions personnalisées',
-                              },
-                            ].map((item, index) => (
-                              <div key={index}>
-                                <div className="text-sm mb-2 text-gray-400">
-                                  {item.label}
-                                </div>
-                                <div className="text-lg text-gray-200 font-medium">
-                                  {item.value}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                          <button className="w-full bg-[#ae8f62] text-white py-3 px-6 font-semibold hover:bg-[#9a7a4e] transition-colors duration-300 flex items-center justify-center">
-                            <span>Demander une proposition</span>
-                            <FiArrowRight className="w-5 h-5 ml-3" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </motion.div>
-          )}
-        </div>
-
         {/* CTA Section */}
-        {!activeService && (
-          <div className="mt-16 pt-12 border-t border-gray-700">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold mb-3 text-light">
-                  Besoin d\'une solution personnalisée?
-                </h3>
-                <p className="text-gray-400">
-                  Nos experts peuvent adapter les services à vos besoins
-                  spécifiques.
-                </p>
-              </div>
-              <button className="bg-[#ae8f62] text-white py-3 px-8 font-semibold hover:bg-[#9a7a4e] transition-colors duration-300">
-                Planifier une consultation
-              </button>
+        <div className="mt-16 pt-12 border-t border-gray-700">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="mb-6 md:mb-0">
+              <h3 className="text-2xl font-bold mb-3 text-light">
+                Besoin d\'une solution personnalisée?
+              </h3>
+              <p className="text-gray-400">
+                Nos experts peuvent adapter les services à vos besoins
+                spécifiques.
+              </p>
             </div>
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-[#ae8f62] text-white py-3 px-8 font-semibold hover:bg-[#9a7a4e] transition-colors duration-300"
+            >
+              Planifier une consultation
+            </button>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Add CSS animations for the border glow */}

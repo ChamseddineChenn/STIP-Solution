@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { assets } from '../assets/assets';
 import Button from './Button.jsx';
@@ -18,6 +18,7 @@ import {
 // Move ServicesDropdown outside of Navbar component to fix component creation error
 const ServicesDropdown = React.memo(
   ({ services, onClose, dropdownRef, setServicesOpen }) => {
+    const navigate = useNavigate();
     const contentRef = useRef(null);
 
     const handleMouseLeave = useCallback(() => {
@@ -70,16 +71,39 @@ const ServicesDropdown = React.memo(
 
           {/* CTA Section - Minimal Design */}
           <div className="mt-8 pt-6 border-t border-primary-50/10">
+            {/* Text on one line */}
+            <div className="flex flex-col items-start gap-4 mb-4">
+              <h4 className="text-sm font-bold text-text-light whitespace-nowrap">
+                Solution personnalisée?
+              </h4>
+              <p className="text-xs text-text-secondary">
+                Nos experts peuvent adapter les services à vos besoins
+              </p>
+            </div>
+
+            {/* Buttons on second line with justify-between */}
             <div className="flex items-center justify-between">
-              <div>
-                <h4 className="text-sm font-bold text-text-light mb-1">
-                  Solution personnalisée?
-                </h4>
-                <p className="text-xs text-text-secondary">
-                  Nos experts peuvent adapter les services à vos besoins
-                </p>
-              </div>
-              <Button text="Demander un devis" duration={0.5} />
+              {/* Quotation Button */}
+              <button
+                onClick={() => {
+                  navigate('/contact');
+                  setServicesOpen(false);
+                }}
+                className="inline-block"
+              >
+                <Button text="Demander un devis" duration={0.5} />
+              </button>
+
+              {/* Discover Services Button */}
+              <button
+                onClick={() => {
+                  navigate('/services');
+                  setServicesOpen(false);
+                }}
+                className="inline-block"
+              >
+                <Button text="Découvrir nos services" duration={0.5} />
+              </button>
             </div>
           </div>
         </div>
@@ -330,8 +354,8 @@ const Navbar = () => {
       hasDropdown: true,
     },
     { label: 'Blogues', href: '/case-studies', hasDropdown: false },
-    { label: 'À propos', href: '/about', hasDropdown: false },
     { label: 'Carrières', href: '/careers', hasDropdown: false },
+    { label: 'À propos', href: '/about', hasDropdown: false },
     { label: 'Contact', href: '/contact', hasDropdown: false },
   ];
 
@@ -556,7 +580,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <ul className="flex flex-col px-8 overflow-y-auto flex-grow">
+              <ul className="flex flex-col px-8 overflow-y-auto grow">
                 {navItems.map((item) => (
                   <React.Fragment key={item.label}>
                     {item.hasDropdown ? (

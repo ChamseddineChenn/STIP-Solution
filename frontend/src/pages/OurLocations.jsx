@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiMapPin,
@@ -75,59 +76,37 @@ const OurLocations = () => {
     }, 150);
   };
 
-  // Calculate overlay position to prevent clipping
+  // Close overlay on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setHoveredLocation(null);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Calculate overlay position - always same x position (100px from right), vary y based on pin
   const getOverlayPosition = () => {
     if (!hoveredLocation) return {};
 
     const location = locations[hoveredLocation];
-    const isMobile = window.innerWidth < 768;
-
-    if (isMobile) {
-      // Center on mobile
-      return {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-      };
-    }
-
-    // For desktop, calculate viewport boundaries
-    const overlayWidth = 420; // Slightly wider for better spacing
-    const overlayHeight = 500; // MUCH taller for better spacing
-    const viewportWidth = window.innerWidth;
+    const overlayWidth = 420;
+    const overlayHeight = 500;
     const viewportHeight = window.innerHeight;
 
     // Convert pin position to viewport coordinates
-    const pinLeftPercent = parseFloat(location.coordinates.left);
     const pinTopPercent = parseFloat(location.coordinates.top);
-
-    // Calculate pin position in pixels
-    const pinLeftPx = (pinLeftPercent / 100) * viewportWidth;
     const pinTopPx = (pinTopPercent / 100) * viewportHeight;
 
-    // Default position: below and to the right of pin
-    let top = pinTopPx + 60;
-    let left = pinLeftPx + 30;
+    // Always same x position: 100px from the right
+    const left = window.innerWidth - overlayWidth - 100;
 
-    // Check if overlay would go off right side of viewport
-    if (left + overlayWidth > viewportWidth) {
-      left = pinLeftPx - overlayWidth - 30;
-    }
-
-    // Check if overlay would go off left side
-    if (left < 0) {
-      left = 20;
-    }
-
-    // Check if overlay would go off bottom
-    if (top + overlayHeight > viewportHeight) {
-      top = pinTopPx - overlayHeight - 20;
-    }
-
-    // Check if overlay would go off top
-    if (top < 0) {
-      top = 20;
-    }
+    // Center vertically around pin, but keep within viewport
+    let top = pinTopPx - overlayHeight / 2;
+    top = Math.max(20, Math.min(top, viewportHeight - overlayHeight - 20));
 
     return {
       top: `${top}px`,
@@ -136,7 +115,7 @@ const OurLocations = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 md:py-28 bg-white hidden md:block">
       <div className="container mx-auto px-4 relative">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
@@ -186,24 +165,24 @@ const OurLocations = () => {
                 </span>
               </div>
             </div>
-          </div>
 
-          {/* Statistics Overlay - NO ROUNDED CORNERS */}
-          <div className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm p-6 shadow-2xl border border-gray-200 z-30">
-            <div className="flex items-center mb-4">
-              <FiGlobe className="w-6 h-6 text-primary mr-3" />
-              <h3 className="font-bold text-gray-900 text-lg">
-                Opérations au Québec
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">3</div>
-                <div className="text-sm text-gray-600">Emplacements</div>
+            {/* Statistics Overlay - MOVED BELOW LEGEND */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center mb-4">
+                <FiGlobe className="w-6 h-6 text-primary mr-3" />
+                <h3 className="font-bold text-gray-900 text-base">
+                  Opérations au Québec
+                </h3>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">120K+</div>
-                <div className="text-sm text-gray-600">pi²</div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">3</div>
+                  <div className="text-sm text-gray-600">Emplacements</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">120K+</div>
+                  <div className="text-sm text-gray-600">pi²</div>
+                </div>
               </div>
             </div>
           </div>

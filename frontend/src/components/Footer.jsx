@@ -218,7 +218,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       className="hover:text-primary transition-colors"
                     >
-                      418-990-4459
+                      +1 (418) 990-4459
                     </a>
                     <br />
                     <a
@@ -352,7 +352,7 @@ const Footer = () => {
             <FaPhone className="w-5 h-5 text-primary animate-pulse" />
             <div className="text-text-light text-sm font-bold">
               Assistance industrielle d'urgence 24/7 :{' '}
-              <span className="text-primary">418-558-2557</span>
+              <span className="text-primary">+1 (418) 990-4459</span>
             </div>
           </a>
         </motion.div>
