@@ -181,7 +181,7 @@ const Services = () => {
         >
           <div className="flex flex-col items-center">
             <span className="text-xs uppercase tracking-widest mb-2 text-gray-300">
-              Faites défiler pour découvrir
+              Faites défiler
             </span>
             <motion.div
               className="w-px h-12 bg-linear-to-b from-primary to-transparent"

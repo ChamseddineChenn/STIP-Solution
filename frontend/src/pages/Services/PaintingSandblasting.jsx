@@ -67,10 +67,10 @@ const PaintingSandblasting = () => {
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Painting & Sandblasting
+              Peinture et Sablage
             </h1>
-            <p className="text-xl text-white max-w-2xl">
-              Professional surface preparation and industrial coating services.
+            <p className="text-xl text-white max-w-4xl leading-relaxed">
+              Solutions de finition et traitement de surface par STIP Solution. Nous combinons le sablage industriel et les revêtements de peinture de haute qualité pour protéger et préparer vos équipements. De la préparation de surface au revêtement final, notre expertise garantit une protection durable contre la corrosion et une finition professionnelle.
             </p>
           </motion.div>
         </div>

@@ -1418,14 +1418,17 @@ const Contact = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
           <div className="flex flex-col items-center">
+            <span className="text-xs uppercase tracking-widest mb-2 text-gray-300">
+              Faites défiler
+            </span>
             <motion.div
-              className="w-px h-12 bg-linear-to-b from-primary to-transparent"
+              className="w-px h-12 bg-linear-to-b from-blue-400 to-transparent"
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
             />
