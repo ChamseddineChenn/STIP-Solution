@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   FiArrowRight,
   FiMail,
@@ -8,12 +9,14 @@ import {
   FiMapPin,
   FiBriefcase,
   FiChevronDown,
+  FiLoader,
 } from 'react-icons/fi';
 import {
   HiOutlineSparkles,
   HiOutlineCheckCircle,
   HiOutlineBriefcase,
 } from 'react-icons/hi2';
+import { jobAPI } from '../services/api';
 
 // Custom Dropdown Component
 const CustomDropdown = ({
@@ -94,10 +97,46 @@ const CustomDropdown = ({
 };
 
 const Careers = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
   const [selectedField, setSelectedField] = useState('all');
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch jobs from API
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        setLoading(true);
+        const response = await jobAPI.getAll();
+        if (response.data.success) {
+          setJobs(response.data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  // Filter jobs based on search and filters
+  const filteredJobs = jobs.filter((job) => {
+    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (job.shortDescription && job.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesLocation = selectedLocation === 'all' || 
+      job.location.toLowerCase() === selectedLocation.toLowerCase();
+    const matchesType = selectedType === 'all' || 
+      job.contractType.toLowerCase() === selectedType.toLowerCase();
+    const matchesField = selectedField === 'all' || 
+      job.department.toLowerCase() === selectedField.toLowerCase();
+    
+    return matchesSearch && matchesLocation && matchesType && matchesField;
+  });
 
   const benefits = [
     {
@@ -391,32 +430,100 @@ const Careers = () => {
             </div>
           </div>
 
-          {/* No Open Positions Display */}
-          <div className="flex flex-col items-center justify-center py-16">
-            <div className="text-center">
-              <div className="mb-6 flex justify-center">
-                <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
-                  <HiOutlineBriefcase className="w-12 h-12 text-primary-50" />
+          {/* Job Listings */}
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <FiLoader className="w-10 h-10 text-primary-50 animate-spin" />
+            </div>
+          ) : filteredJobs.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-16">
+              <div className="text-center">
+                <div className="mb-6 flex justify-center">
+                  <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
+                    <HiOutlineBriefcase className="w-12 h-12 text-primary-50" />
+                  </div>
+                </div>
+
+                <h3 className="text-3xl font-bold text-white mb-4">
+                  {jobs.length === 0 
+                    ? 'Aucun poste ouvert actuellement' 
+                    : 'Aucun poste correspondant'}
+                </h3>
+                <p className="text-text-light text-lg max-w-2xl mx-auto mb-8">
+                  {jobs.length === 0 
+                    ? 'Nous ne recevons pas de demandes actuellement, mais nous recrutons régulièrement. Restez en contact pour être alerté des futures opportunités!'
+                    : 'Essayez de modifier vos filtres pour voir plus de résultats.'}
+                </p>
+
+                <div className="inline-flex items-center gap-3 bg-primary/20 border border-primary/50 rounded-2xl px-6 py-4">
+                  <div className="w-3 h-3 bg-primary-50 rounded-full animate-pulse" />
+                  <p className="text-primary-50 font-semibold">
+                    Consultez régulièrement cette page pour les nouvelles offres
+                  </p>
                 </div>
               </div>
-
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Aucun poste ouvert actuellement
-              </h3>
-              <p className="text-text-light text-lg max-w-2xl mx-auto mb-8">
-                Nous ne recevons pas de demandes actuellement, mais nous
-                recrutons régulièrement. Restez en contact pour être alerté des
-                futures opportunités!
-              </p>
-
-              <div className="inline-flex items-center gap-3 bg-primary/20 border border-primary/50 rounded-2xl px-6 py-4">
-                <div className="w-3 h-3 bg-primary-50 rounded-full animate-pulse" />
-                <p className="text-primary-50 font-semibold">
-                  Consultez régulièrement cette page pour les nouvelles offres
-                </p>
-              </div>
             </div>
-          </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredJobs.map((job, index) => (
+                <motion.div
+                  key={job._id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  onClick={() => navigate(`/careers/${job._id}`)}
+                >
+                  {/* Job Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-dark-blue mb-2 group-hover:text-primary transition-colors">
+                        {job.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full">
+                          <FiMapPin className="w-3 h-3" />
+                          {job.location}
+                        </span>
+                        <span className="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-xs font-semibold rounded-full">
+                          {job.contractType}
+                        </span>
+                        <span className="inline-block px-3 py-1 bg-orange-50 text-orange-600 text-xs font-semibold rounded-full">
+                          {job.department}
+                        </span>
+                      </div>
+                    </div>
+                    {job.featured && (
+                      <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">
+                        En vedette
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Short Description */}
+                  {job.shortDescription && (
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                      {job.shortDescription}
+                    </p>
+                  )}
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <span className="text-xs text-gray-500">
+                      {job.experienceLevel}
+                    </span>
+                    <motion.span
+                      whileHover={{ x: 4 }}
+                      className="inline-flex items-center text-primary font-semibold text-sm group-hover:underline"
+                    >
+                      Voir l'offre
+                      <FiArrowRight className="ml-2 w-4 h-4" />
+                    </motion.span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

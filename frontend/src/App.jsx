@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import Blogs from './pages/Blogs';
 import BlogPage from './pages/BlogPage';
 import Careers from './pages/Careers';
+import JobPage from './pages/JobPage';
 import CustomManufacturing from './pages/Services/CustomManufacturing';
 import Engineering3DScanning from './pages/Services/Engineering3DScanning';
 import WeldingAssembly from './pages/Services/WeldingAssembly';
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:id" element={<JobPage />} />
           <Route path="/services" element={<Services />} />
           <Route
             path="/services/custom-manufacturing"

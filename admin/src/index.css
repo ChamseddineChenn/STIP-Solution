@@ -1,0 +1,295 @@
+/* index.css - Modern Industrial Blue Theme */
+@import 'tailwindcss';
+
+/* Theme Configuration - Modern Industrial Blue */
+@theme {
+  /* Primary palette: Dark blue, Beige-white, Black */
+  --color-primary: #104377; /* Dark primary blue */
+  --color-primary-dark: #143a8a; /* Deeper navy */
+  --color-primary-light: #3d79bd; /* Accent lighter blue */
+  --color-primary-50: #12a6e0; /* soft light blue for accents */
+
+  /* Accent Color - Bronze/Gold */
+  --color-accent: #ae8f62; /* Bronze-gold accent color */
+  --color-accent-light: #c4a876; /* Lighter bronze-gold for hovers */
+  --color-accent-lighter: #dcc0a0; /* Light bronze-gold for backgrounds */
+
+  /* Dark Blue for Services Section */
+  --color-dark-blue: #0f172a;
+  --color-card-bg: #1e293b;
+
+  /* Text Colors for Dark Background */
+  --color-text-light: #f8fafc; /* Off-white */
+  --color-text-secondary: #cbd5e1; /* Light gray */
+
+  /* Beige / White background */
+  --color-beige: #ffffff; /* Pure white background */
+  --color-bg-white: var(--color-beige);
+
+  --color-hover-dark: #0f172a; /* Dark blue for hover */
+  --color-text-on-dark: #f8fafc; /* Light text for dark backgrounds */
+
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Border Colors */
+  --color-border: #e5e7eb;
+  --color-border-dark: #d1d5db;
+
+  /* Background Colors for Alternating Sections */
+  --color-bg-blue: var(--color-primary-50);
+  --color-bg-light: #f9fafb;
+
+  /* Spacing */
+  --spacing-section: 5rem;
+
+  /* Border Radius - Set to 0 for sharp edges */
+  --radius-none: 0;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Font Family */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .section-blue {
+    background-color: var(--color-primary);
+  }
+
+  .section-white {
+    background-color: var(--color-bg-white);
+  }
+
+  .section-dark {
+    background-color: var(--color-dark-blue);
+  }
+
+  .section-card-bg {
+    background-color: var(--color-card-bg);
+  }
+
+  .text-light {
+    color: var(--color-text-light);
+  }
+
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  .text-industrial {
+    letter-spacing: 0.025em;
+    font-weight: 700;
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .btn-modern {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: var(--radius-none);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  /* Select/Dropdown styling */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 1rem !important;
+    background-clip: padding-box;
+  }
+
+  select:focus {
+    border-radius: 1rem !important;
+  }
+
+  /* Sharp corners utility */
+  .sharp {
+    border-radius: var(--radius-none);
+  }
+
+  /* Service overlay utilities */
+  .overlay-blue {
+    background-color: var(--color-primary);
+  }
+
+  .overlay-black {
+    background-color: var(--color-black);
+  }
+
+  /* Accent color utilities for bronze-gold */
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .hover\:text-accent:hover {
+    color: var(--color-accent);
+  }
+
+  .hover\:border-accent:hover {
+    border-color: var(--color-accent);
+  }
+
+  .hover\:bg-accent:hover {
+    background-color: var(--color-accent);
+  }
+
+  .hover\:bg-accent\/5:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  }
+
+  .hover\:bg-accent\/10:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  .hover\:bg-accent\/20:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  }
+
+  .hover\:bg-accent\/30:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .bg-accent\/5 {
+    background-color: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  }
+
+  .bg-accent\/10 {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  .bg-accent\/20 {
+    background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  }
+
+  .bg-accent\/30 {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .border-accent\/30 {
+    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .border-accent\/60 {
+    border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+  }
+}
+
+/* Global Styles */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-bg-white);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text-dark);
+    font-weight: 700;
+  }
+
+  /* Smooth transitions */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+.bg-hover-dark {
+  background-color: var(--color-hover-dark);
+}
+
+.text-on-dark {
+  color: var(--color-text-on-dark);
+}
+
+.text-on-dark-secondary {
+  color: var(--color-text-secondary);
+}
+
+/* Custom Scrollbar - Slick and Minimalistic Industrial Design */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3d79bd 0%, #104377 50%, #0f172a 100%);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5a95d0 0%, #1e5ab8 50%, #143a8a 100%);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #104377 transparent;
+}
+
+*:hover {
+  scrollbar-color: #143a8a transparent;
+}

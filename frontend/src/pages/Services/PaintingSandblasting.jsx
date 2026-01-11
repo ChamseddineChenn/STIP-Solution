@@ -70,7 +70,12 @@ const PaintingSandblasting = () => {
               Peinture et Sablage
             </h1>
             <p className="text-xl text-white max-w-4xl leading-relaxed">
-              Solutions de finition et traitement de surface par STIP Solution. Nous combinons le sablage industriel et les revêtements de peinture de haute qualité pour protéger et préparer vos équipements. De la préparation de surface au revêtement final, notre expertise garantit une protection durable contre la corrosion et une finition professionnelle.
+              Solutions de finition et traitement de surface par STIP Solution.
+              Nous combinons le sablage industriel et les revêtements de
+              peinture de haute qualité pour protéger et préparer vos
+              équipements. De la préparation de surface au revêtement final,
+              notre expertise garantit une protection durable contre la
+              corrosion et une finition professionnelle.
             </p>
           </motion.div>
         </div>
