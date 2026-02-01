@@ -1,7 +1,11 @@
 import React from 'react';
-import { RiMenuLine, RiNotificationLine, RiUserLine } from 'react-icons/ri';
+import { RiMenuLine, RiUserLine } from 'react-icons/ri';
+import NotificationPanel from './NotificationPanel';
+import { useAuth } from '../context/AuthContext';
 
 const Header = ({ onMenuClick, isSidebarCollapsed }) => {
+  const { admin } = useAuth();
+
   return (
     <header
       className={`fixed top-0 right-0 h-16 bg-white border-b border-border flex items-center justify-between px-6 z-40 transition-all duration-300 ${
@@ -25,10 +29,7 @@ const Header = ({ onMenuClick, isSidebarCollapsed }) => {
       {/* Right Actions */}
       <div className="flex items-center gap-3">
         {/* Notifications */}
-        <button className="p-2 rounded-md hover:bg-gray-100 transition-colors duration-200 active:scale-95 relative cursor-pointer">
-          <RiNotificationLine className="w-5 h-5 text-gray-600" />
-          <span className="absolute top-1 right-1 w-2 h-2 bg-primary-50 rounded-full"></span>
-        </button>
+        <NotificationPanel />
 
         {/* User Avatar */}
         <button className="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200 active:scale-95 cursor-pointer">
@@ -36,7 +37,7 @@ const Header = ({ onMenuClick, isSidebarCollapsed }) => {
             <RiUserLine className="w-4 h-4 text-white" />
           </div>
           <span className="hidden sm:block text-sm font-medium text-gray-700">
-            Admin
+            {admin?.name || admin?.username || 'Admin'}
           </span>
         </button>
       </div>

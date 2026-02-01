@@ -7,10 +7,11 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaLinkedin,
-  FaYoutube,
+  FaFacebook,
   FaInstagram,
   FaIndustry,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import PolicyModal from './PolicyModal';
 
@@ -20,22 +21,49 @@ const Footer = () => {
 
   const footerLinks = {
     navigation: [
-      { label: 'Accueil', href: '#home' },
-      { label: 'Services', href: '#services' },
-      { label: 'Blogue', href: '#blogs' },
-      { label: 'Notre processus', href: '#process' },
-      { label: 'Nos emplacements', href: '#locations' },
-      { label: 'Demander un devis', href: '#quote' },
+      { label: 'Accueil', href: '/' },
+      { label: 'À propos', href: '/about' },
+      { label: 'Services', href: '/services' },
+      { label: 'Blog', href: '/blogs' },
+      { label: 'Carrières', href: '/careers' },
+      { label: 'Contact', href: '/contact' },
     ],
     services: [
-      { label: 'Soudage industriel', href: '#services' },
-      { label: 'Fabrication métallique', href: '#services' },
-      { label: 'Usinage CNC', href: '#services' },
-      { label: 'Assurance qualité', href: '#services' },
-      { label: 'Maintenance préventive', href: '#services' },
-      { label: 'Conseil technique', href: '#services' },
+      {
+        label: 'Fabrication sur mesure',
+        href: '/services/custom-manufacturing',
+      },
+      {
+        label: 'Ingénierie & Scan 3D',
+        href: '/services/engineering-3d-scanning',
+      },
+      { label: 'Soudage & assemblage', href: '/services/welding-assembly' },
+      { label: 'Nettoyage industriel', href: '/services/industrial-cleaning' },
+      {
+        label: 'Maintenance industrielle',
+        href: '/services/industrial-maintenance',
+      },
+      { label: 'Peinture & Sablage', href: '/services/painting-sandblasting' },
     ],
   };
+
+  const socialLinks = [
+    {
+      icon: <FaLinkedin />,
+      label: 'LinkedIn',
+      href: 'https://ca.linkedin.com/company/stip-solution',
+    },
+    {
+      icon: <FaFacebook />,
+      label: 'Facebook',
+      href: 'https://www.facebook.com/stip.solution/?locale=fr_FR',
+    },
+    {
+      icon: <FaInstagram />,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/p/DSsT7auCtQj/',
+    },
+  ];
 
   return (
     <footer className="section-dark pt-20 pb-10 relative overflow-hidden min-h-screen">
@@ -77,14 +105,12 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex space-x-4">
-              {[
-                { icon: <FaLinkedin />, label: 'LinkedIn' },
-                { icon: <FaYoutube />, label: 'YouTube' },
-                { icon: <FaInstagram />, label: 'Instagram' },
-              ].map((social) => (
+              {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 flex items-center justify-center bg-card-bg text-text-light hover:bg-primary hover:text-text-light transition-all duration-300"
                   whileHover={{ scale: 1.1 }}
                   aria-label={`Suivez-nous sur ${social.label}`}
@@ -104,7 +130,7 @@ const Footer = () => {
             className="space-y-6"
           >
             <div className="flex items-center">
-              <div className="w-8 h-1 bg-primary mr-3"></div>
+              <div className="w-8 h-1 bg-primary-50 mr-3"></div>
               <h3 className="text-text-light text-lg font-bold uppercase tracking-wider">
                 Navigation
               </h3>
@@ -119,13 +145,13 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-text-secondary hover:text-primary transition-colors duration-300 text-sm flex items-center group"
                   >
                     <span className="w-2 h-2 bg-primary/0 group-hover:bg-primary mr-3 transition-all duration-300"></span>
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -140,7 +166,7 @@ const Footer = () => {
             className="space-y-6"
           >
             <div className="flex items-center">
-              <div className="w-8 h-1 bg-primary mr-3"></div>
+              <div className="w-8 h-1 bg-primary-50 mr-3"></div>
               <h3 className="text-text-light text-lg font-bold uppercase tracking-wider">
                 Services
               </h3>
@@ -155,13 +181,13 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <a
-                    href={service.href}
+                  <Link
+                    to={service.href}
                     className="text-text-secondary hover:text-primary transition-colors duration-300 text-sm flex items-center group"
                   >
                     <span className="w-2 h-2 bg-primary/0 group-hover:bg-primary mr-3 transition-all duration-300"></span>
                     {service.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -176,7 +202,7 @@ const Footer = () => {
             className="space-y-6"
           >
             <div className="flex items-center">
-              <div className="w-8 h-1 bg-primary mr-3"></div>
+              <div className="w-8 h-1 bg-primary-50 mr-3"></div>
               <h3 className="text-text-light text-lg font-bold uppercase tracking-wider">
                 Contact
               </h3>
@@ -185,7 +211,7 @@ const Footer = () => {
             <div className="space-y-5">
               {/* Address */}
               <div className="flex space-x-4">
-                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary text-text-light">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
                   <FaMapMarkerAlt className="w-4 h-4" />
                 </div>
                 <div>
@@ -204,7 +230,7 @@ const Footer = () => {
 
               {/* Phone */}
               <div className="flex space-x-4">
-                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary text-text-light">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
                   <FaPhone className="w-4 h-4" />
                 </div>
                 <div>
@@ -225,7 +251,7 @@ const Footer = () => {
                       href="https://wa.me/14185582557"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors"
+                      className="text-primary-50 hover:text-primary-50/80 transition-colors"
                     >
                       Support d'urgence 24/7
                     </a>
@@ -235,7 +261,7 @@ const Footer = () => {
 
               {/* Email */}
               <div className="flex space-x-4">
-                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary text-text-light">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
                   <FaEnvelope className="w-4 h-4" />
                 </div>
                 <div>
@@ -243,16 +269,19 @@ const Footer = () => {
                     Courriel
                   </div>
                   <div className="text-text-secondary text-sm">
-                    contact@stipsolution.com
-                    <br />
-                    support@stipsolution.com
+                    <a
+                      href="mailto:contact@stip.ca"
+                      className="hover:text-primary transition-colors"
+                    >
+                      contact@stip.ca
+                    </a>
                   </div>
                 </div>
               </div>
 
               {/* Hours */}
               <div className="flex space-x-4">
-                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary text-text-light">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
                   <FaClock className="w-4 h-4" />
                 </div>
                 <div>
@@ -264,7 +293,7 @@ const Footer = () => {
                     <br />
                     Sam : 07:00 - 16:00
                     <br />
-                    <span className="text-primary">Urgence : 24/7</span>
+                    <span className="text-primary-50">Urgence : 24/7</span>
                   </div>
                 </div>
               </div>
@@ -326,7 +355,7 @@ const Footer = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-primary text-xs font-bold uppercase tracking-wider mb-1">
+                <div className="text-primary-50 text-xs font-bold uppercase tracking-wider mb-1">
                   {cert}
                 </div>
                 <div className="text-text-secondary text-xs">Certifié</div>
@@ -347,12 +376,12 @@ const Footer = () => {
             href="https://wa.me/14185582557"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 px-6 py-3 bg-primary/10 backdrop-blur-sm hover:bg-primary/20 transition-colors"
+            className="inline-flex items-center space-x-3 px-6 py-3 bg-primary-50/10 backdrop-blur-sm hover:bg-primary-50/20 transition-colors"
           >
-            <FaPhone className="w-5 h-5 text-primary animate-pulse" />
+            <FaPhone className="w-5 h-5 text-primary-50 animate-pulse" />
             <div className="text-text-light text-sm font-bold">
               Assistance industrielle d'urgence 24/7 :{' '}
-              <span className="text-primary">+1 (418) 990-4459</span>
+              <span className="text-primary-50">+1 (418) 990-4459</span>
             </div>
           </a>
         </motion.div>

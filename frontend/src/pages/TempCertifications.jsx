@@ -90,10 +90,7 @@ const TempCertifications = () => {
                     }
                     transition={{ duration: 0.3 }}
                     className="flex items-center justify-center gap-2 text-primary-50 text-sm font-semibold"
-                  >
-                    <FiDownload className="w-4 h-4" />
-                    <span>Télécharger le PDF</span>
-                  </motion.div>
+                  ></motion.div>
                 </div>
               </div>
             </motion.div>

@@ -18,6 +18,7 @@ import IndustrialMaintenance from './pages/Services/IndustrialMaintenance';
 import PaintingSandblasting from './pages/Services/PaintingSandblasting';
 import MobileWelding from './pages/Services/MobileWelding';
 import LaborRental from './pages/Services/LaborRental';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -59,6 +60,7 @@ const App = () => {
           />
           <Route path="/services/mobile-welding" element={<MobileWelding />} />
           <Route path="/services/labor-rental" element={<LaborRental />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   FiX,
@@ -8,9 +8,12 @@ import {
   FiMapPin,
   FiLinkedin,
   FiGlobe,
+  FiCheck,
+  FiAlertCircle,
 } from 'react-icons/fi';
 import { createPortal } from 'react-dom';
 import CustomSelect from './CustomSelect';
+import { applicationAPI } from '../services/api';
 
 const ApplicationModal = ({
   application,
@@ -18,6 +21,10 @@ const ApplicationModal = ({
   onStatusChange,
   onClose,
 }) => {
+  const [adminNotes, setAdminNotes] = useState(application.adminNotes || '');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState(null);
+
   const handleDownloadCV = () => {
     if (application.cv?.url) {
       const a = document.createElement('a');
@@ -31,23 +38,41 @@ const ApplicationModal = ({
     }
   };
 
+  const handleSaveNotes = async () => {
+    try {
+      setIsSaving(true);
+      const response = await applicationAPI.update(application._id, {
+        adminNotes,
+      });
+      if (response.data.success) {
+        setSaveMessage({ type: 'success', text: 'Notes sauvegardées' });
+        setTimeout(() => setSaveMessage(null), 2000);
+      }
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde des notes:', error);
+      setSaveMessage({ type: 'error', text: 'Erreur lors de la sauvegarde' });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const modalContent = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-40 p-4"
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto z-50"
       >
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-primary to-primary-dark text-white p-6 flex items-center justify-between border-b border-primary-dark/30">
+        <div className="sticky top-0 bg-gradient-to-r from-primary to-primary-dark text-white p-6 flex items-center justify-between border-b border-primary-dark/30 z-40">
           <div>
             <h2 className="text-2xl font-bold mb-1">
               {application.firstName} {application.lastName}
@@ -68,8 +93,8 @@ const ApplicationModal = ({
 
         {/* Content */}
         <div className="p-6 space-y-6">
-          {/* Status Selection */}
-          <div>
+          {/* Status Selection - with lower z-index so portal can overlay */}
+          <div className="relative z-0">
             <CustomSelect
               label="Statut de la candidature"
               value={application.status || 'Nouvelle'}
@@ -185,12 +210,41 @@ const ApplicationModal = ({
             <label className="block font-semibold text-gray-800 text-sm uppercase tracking-wide mb-3">
               Notes administrateur
             </label>
+            {saveMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className={`mb-3 p-2 rounded-lg flex items-center gap-2 text-sm ${
+                  saveMessage.type === 'success'
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
+                }`}
+              >
+                {saveMessage.type === 'success' ? (
+                  <FiCheck className="w-4 h-4" />
+                ) : (
+                  <FiAlertCircle className="w-4 h-4" />
+                )}
+                {saveMessage.text}
+              </motion.div>
+            )}
             <textarea
-              defaultValue={application.adminNotes || ''}
+              value={adminNotes}
+              onChange={(e) => setAdminNotes(e.target.value)}
               placeholder="Ajouter des notes personnelles sur cette candidature..."
-              className="w-full px-3 py-2 bg-white border border-yellow-200 rounded-lg text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
+              className="w-full px-3 py-2 bg-white border border-yellow-200 rounded-lg text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none mb-2"
               rows={4}
             />
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleSaveNotes}
+              disabled={isSaving}
+              className="w-full px-3 py-2 bg-yellow-600 hover:bg-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium rounded-lg transition-all"
+            >
+              {isSaving ? 'Sauvegarde...' : 'Sauvegarder les notes'}
+            </motion.button>
           </div>
         </div>
       </motion.div>

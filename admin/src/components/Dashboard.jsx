@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   RiArticleLine,
   RiBriefcaseLine,
@@ -6,7 +7,7 @@ import {
   RiUserLine,
   RiLoader4Line,
 } from 'react-icons/ri';
-import { blogAPI } from '../services/api';
+import { blogAPI, jobAPI, applicationAPI } from '../services/api';
 
 const StatCard = ({ icon: Icon, title, value, trend }) => (
   <div className="bg-white p-6 rounded-lg shadow-card hover:shadow-hover transition-all duration-300 border border-border group">
@@ -86,6 +87,7 @@ const ActivityItem = ({ activity }) => {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState([
     { icon: RiArticleLine, title: 'Articles publiés', value: '0', trend: 0 },
     { icon: RiBriefcaseLine, title: "Offres d'emploi", value: '0', trend: 0 },
@@ -102,36 +104,59 @@ const Dashboard = () => {
   const fetchActivities = async () => {
     try {
       setLoading(true);
-      const response = await blogAPI.getAll({ limit: 100 });
-      if (response.data.success) {
-        const blogs = response.data.data;
 
-        // Convert blogs to activities
-        const blogActivities = blogs.map((blog) => ({
-          type: 'article',
-          title: blog.mainTitle,
-          published: blog.published,
-          date: blog.createdAt || new Date(),
-        }));
+      // Fetch blogs, jobs, and applications
+      const [blogRes, jobRes, appRes] = await Promise.all([
+        blogAPI.getAll({ limit: 100 }),
+        jobAPI.getAll({ limit: 100 }),
+        applicationAPI.getAll({ limit: 100 }),
+      ]);
 
-        // Sort by date descending and take first 5
-        const recentActivities = blogActivities
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .slice(0, 5);
+      const blogs = blogRes.data.success ? blogRes.data.data : [];
+      const jobs = jobRes.data.success ? jobRes.data.data : [];
+      const applications = appRes.data.success ? appRes.data.data : [];
 
-        setActivities(recentActivities);
+      // Convert to activities
+      const blogActivities = blogs.map((blog) => ({
+        type: 'article',
+        title: blog.mainTitle,
+        published: blog.published,
+        date: blog.createdAt || new Date(),
+      }));
 
-        // Update stats
-        const publishedCount = blogs.filter((b) => b.published).length;
-        setStats((prevStats) =>
-          prevStats.map((stat) => {
-            if (stat.title === 'Articles publiés') {
-              return { ...stat, value: publishedCount.toString() };
-            }
-            return stat;
-          })
-        );
-      }
+      const jobActivities = jobs.map((job) => ({
+        type: 'job',
+        title: job.title,
+        published: job.published,
+        date: job.createdAt || new Date(),
+      }));
+
+      // Combine and sort by date
+      const allActivities = [...blogActivities, ...jobActivities]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
+
+      setActivities(allActivities);
+
+      // Update stats
+      const publishedBlogs = blogs.filter((b) => b.published).length;
+      const publishedJobs = jobs.filter((j) => j.published).length;
+      const totalApplications = applications.length;
+
+      setStats((prevStats) =>
+        prevStats.map((stat) => {
+          if (stat.title === 'Articles publiés') {
+            return { ...stat, value: publishedBlogs.toString() };
+          }
+          if (stat.title === "Offres d'emploi") {
+            return { ...stat, value: publishedJobs.toString() };
+          }
+          if (stat.title === 'Candidatures') {
+            return { ...stat, value: totalApplications.toString() };
+          }
+          return stat;
+        })
+      );
     } catch (error) {
       console.error('Erreur lors du chargement des activités:', error);
     } finally {
@@ -162,19 +187,28 @@ const Dashboard = () => {
           Actions rapides
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <button className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer">
+          <button
+            onClick={() => navigate('/blogs/create')}
+            className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer"
+          >
             <RiArticleLine className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors duration-200">
               Nouvel article
             </span>
           </button>
-          <button className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer">
+          <button
+            onClick={() => navigate('/jobs/create')}
+            className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer"
+          >
             <RiBriefcaseLine className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors duration-200">
               Nouvelle offre d'emploi
             </span>
           </button>
-          <button className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer">
+          <button
+            onClick={() => window.open('https://stip.ca', '_blank')}
+            className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-primary/10 transition-all duration-200 active:scale-[0.98] group cursor-pointer"
+          >
             <RiEyeLine className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors duration-200">
               Voir le site

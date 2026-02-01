@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
@@ -8,6 +10,9 @@ import CreateBlog from './pages/CreateBlog';
 import Jobs from './pages/Jobs';
 import CreateJob from './pages/CreateJob';
 import Applications from './pages/Applications';
+import Quotations from './pages/Quotations';
+import Newsletter from './pages/Newsletter';
+import Login from './pages/Login';
 import MobileOverlay from './components/MobileOverlay';
 import './App.css';
 
@@ -72,18 +77,37 @@ const AdminLayout = ({ children }) => {
 const App = () => {
   return (
     <BrowserRouter>
-      <AdminLayout>
+      <AuthProvider>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/create" element={<CreateBlog />} />
-          <Route path="/blogs/edit/:id" element={<CreateBlog />} />
-          <Route path="/jobs" element={<Jobs />} />
-          <Route path="/jobs/create" element={<CreateJob />} />
-          <Route path="/jobs/edit/:id" element={<CreateJob />} />
-          <Route path="/applications" element={<Applications />} />
+          {/* Public route - Login */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Protected routes */}
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <AdminLayout>
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/blogs/create" element={<CreateBlog />} />
+                    <Route path="/blogs/edit/:id" element={<CreateBlog />} />
+                    <Route path="/jobs" element={<Jobs />} />
+                    <Route path="/jobs/create" element={<CreateJob />} />
+                    <Route path="/jobs/edit/:id" element={<CreateJob />} />
+                    <Route path="/applications" element={<Applications />} />
+                    <Route path="/quotations" element={<Quotations />} />
+                    <Route path="/newsletter" element={<Newsletter />} />
+                    {/* Catch-all: redirect unknown routes to dashboard */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  </Routes>
+                </AdminLayout>
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </AdminLayout>
+      </AuthProvider>
     </BrowserRouter>
   );
 };

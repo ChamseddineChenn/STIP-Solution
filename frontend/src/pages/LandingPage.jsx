@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSections';
 import ServicesSection from './ServicesSection';
 import TempCertifications from './TempCertifications';
-import QuoteForm from './QuoteForm';
+import QuoteCTA from './QuoteCTA';
 import HowWeWork from './HowWeWork';
 import CaseStudies from './CaseStudies';
 import WhyChooseStip from './WhyChooseStip';
@@ -18,7 +18,7 @@ const LandingPage = () => {
       {/* <CaseStudies /> */}
       <WhyChooseStip />
       <TempCertifications />
-      <QuoteForm />
+      <QuoteCTA />
     </div>
   );
 };

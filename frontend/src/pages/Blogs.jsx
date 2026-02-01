@@ -8,9 +8,10 @@ import {
   FiSearch,
   FiX,
   FiLoader,
+  FiCheck,
 } from 'react-icons/fi';
 import Button from '../components/Button';
-import { blogAPI } from '../services/api';
+import { blogAPI, newsletterAPI } from '../services/api';
 
 const Blogs = () => {
   const navigate = useNavigate();
@@ -20,6 +21,11 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Newsletter state
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [newsletterMessage, setNewsletterMessage] = useState(null);
 
   // Fetch blogs from API
   useEffect(() => {
@@ -40,6 +46,36 @@ const Blogs = () => {
 
     fetchBlogs();
   }, []);
+
+  // Newsletter subscription handler
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+
+    setNewsletterLoading(true);
+    setNewsletterMessage(null);
+
+    try {
+      const response = await newsletterAPI.subscribe(
+        newsletterEmail,
+        'landing-page'
+      );
+      setNewsletterMessage({
+        type: 'success',
+        text: response.data.message,
+      });
+      setNewsletterEmail('');
+    } catch (err) {
+      setNewsletterMessage({
+        type: 'error',
+        text:
+          err.response?.data?.message ||
+          'Une erreur est survenue. Veuillez réessayer.',
+      });
+    } finally {
+      setNewsletterLoading(false);
+    }
+  };
 
   // Helper function to extract first image from content blocks
   const getFirstImage = (contentBlocks) => {
@@ -576,26 +612,61 @@ const Blogs = () => {
                 directement dans votre boîte de réception.
               </p>
 
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <input
-                  type="email"
-                  placeholder="Votre adresse e-mail"
-                  className="px-6 py-4 bg-white/10 border border-primary/30 text-white placeholder:text-text-secondary focus:outline-none focus:border-primary transition-colors flex-1 sm:flex-initial"
-                />
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-primary hover:bg-primary-dark text-white font-bold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl"
+              <form onSubmit={handleNewsletterSubmit}>
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
                 >
-                  S'abonner
-                </motion.button>
-              </motion.div>
+                  <input
+                    type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    placeholder="Votre adresse e-mail"
+                    required
+                    disabled={newsletterLoading}
+                    className="px-6 py-4 bg-white/10 border border-primary/30 text-white placeholder:text-text-secondary focus:outline-none focus:border-primary transition-colors flex-1 sm:flex-initial disabled:opacity-50"
+                  />
+                  <motion.button
+                    type="submit"
+                    disabled={newsletterLoading}
+                    whileHover={{ scale: newsletterLoading ? 1 : 1.05 }}
+                    whileTap={{ scale: newsletterLoading ? 1 : 0.95 }}
+                    className="px-10 py-4 bg-primary hover:bg-primary-dark text-white font-bold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {newsletterLoading ? (
+                      <>
+                        <FiLoader className="animate-spin" />
+                        Envoi...
+                      </>
+                    ) : (
+                      "S'abonner"
+                    )}
+                  </motion.button>
+                </motion.div>
+              </form>
+
+              {/* Newsletter Response Message */}
+              {newsletterMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-6 p-4 rounded-lg flex items-center justify-center gap-2 ${
+                    newsletterMessage.type === 'success'
+                      ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                      : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                  }`}
+                >
+                  {newsletterMessage.type === 'success' ? (
+                    <FiCheck className="w-5 h-5" />
+                  ) : (
+                    <FiX className="w-5 h-5" />
+                  )}
+                  {newsletterMessage.text}
+                </motion.div>
+              )}
             </motion.div>
           </div>
         </div>

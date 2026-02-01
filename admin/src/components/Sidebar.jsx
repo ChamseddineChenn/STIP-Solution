@@ -1,21 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets';
 import {
   RiDashboardLine,
   RiArticleLine,
   RiBriefcaseLine,
   RiMailLine,
+  RiMailSendLine,
   RiLogoutBoxLine,
   RiMenuFoldLine,
   RiMenuUnfoldLine,
+  RiFileList3Line,
 } from 'react-icons/ri';
+import { useAuth } from '../context/AuthContext';
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   const menuItems = [
     { icon: RiDashboardLine, label: 'Tableau de bord', path: '/' },
     { icon: RiArticleLine, label: 'Blogs', path: '/blogs' },
     { icon: RiBriefcaseLine, label: 'Emplois', path: '/jobs' },
     { icon: RiMailLine, label: 'Candidatures', path: '/applications' },
+    { icon: RiFileList3Line, label: 'Demandes de devis', path: '/quotations' },
+    { icon: RiMailSendLine, label: 'Newsletter', path: '/newsletter' },
   ];
 
   return (
@@ -27,9 +41,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
       {/* Header */}
       <div className="flex items-center justify-between h-16 px-4 border-b border-primary-light/20">
         {!isCollapsed && (
-          <span className="text-lg font-semibold tracking-wide animate-fadeIn">
-            STIP Admin
-          </span>
+          <img className="h-24 w-24" src={assets.stip_logo} alt="STIP Logo" />
         )}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
@@ -84,7 +96,10 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
       {/* Logout Button */}
       <div className="px-2 pb-4 border-t border-primary-light/20 pt-4">
-        <button className="flex items-center gap-3 w-full px-3 py-3 rounded-md hover:bg-red-500/20 transition-all duration-200 active:scale-[0.98] group cursor-pointer">
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-3 w-full px-3 py-3 rounded-md hover:bg-red-500/20 transition-all duration-200 active:scale-[0.98] group cursor-pointer"
+        >
           <RiLogoutBoxLine className="w-5 h-5 text-primary-50 group-hover:text-red-400 transition-colors duration-200 flex-shrink-0" />
           {!isCollapsed && (
             <span className="text-sm font-medium animate-fadeIn whitespace-nowrap group-hover:text-red-400 transition-colors duration-200">

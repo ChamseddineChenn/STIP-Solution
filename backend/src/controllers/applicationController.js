@@ -32,7 +32,7 @@ const createApplication = async (req, res) => {
     if (!job) {
       return res.status(404).json({
         success: false,
-        message: 'Offre d\'emploi non trouvée',
+        message: "Offre d'emploi non trouvée",
       });
     }
 
@@ -61,6 +61,15 @@ const createApplication = async (req, res) => {
       portfolio: portfolio || '',
     });
 
+    // Broadcast notification update
+    const io = req.app.locals.io;
+    if (io) {
+      io.emit('notification-updated', {
+        type: 'application',
+        timestamp: new Date(),
+      });
+    }
+
     res.status(201).json({
       success: true,
       message: 'Candidature envoyée avec succès',
@@ -70,7 +79,7 @@ const createApplication = async (req, res) => {
     console.error('Erreur création candidature:', error);
     res.status(500).json({
       success: false,
-      message: 'Erreur lors de l\'envoi de la candidature',
+      message: "Erreur lors de l'envoi de la candidature",
       error: error.message,
     });
   }
@@ -158,7 +167,7 @@ const updateApplication = async (req, res) => {
     const application = await JobApplication.findByIdAndUpdate(
       id,
       { status, adminNotes },
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     ).populate('job');
 
     if (!application) {

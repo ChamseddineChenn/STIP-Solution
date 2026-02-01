@@ -133,20 +133,6 @@ const CertificationsRow = () => {
                     >
                       {cert.name}
                     </h4>
-
-                    {/* Hover text - Download Certification PDF */}
-                    <div
-                      className={`mt-2 transition-all duration-300 ${
-                        hoveredCert === cert.id
-                          ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-2'
-                      }`}
-                    >
-                      <div className="flex items-center justify-center text-blue-600 text-sm font-medium">
-                        <FiDownload className="w-4 h-4 mr-2" />
-                        Télécharger le PDF de la certification
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               ))}

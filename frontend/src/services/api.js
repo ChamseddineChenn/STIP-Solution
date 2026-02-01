@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// Use environment variable or fallback to localhost for development
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -36,6 +37,19 @@ export const applicationAPI = {
     api.post('/applications', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }),
+};
+
+// Newsletter API calls
+export const newsletterAPI = {
+  // Subscribe to newsletter
+  subscribe: (email, source = 'website') =>
+    api.post('/newsletter/subscribe', { email, source }),
+};
+
+// Quotation API calls
+export const quotationAPI = {
+  // Submit a quotation request
+  submit: (data) => api.post('/quotations', data),
 };
 
 export default api;

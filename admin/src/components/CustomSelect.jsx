@@ -3,7 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
 import { createPortal } from 'react-dom';
 
-const CustomSelect = ({ value, onChange, options, placeholder = 'Sélectionner...', label, Icon }) => {
+const CustomSelect = ({
+  value,
+  onChange,
+  options,
+  placeholder = 'Sélectionner...',
+  label,
+  Icon,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 0 });
@@ -24,10 +31,11 @@ const CustomSelect = ({ value, onChange, options, placeholder = 'Sélectionner..
         setIsOpen(false);
       }
     };
-    
+
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      return () =>
+        document.removeEventListener('mousedown', handleClickOutside);
     }
   }, [isOpen]);
 

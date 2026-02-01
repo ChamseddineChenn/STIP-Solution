@@ -12,7 +12,9 @@ import {
   FiClipboard,
   FiSettings,
   FiTool,
+  FiAlertCircle,
 } from 'react-icons/fi';
+import { quotationAPI } from '../services/api';
 
 // Custom Serpapi Map component - displays location information
 const IndustrialSerpApiMap = () => {
@@ -121,7 +123,7 @@ const IndustrialSerpApiMap = () => {
               <a
                 href={`https://wa.me/${locations[activeLocation].phone1.replace(
                   /[^0-9]/g,
-                  ''
+                  '',
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -132,7 +134,7 @@ const IndustrialSerpApiMap = () => {
               <a
                 href={`https://wa.me/${locations[activeLocation].phone2.replace(
                   /[^0-9]/g,
-                  ''
+                  '',
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -156,7 +158,7 @@ const IndustrialSerpApiMap = () => {
             const coord = locations[activeLocation].coordinates;
             window.open(
               `https://maps.google.com/?q=${coord.lat},${coord.lng}`,
-              '_blank'
+              '_blank',
             );
           }}
         >
@@ -181,8 +183,8 @@ const IndustrialSerpApiMap = () => {
             {key === 'montreal'
               ? 'Siège social'
               : key === 'quebec'
-              ? 'Usine de Québec'
-              : 'Cap-Santé'}
+                ? 'Usine de Québec'
+                : 'Cap-Santé'}
           </motion.button>
         ))}
       </div>
@@ -355,6 +357,8 @@ const DetailedQuoteForm = () => {
     setErrors({});
   };
 
+  const [submitError, setSubmitError] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -365,43 +369,55 @@ const DetailedQuoteForm = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Submit to API
+      const response = await quotationAPI.submit(formData);
+
+      if (response.data.success) {
+        setIsSubmitted(true);
+
+        // Reset form after submission
+        setTimeout(() => {
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            company: '',
+            position: '',
+            industry: '',
+            projectType: '',
+            projectDescription: '',
+            timeline: '',
+            budgetRange: '',
+            materials: '',
+            quantity: '',
+            drawingsAvailable: 'no',
+            cadFiles: 'no',
+            qualityStandards: [],
+            certificationsRequired: [],
+            deliveryLocation: '',
+            installationRequired: 'no',
+            ongoingSupport: 'no',
+            preferredContact: 'email',
+            agreeToTerms: false,
+            subscribeUpdates: false,
+          });
+          setStep(1);
+          setIsSubmitted(false);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting quotation:', error);
+      setSubmitError(
+        error.response?.data?.message ||
+          'Une erreur est survenue lors de la soumission. Veuillez réessayer.',
+      );
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-
-      // Reset form after submission
-      setTimeout(() => {
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          position: '',
-          industry: '',
-          projectType: '',
-          projectDescription: '',
-          timeline: '',
-          budgetRange: '',
-          materials: '',
-          quantity: '',
-          drawingsAvailable: 'no',
-          cadFiles: 'no',
-          qualityStandards: [],
-          certificationsRequired: [],
-          deliveryLocation: '',
-          installationRequired: 'no',
-          ongoingSupport: 'no',
-          preferredContact: 'email',
-          agreeToTerms: false,
-          subscribeUpdates: false,
-        });
-        setStep(1);
-        setIsSubmitted(false);
-      }, 5000);
-    }, 2000);
+    }
   };
 
   const renderStep = () => {
@@ -1014,7 +1030,18 @@ const DetailedQuoteForm = () => {
                 ← Précédent
               </button>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col items-end gap-3">
+                {submitError && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex items-center text-red-600 font-semibold bg-red-50 px-4 py-2 rounded"
+                  >
+                    <FiAlertCircle className="w-5 h-5 mr-2" />
+                    {submitError}
+                  </motion.div>
+                )}
+
                 {isSubmitted && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

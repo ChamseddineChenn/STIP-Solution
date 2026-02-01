@@ -38,7 +38,14 @@ const CreateJob = () => {
 
   const locations = ['Montréal', 'Québec', 'Cap-Santé', 'Télétravail', 'Autre'];
   const contractTypes = ['CDI', 'Contrat', 'Temps partiel', 'Stage'];
-  const departments = ['Soudage', 'Fabrication', 'Ingénierie', 'Maintenance', 'Gestion', 'Autre'];
+  const departments = [
+    'Soudage',
+    'Fabrication',
+    'Ingénierie',
+    'Maintenance',
+    'Gestion',
+    'Autre',
+  ];
   const experienceLevels = ['Junior', 'Intermédiaire', 'Senior', 'Expert'];
 
   // Load job data when editing
@@ -69,10 +76,10 @@ const CreateJob = () => {
         );
       }
     } catch (error) {
-      console.error('Erreur lors du chargement de l\'offre:', error);
+      console.error("Erreur lors du chargement de l'offre:", error);
       setSaveMessage({
         type: 'error',
-        text: 'Erreur lors du chargement de l\'offre',
+        text: "Erreur lors du chargement de l'offre",
       });
     } finally {
       setLoading(false);
@@ -121,7 +128,10 @@ const CreateJob = () => {
     }
 
     if (!location || !contractType || !department) {
-      setSaveMessage({ type: 'error', text: 'Le lieu, type de contrat et département sont requis.' });
+      setSaveMessage({
+        type: 'error',
+        text: 'Le lieu, type de contrat et département sont requis.',
+      });
       return;
     }
 
@@ -261,12 +271,12 @@ const CreateJob = () => {
           </button>
           <div>
             <h1 className="text-2xl font-bold text-gray-800">
-              {isEditMode ? 'Modifier l\'offre' : 'Nouvelle offre d\'emploi'}
+              {isEditMode ? "Modifier l'offre" : "Nouvelle offre d'emploi"}
             </h1>
             <p className="text-gray-500 mt-1">
               {isEditMode
-                ? 'Modifiez les détails de l\'offre'
-                : 'Créez une nouvelle offre d\'emploi'}
+                ? "Modifiez les détails de l'offre"
+                : "Créez une nouvelle offre d'emploi"}
             </p>
           </div>
         </div>
@@ -387,7 +397,10 @@ const CreateJob = () => {
                 onChange={setContractType}
                 options={[
                   { value: '', label: 'Sélectionnez un type...' },
-                  ...contractTypes.map((type) => ({ value: type, label: type })),
+                  ...contractTypes.map((type) => ({
+                    value: type,
+                    label: type,
+                  })),
                 ]}
               />
             </div>
@@ -411,7 +424,10 @@ const CreateJob = () => {
                 label="Niveau d'expérience"
                 value={experienceLevel}
                 onChange={setExperienceLevel}
-                options={experienceLevels.map((level) => ({ value: level, label: level }))}
+                options={experienceLevels.map((level) => ({
+                  value: level,
+                  label: level,
+                }))}
               />
             </div>
           </div>
