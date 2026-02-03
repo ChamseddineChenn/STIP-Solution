@@ -605,7 +605,7 @@ const ServicesSection = () => {
         <div className="mt-16 pt-12 border-t border-gray-700">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold mb-3 text-light">
+              <h3 className="text-2xl font-bold mb-3  text-light">
                 Besoin d'une solution personnalisée?
               </h3>
               <p className="text-gray-400">
