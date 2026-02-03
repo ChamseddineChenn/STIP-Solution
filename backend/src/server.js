@@ -28,7 +28,9 @@ const server = http.createServer(app);
 // Parse allowed origins from environment or use defaults for development
 const getAllowedOrigins = () => {
   if (process.env.ALLOWED_ORIGINS) {
-    return process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim());
+    return process.env.ALLOWED_ORIGINS.split(',').map((origin) =>
+      origin.trim(),
+    );
   }
   // Default development origins
   return [

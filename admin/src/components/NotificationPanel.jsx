@@ -72,7 +72,7 @@ const NotificationPanel = () => {
     // Remove /api suffix for socket connection (socket.io connects to root)
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
     const socketUrl = apiUrl.replace('/api', '');
-    
+
     const socket = io(socketUrl, {
       transports: ['websocket', 'polling'],
       withCredentials: true,
