@@ -36,7 +36,6 @@ const HowWeWork = () => {
         'Soudage de précision',
         "Opérations d'usinage",
         'Déploiement qualifié',
-        'Calendrier du projet',
       ],
       image: assets.Work_Etape_2_Image,
     },
