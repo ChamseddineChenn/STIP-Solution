@@ -23,7 +23,7 @@ const HowWeWork = () => {
         'Évaluation du projet',
         'Analyse des exigences',
         'Planification de la sécurité',
-        'Calendrier du projet',
+        'Calendrier du site',
       ],
       image: assets.Work_Etape_1_Image,
     },
