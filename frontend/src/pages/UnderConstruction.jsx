@@ -186,41 +186,45 @@ const UnderConstruction = () => {
 
         {/* Contact information */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3, duration: 0.6 }}
         >
           <a
-            href="mailto:info@stip.ca"
-            className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300"
+            href="mailto:contact@stip.ca"
+            className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300 h-full"
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform flex-shrink-0">
               <FiMail className="w-5 h-5" />
             </div>
             <span className="text-text-secondary text-sm">Email</span>
-            <span className="text-text-light font-medium">info@stip.ca</span>
-          </a>
-
-          <a
-            href="tel:+14505551234"
-            className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300"
-          >
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform">
-              <FiPhone className="w-5 h-5" />
-            </div>
-            <span className="text-text-secondary text-sm">Téléphone</span>
-            <span className="text-text-light font-medium">
-              +1 (450) 555-1234
+            <span className="text-text-light font-medium text-center">
+              contact@stip.ca
             </span>
           </a>
 
-          <div className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300">
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform">
+          <a
+            href="tel:+14189904459"
+            className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300 h-full"
+          >
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform flex-shrink-0">
+              <FiPhone className="w-5 h-5" />
+            </div>
+            <span className="text-text-secondary text-sm">Téléphone</span>
+            <span className="text-text-light font-medium text-center">
+              +1 (418) 990-4459
+            </span>
+          </a>
+
+          <div className="group flex flex-col items-center p-6 bg-card-bg/50 backdrop-blur-sm border border-primary-50/10 hover:border-primary-50/30 transition-all duration-300 h-full">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20 text-primary-50 mb-3 group-hover:scale-110 transition-transform flex-shrink-0">
               <FiMapPin className="w-5 h-5" />
             </div>
             <span className="text-text-secondary text-sm">Adresse</span>
-            <span className="text-text-light font-medium">Québec, Canada</span>
+            <span className="text-text-light font-medium text-center text-sm">
+              2828 Bv Laurier, Tour 1, Étage 7, Québec QC, G1V 0B9
+            </span>
           </div>
         </motion.div>
 
