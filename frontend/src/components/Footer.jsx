@@ -345,23 +345,6 @@ const Footer = () => {
           </div>
 
           {/* Certifications */}
-          <div className="flex items-center space-x-6">
-            {['ISO 9001', 'ASME', 'AWS'].map((cert, index) => (
-              <motion.div
-                key={cert}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-primary-50 text-xs font-bold uppercase tracking-wider mb-1">
-                  {cert}
-                </div>
-                <div className="text-text-secondary text-xs">Certifié</div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Emergency Callout */}
