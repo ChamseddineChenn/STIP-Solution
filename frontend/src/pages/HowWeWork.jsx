@@ -18,9 +18,9 @@ const HowWeWork = () => {
       number: '01',
       title: 'Évaluation et planification',
       description:
-        "Nous commençons par une évaluation complète du site et la collecte des exigences afin d'élaborer un plan de projet détaillé avec protocoles de sécurité.",
+        "Nous commençons par une évaluation complète du projet et la collecte des exigences afin d'élaborer un plan de projet détaillé avec protocoles de sécurité.",
       features: [
-        'Évaluation du site',
+        'Évaluation du projet',
         'Analyse des exigences',
         'Planification de la sécurité',
         'Calendrier du projet',
@@ -35,7 +35,6 @@ const HowWeWork = () => {
       features: [
         'Soudage de précision',
         "Opérations d'usinage",
-        'Technologie Industrie 4.0',
         'Déploiement qualifié',
       ],
       image: assets.Work_Etape_2_Image,
@@ -45,12 +44,7 @@ const HowWeWork = () => {
       title: 'Assurance qualité',
       description:
         "Chaque projet fait l'objet d'inspections et d'essais rigoureux avant la livraison sur site, accompagnés d'une documentation complète.",
-      features: [
-        'Inspection qualité',
-        "Protocoles d'essai",
-        'Livraison sur site',
-        'Documentation complète',
-      ],
+      features: ['Inspection qualité', "Protocoles d'essai"],
       image: assets.Work_Etape_3_Image,
     },
   ];
@@ -236,7 +230,7 @@ const HowWeWork = () => {
                 className="group relative bg-primary text-white px-10 py-4 font-bold text-lg transition-all duration-300 hover:bg-primary-dark hover:scale-[1.02] min-w-[220px]"
               >
                 <span className="relative z-10">
-                  Demander une évaluation de projet
+                  Planifier une consultation
                 </span>
                 <div className="absolute inset-0 bg-linear-to-r from-primary to-primary-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary group-hover:w-20 transition-all duration-300" />
@@ -246,22 +240,6 @@ const HowWeWork = () => {
                 <span className="relative z-10">Voir les études de cas</span>
                 <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button> */}
-            </div>
-
-            {/* Additional Info */}
-            <div className="text-center mt-8">
-              <p className="text-sm text-gray-500">
-                Délai de réponse moyen :{' '}
-                <span className="font-semibold text-gray-700">
-                  2 heures ouvrées
-                </span>
-              </p>
-              <p className="text-sm text-gray-500 mt-1">
-                La consultation est{' '}
-                <span className="font-semibold text-primary">
-                  gratuite et sans obligation
-                </span>
-              </p>
             </div>
           </div>
         </motion.div>
