@@ -30,18 +30,11 @@ const Services = () => {
     },
     {
       id: 3,
-      title: 'Ingénierie et numérisation 3D',
+      title: 'Scan et ingénierie',
       shortDesc:
-        "Services avancés d'ingénierie numérique et de numérisation 3D",
+        "Services avancés de numérisation 3D et d'ingénierie numérique",
       image: assets.Engineering_3D_Image,
       path: '/services/engineering-3d-scanning',
-    },
-    {
-      id: 4,
-      title: 'Nettoyage industriel',
-      shortDesc: 'Services complets de nettoyage et dégraissage industriels',
-      image: assets.Nettoyage_Industrielle_Image,
-      path: '/services/industrial-cleaning',
     },
     {
       id: 5,
@@ -50,14 +43,6 @@ const Services = () => {
         'Services de maintenance 24/7 pour minimiser les arrêts opérationnels',
       image: assets.Maintenance_Industrielle_Image,
       path: '/services/industrial-maintenance',
-    },
-    {
-      id: 6,
-      title: 'Peinture et sablage',
-      shortDesc:
-        'Services professionnels de préparation de surface et revêtement industriel',
-      image: assets.Peinture_Sablage_Image,
-      path: '/services/painting-sandblasting',
     },
     {
       id: 7,

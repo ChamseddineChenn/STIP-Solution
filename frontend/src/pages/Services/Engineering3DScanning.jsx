@@ -63,7 +63,7 @@ const Engineering3DScanning = () => {
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Ingénierie Mécanique & Modélisation 3D
+              Scan et Ingénierie
             </h1>
             <p className="text-xl text-white max-w-4xl leading-relaxed">
               À l'ère de l'industrie 4.0, la marge d'erreur n'existe plus. STIP

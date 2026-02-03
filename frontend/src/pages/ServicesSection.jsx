@@ -200,7 +200,7 @@ const ServicesSection = () => {
     },
     {
       id: 3,
-      title: 'Ingénierie et numérisation 3D',
+      title: 'Scan et ingénierie',
       shortDescription:
         "Services avancés de numérisation 3D et d'ingénierie numérique.",
       fullDescription:
@@ -217,26 +217,6 @@ const ServicesSection = () => {
       ],
       image: assets.Engineering_3D_Image,
       overlayType: 'blue',
-    },
-    {
-      id: 4,
-      title: 'Nettoyage industriel',
-      shortDescription:
-        'Services complets de nettoyage et dégraissage industriel.',
-      fullDescription:
-        "Services de nettoyage industriel professionnels avec équipement spécialisé pour l'entretien des usines, le nettoyage de machinery et la conformité environnementale.",
-      features: [
-        'Nettoyage haute pression',
-        'Dégraissage chimique',
-        'Nettoyage de réservoirs',
-        'Conformité environnementale',
-      ],
-      stats: [
-        { label: 'Temps de réponse', value: '24/7' },
-        { label: 'Dossier de sécurité', value: '100%' },
-      ],
-      image: assets.Nettoyage_Industrielle_Image,
-      overlayType: 'black',
     },
     {
       id: 5,
@@ -257,26 +237,6 @@ const ServicesSection = () => {
       ],
       image: assets.Maintenance_Industrielle_Image,
       overlayType: 'blue',
-    },
-    {
-      id: 6,
-      title: 'Peinture et sablage',
-      shortDescription:
-        'Services professionnels de préparation de surface et de revêtement industriel.',
-      fullDescription:
-        'Services de peinture et sablage haute qualité pour équipement industriel, acier structurel et machinery avec revêtements durables et préparation de surface.',
-      features: [
-        'Sablage industriel',
-        'Revêtements de protection',
-        'Préparation de surface',
-        'Inspection de qualité',
-      ],
-      stats: [
-        { label: 'Durabilité du revêtement', value: '10+ ans' },
-        { label: 'Options de finition', value: '30+' },
-      ],
-      image: assets.Peinture_Sablage_Image,
-      overlayType: 'black',
     },
     {
       id: 7,
@@ -349,9 +309,7 @@ const ServicesSection = () => {
     1: '/services/custom-manufacturing',
     2: '/services/welding-assembly',
     3: '/services/engineering-3d-scanning',
-    4: '/services/industrial-cleaning',
     5: '/services/industrial-maintenance',
-    6: '/services/painting-sandblasting',
     7: '/services/mobile-welding',
     8: '/services/labor-rental',
   };

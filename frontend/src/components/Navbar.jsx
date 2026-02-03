@@ -150,28 +150,16 @@ const Navbar = () => {
         category: 'Fabrication',
       },
       {
-        label: 'Ingénierie et numérisation 3D',
+        label: 'Scan et ingénierie',
         href: '/services/engineering-3d-scanning',
         icon: <FiCpu className="w-5 h-5" />,
         category: 'Solutions numériques',
-      },
-      {
-        label: 'Nettoyage industriel',
-        href: '/services/industrial-cleaning',
-        icon: <FiDroplet className="w-5 h-5" />,
-        category: 'Maintenance',
       },
       {
         label: 'Maintenance industrielle',
         href: '/services/industrial-maintenance',
         icon: <FiSettings className="w-5 h-5" />,
         category: 'Maintenance',
-      },
-      {
-        label: 'Peinture et sablage',
-        href: '/services/painting-sandblasting',
-        icon: <FiFeather className="w-5 h-5" />,
-        category: 'Finitions',
       },
       {
         label: 'Soudage mobile',

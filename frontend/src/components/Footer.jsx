@@ -34,16 +34,14 @@ const Footer = () => {
         href: '/services/custom-manufacturing',
       },
       {
-        label: 'Ingénierie & Scan 3D',
+        label: 'Scan et ingénierie',
         href: '/services/engineering-3d-scanning',
       },
       { label: 'Soudage & assemblage', href: '/services/welding-assembly' },
-      { label: 'Nettoyage industriel', href: '/services/industrial-cleaning' },
       {
         label: 'Maintenance industrielle',
         href: '/services/industrial-maintenance',
       },
-      { label: 'Peinture & Sablage', href: '/services/painting-sandblasting' },
     ],
   };
 

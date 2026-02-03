@@ -15,8 +15,10 @@ const LandingPage = () => {
       <ServicesSection />
       <HowWeWork />
       <OurLocations />
-      {/* <CaseStudies /> */}
+      {/* 
+      <CaseStudies /> 
       <WhyChooseStip />
+      */}
       <TempCertifications />
       <QuoteCTA />
     </div>

@@ -18,9 +18,9 @@ import JobPage from './pages/JobPage';
 import CustomManufacturing from './pages/Services/CustomManufacturing';
 import Engineering3DScanning from './pages/Services/Engineering3DScanning';
 import WeldingAssembly from './pages/Services/WeldingAssembly';
-import IndustrialCleaning from './pages/Services/IndustrialCleaning';
+// import IndustrialCleaning from './pages/Services/IndustrialCleaning';
 import IndustrialMaintenance from './pages/Services/IndustrialMaintenance';
-import PaintingSandblasting from './pages/Services/PaintingSandblasting';
+// import PaintingSandblasting from './pages/Services/PaintingSandblasting';
 import MobileWelding from './pages/Services/MobileWelding';
 import LaborRental from './pages/Services/LaborRental';
 import NotFound from './pages/NotFound';
@@ -80,18 +80,18 @@ const AppContent = () => {
           path="/services/welding-assembly"
           element={<WeldingAssembly />}
         />
-        <Route
+        {/* <Route
           path="/services/industrial-cleaning"
           element={<IndustrialCleaning />}
-        />
+        /> */}
         <Route
           path="/services/industrial-maintenance"
           element={<IndustrialMaintenance />}
         />
-        <Route
+        {/* <Route
           path="/services/painting-sandblasting"
           element={<PaintingSandblasting />}
-        />
+        /> */}
         <Route path="/services/mobile-welding" element={<MobileWelding />} />
         <Route path="/services/labor-rental" element={<LaborRental />} />
         <Route path="*" element={<NotFound />} />
