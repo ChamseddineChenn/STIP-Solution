@@ -62,7 +62,7 @@ const BlogPage = () => {
         return (
           <h2
             key={index}
-            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary break-words overflow-hidden"
+            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary break-normal"
             style={{ color: block.color || '#1f2937' }}
           >
             {block.content}
@@ -72,7 +72,7 @@ const BlogPage = () => {
         return (
           <div
             key={index}
-            className="text-sm md:text-base text-gray-700 leading-relaxed overflow-hidden break-words"
+            className="text-sm md:text-base text-gray-700 leading-relaxed break-normal"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
