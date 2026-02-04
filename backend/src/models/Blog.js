@@ -53,10 +53,8 @@ const blogSchema = new mongoose.Schema(
       enum: [
         'Soudage',
         'Maintenance Industrielle',
-        'Nettoyage Industriel',
         'Fabrication Personnalisée',
-        'Inspection 3D',
-        'Peinture et Sablage',
+        'Scan et ingénierie',
         "Location de Main d'œuvre",
         'Assemblage',
         'Autre',
@@ -84,7 +82,7 @@ const blogSchema = new mongoose.Schema(
   },
   {
     timestamps: true, // Adds createdAt and updatedAt
-  }
+  },
 );
 
 // Generate slug from mainTitle before saving

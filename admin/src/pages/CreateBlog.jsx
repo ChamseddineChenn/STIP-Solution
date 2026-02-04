@@ -36,10 +36,8 @@ const CreateBlog = () => {
   const categories = [
     'Soudage',
     'Maintenance Industrielle',
-    'Nettoyage Industriel',
     'Fabrication Personnalisée',
-    'Inspection 3D',
-    'Peinture et Sablage',
+    'Scan et ingénierie',
     "Location de Main d'œuvre",
     'Assemblage',
     'Autre',
@@ -67,7 +65,7 @@ const CreateBlog = () => {
           blog.contentBlocks.map((block) => ({
             ...block,
             id: block._id || `block-${block.order}-${Date.now()}`,
-          }))
+          })),
         );
       }
     } catch (error) {
@@ -105,8 +103,8 @@ const CreateBlog = () => {
               publicId:
                 typeof content === 'object' ? content.publicId : publicId,
             }
-          : block
-      )
+          : block,
+      ),
     );
   };
 
@@ -133,7 +131,7 @@ const CreateBlog = () => {
     try {
       // Validate content blocks before saving
       const invalidBlocks = contentBlocks.filter(
-        (block) => !block.content || block.content.toString().trim() === ''
+        (block) => !block.content || block.content.toString().trim() === '',
       );
 
       if (invalidBlocks.length > 0) {
@@ -217,8 +215,8 @@ const CreateBlog = () => {
             onColorChange={(color) => {
               setContentBlocks(
                 contentBlocks.map((b) =>
-                  b.id === block.id ? { ...b, color } : b
-                )
+                  b.id === block.id ? { ...b, color } : b,
+                ),
               );
             }}
             onDelete={() => deleteBlock(block.id)}

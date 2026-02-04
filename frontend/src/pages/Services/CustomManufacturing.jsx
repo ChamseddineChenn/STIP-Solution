@@ -261,8 +261,6 @@ const CustomManufacturing = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ease: 'linear', duration: 0.15, delay: 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <Link to="/contact" className="inline-flex items-center gap-2">
                   <CTAButton text="Demander un devis" />
