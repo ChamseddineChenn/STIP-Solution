@@ -18,7 +18,7 @@ const WeldingAssembly = () => {
     },
     {
       id: 2,
-      title: 'Ingénierie et Numérisation 3D',
+      title: 'Scan et ingénierie',
       path: '/services/engineering-3d-scanning',
     },
     { id: 7, title: 'Soudage Mobile', path: '/services/mobile-welding' },

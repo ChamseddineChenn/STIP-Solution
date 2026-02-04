@@ -21,11 +21,6 @@ const PaintingSandblasting = () => {
       title: 'Maintenance Industrielle',
       path: '/services/industrial-maintenance',
     },
-    {
-      id: 5,
-      title: 'Nettoyage Industriel',
-      path: '/services/industrial-cleaning',
-    },
   ];
 
   return (

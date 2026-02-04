@@ -40,8 +40,7 @@ const Services = () => {
     {
       id: 3,
       title: 'Scan et ingénierie',
-      shortDesc:
-        "Services avancés de numérisation 3D et d'ingénierie numérique",
+      shortDesc: "Services avancés d'ingénierie numérique",
       image: assets.Engineering_3D_Image,
       path: '/services/engineering-3d-scanning',
     },

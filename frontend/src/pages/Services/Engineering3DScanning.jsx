@@ -89,7 +89,7 @@ const Engineering3DScanning = () => {
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
                 <h2 className="text-3xl font-bold text-accent mb-6">
-                  1. Numérisation 3D et Inspection de Haute Précision
+                  1. Scan et Inspection de Haute Précision
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Grâce à nos équipements de métrologie portables, nous
@@ -105,9 +105,7 @@ const Engineering3DScanning = () => {
                   >
                     <span className="text-accent font-bold mt-1">■</span>
                     <span>
-                      <strong className="text-accent">
-                        Scanners Faro S70 & Creaform :
-                      </strong>{' '}
+                      <strong className="text-accent">Scanners :</strong>{' '}
                       Capture de données à haute vitesse pour des relevés de
                       sites à grande échelle ou des pièces mécaniques complexes.
                     </span>
@@ -294,11 +292,11 @@ const Engineering3DScanning = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Numérisation 3D Laser',
+                    'Scan Laser haute précision',
                     'Rétro-ingénierie (Reverse Engineering)',
                     'Création de Jumeau Numérique',
                     'Modélisation CAO Avancée',
-                    'Nuages de Points 3D',
+                    'Nuages de Points',
                     'Inspection de Machines Industrielles',
                   ].map((feature, idx) => (
                     <motion.div

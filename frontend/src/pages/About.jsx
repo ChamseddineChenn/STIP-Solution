@@ -280,7 +280,7 @@ const About = () => {
               <div className="grid md:grid-cols-3 gap-8">
                 {[
                   {
-                    title: 'Ingénierie & Modélisation 3D',
+                    title: 'Scan et ingénierie',
                     description:
                       "Utilisation de scanners laser et de logiciels de pointe pour des conceptions d'une précision absolue.",
                     bgColor: 'from-primary to-primary-light',

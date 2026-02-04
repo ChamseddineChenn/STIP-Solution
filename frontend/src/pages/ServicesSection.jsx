@@ -202,11 +202,11 @@ const ServicesSection = () => {
       id: 3,
       title: 'Scan et ingénierie',
       shortDescription:
-        "Services avancés de numérisation 3D et d'ingénierie numérique.",
+        "Services avancés d'ingénierie numérique et de scan.",
       fullDescription:
-        "Implémentez des technologies de numérisation 3D et d'ingénierie de pointe pour transformer la fabrication avec des mesures précises, ingénierie inverse et jumeaux numériques.",
+        "Implémentez des technologies de scan et d'ingénierie de pointe pour transformer la fabrication avec des mesures précises, ingénierie inverse et jumeaux numériques.",
       features: [
-        'Numérisation laser 3D',
+        'Scan laser 3D haute précision',
         'Ingénierie inverse',
         'Création de jumeaux numériques',
         'Modélisation CAO',

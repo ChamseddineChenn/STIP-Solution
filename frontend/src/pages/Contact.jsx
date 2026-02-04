@@ -101,73 +101,75 @@ const IndustrialSerpApiMap = () => {
             exit={{ opacity: 0, y: 20 }}
             className="absolute bottom-8 left-8 bg-dark-blue/95 backdrop-blur-sm text-white p-6 max-w-xs sm:max-w-md shadow-2xl border border-primary/30 z-40"
           >
-        <div className="flex items-center mb-4">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-4">
-            <FiMapPin className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold">
-              {locations[activeLocation].title}
-            </h3>
-            <p className="text-text-secondary text-sm">
-              {locations[activeLocation].description}
-            </p>
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          <div className="flex items-center">
-            <FiMapPin className="w-4 h-4 text-primary mr-3" />
-            <span className="text-sm">{locations[activeLocation].address}</span>
-          </div>
-          <div className="flex items-center">
-            <FiPhone className="w-4 h-4 text-primary mr-3" />
-            <div className="flex flex-col gap-1">
-              <a
-                href={`https://wa.me/${locations[activeLocation].phone1.replace(
-                  /[^0-9]/g,
-                  '',
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-primary transition-colors"
-              >
-                {locations[activeLocation].phone1}
-              </a>
-              <a
-                href={`https://wa.me/${locations[activeLocation].phone2.replace(
-                  /[^0-9]/g,
-                  '',
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-primary transition-colors"
-              >
-                {locations[activeLocation].phone2}
-              </a>
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-4">
+                <FiMapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">
+                  {locations[activeLocation].title}
+                </h3>
+                <p className="text-text-secondary text-sm">
+                  {locations[activeLocation].description}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center">
-            <FiClock className="w-4 h-4 text-primary mr-3" />
-            <span className="text-sm">{locations[activeLocation].hours}</span>
-          </div>
-        </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-4 w-full py-2 bg-primary hover:bg-primary-dark transition-colors text-sm font-semibold"
-          onClick={() => {
-            const coord = locations[activeLocation].coordinates;
-            window.open(
-              `https://maps.google.com/?q=${coord.lat},${coord.lng}`,
-              '_blank',
-            );
-          }}
-        >
-          Obtenir les directions
-        </motion.button>
-      </motion.div>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <FiMapPin className="w-4 h-4 text-primary mr-3" />
+                <span className="text-sm">
+                  {locations[activeLocation].address}
+                </span>
+              </div>
+              <div className="flex items-center">
+                <FiPhone className="w-4 h-4 text-primary mr-3" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href={`https://wa.me/${locations[
+                      activeLocation
+                    ].phone1.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm hover:text-primary transition-colors"
+                  >
+                    {locations[activeLocation].phone1}
+                  </a>
+                  <a
+                    href={`https://wa.me/${locations[
+                      activeLocation
+                    ].phone2.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm hover:text-primary transition-colors"
+                  >
+                    {locations[activeLocation].phone2}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <FiClock className="w-4 h-4 text-primary mr-3" />
+                <span className="text-sm">
+                  {locations[activeLocation].hours}
+                </span>
+              </div>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 w-full py-2 bg-primary hover:bg-primary-dark transition-colors text-sm font-semibold"
+              onClick={() => {
+                const coord = locations[activeLocation].coordinates;
+                window.open(
+                  `https://maps.google.com/?q=${coord.lat},${coord.lng}`,
+                  '_blank',
+                );
+              }}
+            >
+              Obtenir les directions
+            </motion.button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -258,7 +260,7 @@ const DetailedQuoteForm = () => {
     'Soudage et fabrication',
     'Maintenance industrielle',
     "Services d'ingénierie",
-    'Numérisation 3D',
+    'Scan et ingénierie',
     'Traitement de surface',
     "Location de main-d'œuvre",
     'Services mobiles',

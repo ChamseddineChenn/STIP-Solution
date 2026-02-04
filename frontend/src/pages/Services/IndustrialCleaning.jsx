@@ -16,11 +16,6 @@ const IndustrialCleaning = () => {
       title: 'Maintenance Industrielle',
       path: '/services/industrial-maintenance',
     },
-    {
-      id: 6,
-      title: 'Peinture et Sablage',
-      path: '/services/painting-sandblasting',
-    },
     { id: 5, title: 'Soudage Mobile', path: '/services/mobile-welding' },
   ];
 

@@ -16,11 +16,6 @@ const IndustrialMaintenance = () => {
       title: 'Fabrication sur mesure et Réparation',
       path: '/services/custom-manufacturing',
     },
-    {
-      id: 4,
-      title: 'Nettoyage Industriel',
-      path: '/services/industrial-cleaning',
-    },
     { id: 7, title: 'Soudage Mobile', path: '/services/mobile-welding' },
   ];
 
