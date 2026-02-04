@@ -610,7 +610,7 @@ const Careers = () => {
                   href="mailto:careers@stipsolutions.com"
                   className="text-primary-50 font-semibold hover:underline"
                 >
-                  careers@stipsolutions.com
+                  rh@stip.ca
                 </a>
                 , ou nous contacter directement via le formulaire de contact.
               </p>

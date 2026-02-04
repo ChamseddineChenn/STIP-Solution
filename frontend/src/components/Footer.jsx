@@ -78,7 +78,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 pb-16">
           {/* Column 1: Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -207,25 +207,6 @@ const Footer = () => {
             </div>
 
             <div className="space-y-5">
-              {/* Address */}
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
-                  <FaMapMarkerAlt className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-text-light text-sm font-semibold mb-1">
-                    Siège social
-                  </div>
-                  <div className="text-text-secondary text-sm">
-                    2828 Boul Laurier
-                    <br />
-                    Tour 1 Étage 7
-                    <br />
-                    Québec, QC G1V 0B9
-                  </div>
-                </div>
-              </div>
-
               {/* Phone */}
               <div className="flex space-x-4">
                 <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
@@ -287,11 +268,76 @@ const Footer = () => {
                     Horaires
                   </div>
                   <div className="text-text-secondary text-sm">
-                    Lun–Ven : 06:00 - 20:00
+                    Lundi–Samedi
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Column 5: Locations */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center">
+              <div className="w-8 h-1 bg-primary-50 mr-3"></div>
+              <h3 className="text-text-light text-lg font-bold uppercase tracking-wider">
+                Emplacements
+              </h3>
+            </div>
+
+            <div className="space-y-5">
+              {/* Siege Social */}
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
+                  <FaMapMarkerAlt className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-text-light text-sm font-semibold mb-1">
+                    Siège social
+                  </div>
+                  <div className="text-text-secondary text-sm">
+                    2828 Boul Laurier
                     <br />
-                    Sam : 07:00 - 16:00
+                    Québec, QC G1V 0B9
+                  </div>
+                </div>
+              </div>
+
+              {/* Centre Operationnel */}
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
+                  <FaMapMarkerAlt className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-text-light text-sm font-semibold mb-1">
+                    Centre opérationnel
+                  </div>
+                  <div className="text-text-secondary text-sm">
+                    500 Rue St. George
                     <br />
-                    <span className="text-primary-50">Urgence : 24/7</span>
+                    Moncton, NB E1C 1Y3
+                  </div>
+                </div>
+              </div>
+
+              {/* Manufacturing Space */}
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-primary-50 text-text-light">
+                  <FaMapMarkerAlt className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-text-light text-sm font-semibold mb-1">
+                    Espace manufacturier
+                  </div>
+                  <div className="text-text-secondary text-sm">
+                    23 Rte Delage
+                    <br />
+                    Cap-Santé, QC G0A 1L0
                   </div>
                 </div>
               </div>
@@ -361,7 +407,7 @@ const Footer = () => {
           >
             <FaPhone className="w-5 h-5 text-primary-50 animate-pulse" />
             <div className="text-text-light text-sm font-bold">
-              Assistance industrielle d'urgence 24/7 :{' '}
+              Assistance industrielle :{' '}
               <span className="text-primary-50">+1 (418) 990-4459</span>
             </div>
           </a>
