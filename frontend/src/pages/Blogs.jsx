@@ -58,7 +58,7 @@ const Blogs = () => {
     try {
       const response = await newsletterAPI.subscribe(
         newsletterEmail,
-        'landing-page'
+        'landing-page',
       );
       setNewsletterMessage({
         type: 'success',
@@ -86,7 +86,7 @@ const Blogs = () => {
   // Helper function to extract excerpt from content blocks
   const getExcerpt = (contentBlocks, maxLength = 150) => {
     const paragraphBlock = contentBlocks?.find(
-      (block) => block.type === 'paragraph'
+      (block) => block.type === 'paragraph',
     );
     if (!paragraphBlock) return '';
     // Strip HTML tags and limit length
@@ -199,7 +199,7 @@ const Blogs = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -330,7 +330,7 @@ const Blogs = () => {
                         className="h-48 md:h-56 relative overflow-hidden bg-cover bg-center bg-gray-100"
                         style={{
                           backgroundImage: `url(${getFirstImage(
-                            blog.contentBlocks
+                            blog.contentBlocks,
                           )})`,
                         }}
                       >

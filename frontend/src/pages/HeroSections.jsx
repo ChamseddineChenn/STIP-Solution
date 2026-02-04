@@ -86,19 +86,19 @@ const HeroSection = () => {
             </motion.button>
 
             <motion.button
-              onClick={() => navigate('/case-studies')}
+              onClick={() => navigate('/services')}
               className="px-8 py-4 border-2 border-white hover:border-blue-400 text-white hover:text-blue-400 font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Voir nos projets
+              Voir nos services
             </motion.button>
           </motion.div>
         </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}

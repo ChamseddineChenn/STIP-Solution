@@ -19,6 +19,7 @@ import { quotationAPI } from '../services/api';
 // Custom Serpapi Map component - displays location information
 const IndustrialSerpApiMap = () => {
   const [activeLocation, setActiveLocation] = useState('montreal');
+  const [showInfoCard, setShowInfoCard] = useState(window.innerWidth >= 768); // Show by default on desktop only
 
   const locations = {
     montreal: {
@@ -91,13 +92,15 @@ const IndustrialSerpApiMap = () => {
       </motion.div>
 
       {/* Location Info Card */}
-      <motion.div
-        key={`${activeLocation}-info`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        className="absolute bottom-8 left-8 bg-dark-blue/95 backdrop-blur-sm text-white p-6 max-w-md shadow-2xl border border-primary/30 z-40"
-      >
+      <AnimatePresence>
+        {showInfoCard && (
+          <motion.div
+            key={`${activeLocation}-info`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="absolute bottom-8 left-8 bg-dark-blue/95 backdrop-blur-sm text-white p-6 max-w-xs sm:max-w-md shadow-2xl border border-primary/30 z-40"
+          >
         <div className="flex items-center mb-4">
           <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-4">
             <FiMapPin className="w-5 h-5" />
@@ -165,6 +168,18 @@ const IndustrialSerpApiMap = () => {
           Obtenir les directions
         </motion.button>
       </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Toggle Button - Show/Hide Info Card */}
+      <motion.button
+        onClick={() => setShowInfoCard(!showInfoCard)}
+        className="absolute bottom-8 right-8 bg-primary hover:bg-primary-dark text-white px-4 py-2 font-semibold text-sm shadow-lg z-40 transition-colors"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {showInfoCard ? 'Masquer infos' : 'Voir infos'}
+      </motion.button>
 
       {/* Map Controls Button */}
       <div className="absolute top-8 right-8 flex flex-col gap-2 z-40">
@@ -974,14 +989,14 @@ const DetailedQuoteForm = () => {
 
           {/* Progress Steps */}
           <div className="mb-12">
-            <div className="flex justify-between items-center relative">
+            <div className="flex justify-between items-start relative">
               {[1, 2, 3, 4].map((stepNumber) => (
                 <div
                   key={stepNumber}
-                  className="flex flex-col items-center relative z-10"
+                  className="flex flex-col items-center relative z-10 flex-1"
                 >
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-2 transition-all ${
+                    className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mb-2 transition-all flex-shrink-0 ${
                       step >= stepNumber
                         ? 'bg-primary text-white'
                         : 'bg-gray-200 text-gray-500'
@@ -990,7 +1005,7 @@ const DetailedQuoteForm = () => {
                     {stepNumber}
                   </div>
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-sm font-medium text-center max-w-xs ${
                       step >= stepNumber ? 'text-primary' : 'text-gray-500'
                     }`}
                   >
@@ -1445,7 +1460,7 @@ const Contact = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}

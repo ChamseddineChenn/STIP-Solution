@@ -126,15 +126,20 @@ const Careers = () => {
 
   // Filter jobs based on search and filters
   const filteredJobs = jobs.filter((job) => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (job.shortDescription && job.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesLocation = selectedLocation === 'all' || 
+    const matchesSearch =
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (job.shortDescription &&
+        job.shortDescription.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesLocation =
+      selectedLocation === 'all' ||
       job.location.toLowerCase() === selectedLocation.toLowerCase();
-    const matchesType = selectedType === 'all' || 
+    const matchesType =
+      selectedType === 'all' ||
       job.contractType.toLowerCase() === selectedType.toLowerCase();
-    const matchesField = selectedField === 'all' || 
+    const matchesField =
+      selectedField === 'all' ||
       job.department.toLowerCase() === selectedField.toLowerCase();
-    
+
     return matchesSearch && matchesLocation && matchesType && matchesField;
   });
 
@@ -256,7 +261,7 @@ const Careers = () => {
               />
 
               <motion.h1
-                className="text-6xl md:text-7xl font-bold text-white mb-6 tracking-tighter leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tighter leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -273,7 +278,7 @@ const Careers = () => {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-text-secondary max-w-3xl leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-text-secondary max-w-3xl leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -304,7 +309,7 @@ const Careers = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0  left-1/2 transform -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -328,7 +333,7 @@ const Careers = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -336,7 +341,7 @@ const Careers = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               Pourquoi rejoindre STIP Solutions?
@@ -445,12 +450,12 @@ const Careers = () => {
                 </div>
 
                 <h3 className="text-3xl font-bold text-white mb-4">
-                  {jobs.length === 0 
-                    ? 'Aucun poste ouvert actuellement' 
+                  {jobs.length === 0
+                    ? 'Aucun poste ouvert actuellement'
                     : 'Aucun poste correspondant'}
                 </h3>
                 <p className="text-text-light text-lg max-w-2xl mx-auto mb-8">
-                  {jobs.length === 0 
+                  {jobs.length === 0
                     ? 'Nous ne recevons pas de demandes actuellement, mais nous recrutons régulièrement. Restez en contact pour être alerté des futures opportunités!'
                     : 'Essayez de modifier vos filtres pour voir plus de résultats.'}
                 </p>

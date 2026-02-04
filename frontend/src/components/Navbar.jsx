@@ -109,7 +109,7 @@ const ServicesDropdown = React.memo(
         </div>
       </motion.div>
     );
-  }
+  },
 );
 
 ServicesDropdown.displayName = 'ServicesDropdown';
@@ -174,7 +174,7 @@ const Navbar = () => {
         category: "Main-d'uvre",
       },
     ],
-    []
+    [],
   );
 
   // Services grouped by category - no longer needed in simplified design
@@ -307,8 +307,8 @@ const Navbar = () => {
           Math.random() > 0.7
             ? '#fff8ed'
             : Math.random() > 0.5
-            ? '#fce4bb'
-            : '#ffd9d9',
+              ? '#fce4bb'
+              : '#ffd9d9',
       });
     }
 
@@ -317,7 +317,7 @@ const Navbar = () => {
     // Remove sparks after animation
     setTimeout(() => {
       setSparks((prev) =>
-        prev.filter((spark) => !newSparks.find((s) => s.id === spark.id))
+        prev.filter((spark) => !newSparks.find((s) => s.id === spark.id)),
       );
     }, 800);
   }, []);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import {
   HiOutlineSparkles,
@@ -9,6 +10,7 @@ import {
 } from 'react-icons/hi2';
 
 const About = () => {
+  const navigate = useNavigate();
   const [activeValue, setActiveValue] = useState(0);
 
   // Story sections
@@ -141,7 +143,7 @@ const About = () => {
               />
 
               <motion.h1
-                className="text-6xl md:text-7xl font-bold text-white mb-6 tracking-tighter leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tighter leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -158,7 +160,7 @@ const About = () => {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-text-secondary max-w-3xl leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-text-secondary max-w-3xl leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -190,7 +192,7 @@ const About = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0  left-1/2 transform -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -857,15 +859,18 @@ const About = () => {
                   <FiChevronRight className="ml-3 w-5 h-5" />
                 </motion.a>
 
-                <motion.a
-                  href="/services"
+                <motion.button
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    navigate('/services');
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center px-10 py-4 bg-white/10 border border-primary hover:bg-primary/20 text-white font-bold tracking-wide transition-all duration-300"
+                  className="inline-flex items-center justify-center px-10 py-4 bg-white/10 border border-primary hover:bg-primary/20 text-white font-bold tracking-wide transition-all duration-300 cursor-pointer"
                 >
                   Voir nos services
                   <FiArrowRight className="ml-3 w-5 h-5" />
-                </motion.a>
+                </motion.button>
               </div>
 
               <motion.div

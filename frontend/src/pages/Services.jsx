@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { assets } from '../assets/assets';
 import CTAButton from '../components/CTAButton';
@@ -10,6 +10,15 @@ import CTAButton from '../components/CTAButton';
 const Services = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  // Scroll to top on component mount to fix mobile viewport issues
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Reset zoom level
+    if (document.body.style) {
+      document.body.style.zoom = '1';
+    }
+  }, []);
 
   const servicesData = [
     {
@@ -159,7 +168,7 @@ const Services = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0  left-1/2 -translate-x-1/2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -209,7 +218,7 @@ const Services = () => {
                 <motion.div
                   variants={cardVariants}
                   whileHover={{ opacity: 0.9 }}
-                  className="relative h-[420px] overflow-hidden sharp bg-card-bg border border-gray-700/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/20 hover:brightness-110 cursor-pointer"
+                  className="relative h-[300px] sm:h-[350px] md:h-[420px] overflow-hidden sharp bg-card-bg border border-gray-700/50 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/20 hover:brightness-110 cursor-pointer"
                 >
                   {/* Background Image */}
                   <div className="absolute inset-0">
@@ -225,7 +234,7 @@ const Services = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                  <div className="absolute inset-0 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
                     {/* Service Number */}
                     <div className="mb-4">
                       <div className="inline-flex w-12 h-12 bg-accent items-center justify-center text-dark-blue font-bold text-base leading-none">
@@ -234,7 +243,7 @@ const Services = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-light mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-light mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
                       {service.title}
                     </h3>
 
@@ -270,11 +279,11 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ ease: 'easeOut', duration: 0.5, delay: 0.4 }}
-            className="mt-20 md:mt-32 pt-16 md:pt-20 -mx-4 md:-mx-0 px-4 md:px-0 py-16 md:py-20 bg-linear-to-br from-dark-blue via-dark-blue to-black"
+            className="mt-20 md:mt-32 px-4 md:px-0 py-16 md:py-20 bg-linear-to-br from-dark-blue via-dark-blue to-black"
           >
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-light mb-6">
-                Prêt à Partenaire Avec STIP?
+                Prêt à collaborer avec STIP Solutions ?
               </h2>
               <p className="text-secondary text-lg mb-10">
                 Que vous ayez besoin de réparations d'urgence ou de solutions

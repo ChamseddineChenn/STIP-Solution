@@ -214,14 +214,14 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-text-light text-sm font-semibold mb-1">
-                    Bureau principal
+                    Siège social
                   </div>
                   <div className="text-text-secondary text-sm">
-                    123 Industrial Way
+                    2828 Boul Laurier
                     <br />
-                    Manufacturing District
+                    Tour 1 Étage 7
                     <br />
-                    Detroit, MI 48201
+                    Québec, QC G1V 0B9
                   </div>
                 </div>
               </div>
