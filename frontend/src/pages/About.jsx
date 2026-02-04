@@ -68,7 +68,7 @@ const About = () => {
 
   const timeline = [
     {
-      year: '2010',
+      year: '2020',
       title: 'Fondation',
       description: 'Création axée sur le soudage industriel et la fabrication.',
     },
@@ -155,7 +155,7 @@ const About = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  Depuis 2010
+                  Depuis 2020
                 </motion.span>
               </motion.h1>
 
@@ -180,7 +180,7 @@ const About = () => {
                 <motion.a
                   href="#story"
                   whileHover={{ x: 4 }}
-                  className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+                  className="inline-flex items-center mb-1 text-primary-50 hover:text-primary-light transition-colors"
                 >
                   Découvrez notre histoire
                   <FiArrowRight className="ml-3" />
