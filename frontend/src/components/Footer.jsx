@@ -125,7 +125,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-6"
+            className="space-y-6 pt-8"
           >
             <div className="flex items-center">
               <div className="w-8 h-1 bg-primary-50 mr-3"></div>
@@ -161,7 +161,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 pt-8"
           >
             <div className="flex items-center">
               <div className="w-8 h-1 bg-primary-50 mr-3"></div>
@@ -197,7 +197,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-6"
+            className="space-y-6 pt-8"
           >
             <div className="flex items-center">
               <div className="w-8 h-1 bg-primary-50 mr-3"></div>
@@ -281,7 +281,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 pt-8"
           >
             <div className="flex items-center">
               <div className="w-8 h-1 bg-primary-50 mr-3"></div>
