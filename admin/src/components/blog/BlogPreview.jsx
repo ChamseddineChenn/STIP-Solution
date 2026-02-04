@@ -23,7 +23,7 @@ const BlogPreview = ({ blog, onClose }) => {
         return (
           <h2
             key={index}
-            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary break-normal"
+            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary break-normal w-full"
             style={{ color: block.color || '#1f2937' }}
           >
             {block.content}
@@ -33,7 +33,7 @@ const BlogPreview = ({ blog, onClose }) => {
         return (
           <div
             key={index}
-            className="text-sm md:text-base text-gray-700 leading-relaxed break-normal"
+            className="text-sm md:text-base text-gray-700 leading-relaxed break-normal w-full"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );

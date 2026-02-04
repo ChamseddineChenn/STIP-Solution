@@ -49,10 +49,30 @@ const BlogPage = () => {
     });
   };
 
-  // Get first image for hero
-  const getFirstImage = (contentBlocks) => {
-    const imageBlock = contentBlocks?.find((block) => block.type === 'image');
-    return imageBlock?.content || 'https://picsum.photos/1200/600?grayscale';
+  // Sanitize HTML content - aggressively strip ALL styles and problematic attributes
+  const sanitizeHTML = (html) => {
+    if (!html) return '';
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+
+    // Remove ALL inline styles, classes, and attributes from ALL elements
+    const allElements = tempDiv.querySelectorAll('*');
+    allElements.forEach((el) => {
+      // Remove ALL attributes except href for links
+      const attrs = Array.from(el.attributes);
+      attrs.forEach((attr) => {
+        if (
+          attr.name !== 'href' &&
+          attr.name !== 'target' &&
+          attr.name !== 'rel'
+        ) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+
+    return tempDiv.innerHTML;
   };
 
   // Render content block
@@ -62,7 +82,7 @@ const BlogPage = () => {
         return (
           <h2
             key={index}
-            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary break-normal"
+            className="text-2xl md:text-3xl font-bold mt-12 mb-6 pt-8 border-t-2 border-primary"
             style={{ color: block.color || '#1f2937' }}
           >
             {block.content}
@@ -72,8 +92,8 @@ const BlogPage = () => {
         return (
           <div
             key={index}
-            className="text-sm md:text-base text-gray-700 leading-relaxed break-normal"
-            dangerouslySetInnerHTML={{ __html: block.content }}
+            className="blog-content text-sm md:text-base text-gray-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: sanitizeHTML(block.content) }}
           />
         );
       case 'image':
@@ -119,22 +139,80 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section with Blog Image */}
-      <section className="relative w-full bg-dark-blue">
-        {/* Background Image with Overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
+    <div className="min-h-screen bg-white max-w-full">
+      {/* CSS overrides for blog content - simple and clean */}
+      <style>{`
+        .blog-content {
+          display: block;
+          width: 100%;
+        }
+        .blog-content p,
+        .blog-content span,
+        .blog-content div,
+        .blog-content li,
+        .blog-content ul,
+        .blog-content ol,
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3,
+        .blog-content strong,
+        .blog-content em,
+        .blog-content a {
+          display: inline;
+        }
+        .blog-content p {
+          display: block;
+          margin-bottom: 1em;
+        }
+        .blog-content ul,
+        .blog-content ol {
+          display: block;
+          padding-left: 1.5em;
+          margin-bottom: 1em;
+        }
+        .blog-content li {
+          display: list-item;
+        }
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3 {
+          display: block;
+          font-weight: bold;
+          margin-top: 1em;
+          margin-bottom: 0.5em;
+        }
+      `}</style>
+      {/* Hero Section with Background Design */}
+      <section className="relative min-h-[70vh] overflow-hidden bg-linear-to-br from-dark-blue via-dark-blue to-black flex items-center">
+        {/* Animated background grid */}
+        <motion.div
+          className="absolute inset-0 opacity-10"
+          initial={{ backgroundPosition: '0% 0%' }}
+          animate={{ backgroundPosition: '100% 100%' }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           style={{
-            backgroundImage: `url(${getFirstImage(blog.contentBlocks)})`,
+            backgroundImage: `linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.1) 49%, rgba(59, 130, 246, 0.1) 51%, transparent 52%)`,
+            backgroundSize: '60px 60px',
           }}
-        >
-          <div className="absolute inset-0 bg-dark-blue/60" />
+        />
+
+        {/* Vertical accent lines */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute left-1/4 top-0 w-px h-full bg-linear-to-b from-primary via-primary/30 to-transparent"
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute right-1/4 top-0 w-px h-full bg-linear-to-b from-primary/50 via-primary/10 to-transparent"
+            animate={{ opacity: [0.1, 0.5, 0.1] }}
+            transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+          />
         </div>
 
         {/* Content */}
-        <div className="relative w-full max-w-full px-4 md:px-8 pt-32 pb-16">
-          <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto px-4 relative z-10 text-wrap">
+          <div className="max-w-4xl">
             {/* Back Button */}
             <motion.button
               whileHover={{ x: -4 }}
@@ -151,7 +229,14 @@ const BlogPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight wrap-break-word">
+              <motion.div
+                className="h-1 w-16 bg-primary mb-8"
+                initial={{ width: 0 }}
+                animate={{ width: 64 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              />
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white mb-6 tracking-tighter leading-tight">
                 {blog.mainTitle}
               </h1>
 
@@ -179,7 +264,7 @@ const BlogPage = () => {
       </section>
 
       {/* Blog Content Section */}
-      <section className="w-full py-8 md:py-12 px-4 md:px-8">
+      <section className="w-full py-8 md:py-12 px-4 md:px-8 overflow-x-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -188,8 +273,8 @@ const BlogPage = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Blog Content - Dynamic Content Blocks */}
-            <article className="max-w-none">
-              <div className="text-gray-700 leading-relaxed space-y-8 overflow-hidden">
+            <article className="w-full">
+              <div className="text-gray-700 leading-relaxed space-y-8">
                 {blog.contentBlocks
                   ?.sort((a, b) => a.order - b.order)
                   .map(renderContentBlock)}
