@@ -94,9 +94,8 @@ const QuoteCTA = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
           >
-            Demandez votre{' '}
-            <span className="text-primary-50">devis gratuit</span> dès
-            aujourd'hui
+            Demandez votre <span className="text-primary-50">soumission</span>{' '}
+            dès aujourd'hui
           </motion.h2>
 
           <motion.p
@@ -122,7 +121,7 @@ const QuoteCTA = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative z-10">Demander un devis détaillé</span>
+              <span className="relative z-10">Demander une soumission</span>
               <FiArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               <motion.div
                 className="absolute inset-0 bg-primary-50"

@@ -547,7 +547,7 @@ const Careers = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="mailto:careers@stipsolutions.com"
+                href="mailto:rh@stip.ca"
                 className="inline-flex items-center gap-2 bg-primary-50 text-dark-blue px-8 py-3 rounded-lg font-semibold hover:bg-white transition-all duration-300 group"
               >
                 <FiMail className="w-5 h-5" />
@@ -607,7 +607,7 @@ const Careers = () => {
               <p className="text-gray-700">
                 Vous pouvez envoyer votre CV et une lettre de motivation à{' '}
                 <a
-                  href="mailto:careers@stipsolutions.com"
+                  href="mailto:rh@stip.ca"
                   className="text-primary-50 font-semibold hover:underline"
                 >
                   rh@stip.ca

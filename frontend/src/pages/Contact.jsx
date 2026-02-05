@@ -24,13 +24,13 @@ const IndustrialSerpApiMap = () => {
   const locations = {
     montreal: {
       id: 'montreal',
-      title: 'Siège social et bureau principal',
+      title: 'Siège social',
       address: '2828 Boul Laurier Tour 1 Étage 7, Québec, QC G1V 0B9',
       coordinates: { lat: 46.76791850281603, lng: -71.28880097450394 },
       phone1: '+1 (418) 990-4459',
       phone2: '+1 (506) 458-5859',
       email: 'contact@stip.ca',
-      hours: 'Lun-Ven: 6h00 - 20h00',
+      hours: 'Lun-Ven: 7h00 - 17h00',
       description:
         "Bureau principal avec la gestion générale et les équipes d'ingénierie.",
       mapUrl:
@@ -38,13 +38,13 @@ const IndustrialSerpApiMap = () => {
     },
     quebec: {
       id: 'quebec',
-      title: 'Centre opérationnel',
+      title: 'Usine',
       address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       coordinates: { lat: 46.08859577186401, lng: -64.79452728988272 },
       phone1: '+1 (418) 990-4459',
       phone2: '+1 (506) 458-5859',
       email: 'contact@stip.ca',
-      hours: 'Lun-Sam: Opérations 24/7',
+      hours: 'Lun-Sam: 7h00 - 17H00',
       description:
         'le cœur technique de notre activité. Ce site dédié regroupe nos équipes logistiques et nos services de gestion',
       mapUrl:
@@ -1115,7 +1115,7 @@ const DetailedQuoteForm = () => {
               Besoin d'une aide immédiate?
             </p>
             <p className="text-text-secondary mb-4">
-              Appelez notre ligne d'assistance industrielle disponible 24h/24:
+              Appelez notre ligne d'assistance industrielle:
               <a
                 href="https://wa.me/14189904459"
                 target="_blank"
@@ -1127,7 +1127,7 @@ const DetailedQuoteForm = () => {
             </p>
             <p className="text-sm text-text-secondary">
               Temps de réponse moyen pour les demandes de devis:
-              <span className="font-semibold ml-2">4 heures ouvrées</span>
+              <span className="font-semibold ml-2">24 heures ouvrées</span>
             </p>
           </div>
         </motion.div>
@@ -1172,10 +1172,10 @@ const ContactInformation = () => {
     {
       icon: <FiClock />,
       title: "Heures d'affaires",
-      main: 'Lun-Ven: 6h00 - 20h00',
+      main: 'Lun-Sam: 7h00 - 17h00',
       sub: 'Sam: 7h00 - 16h00',
       color: 'bg-primary',
-      description: "Services d'urgence: 24h/24",
+      description: '',
     },
   ];
 
@@ -1532,7 +1532,7 @@ const Contact = () => {
                 Appelez maintenant: <br /> (418) 990-4459
               </a>
               <a
-                href="mailto:contact@stipsolutions.com"
+                href="mailto:contact@stip.ca"
                 className="px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold text-lg transition-colors duration-300 inline-flex items-center justify-center"
               >
                 <FiMail className="w-5 h-5 mr-3" />

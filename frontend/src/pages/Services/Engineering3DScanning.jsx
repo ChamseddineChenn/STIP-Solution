@@ -294,7 +294,6 @@ const Engineering3DScanning = () => {
                   {[
                     'Scan Laser haute précision',
                     'Rétro-ingénierie (Reverse Engineering)',
-                    'Création de Jumeau Numérique',
                     'Modélisation CAO Avancée',
                     'Nuages de Points',
                     'Inspection de Machines Industrielles',
@@ -377,7 +376,7 @@ const Engineering3DScanning = () => {
                 </div>
 
                 {/* Contact Info */}
-                <div className="mt-8 bg-gradient-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
+                <div className="mt-8 bg-linear-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-0.5 w-8 bg-accent" />
                     <h4 className="text-lg font-bold text-gray-900">

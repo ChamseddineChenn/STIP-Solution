@@ -226,14 +226,6 @@ const Footer = () => {
                       +1 (418) 990-4459
                     </a>
                     <br />
-                    <a
-                      href="https://wa.me/14185582557"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary-50 hover:text-primary-50/80 transition-colors"
-                    >
-                      Support d'urgence 24/7
-                    </a>
                   </div>
                 </div>
               </div>
@@ -268,7 +260,7 @@ const Footer = () => {
                     Horaires
                   </div>
                   <div className="text-text-secondary text-sm">
-                    Lundi–Samedi
+                    Lun–Sam: 7H00 - 17H00
                   </div>
                 </div>
               </div>
@@ -315,7 +307,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-text-light text-sm font-semibold mb-1">
-                    Centre opérationnel
+                    Usine
                   </div>
                   <div className="text-text-secondary text-sm">
                     500 Rue St. George
