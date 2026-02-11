@@ -68,6 +68,22 @@ const Services = () => {
       image: assets.Location_Main_Oeuvre_Image,
       path: '/services/labor-rental',
     },
+    {
+      id: 9,
+      title: 'Nettoyage industriel',
+      shortDesc:
+        'Services de nettoyage industriel professionnels avec normes strictes de sécurité',
+      image: assets.Nettoyage_Industrielle_Image,
+      path: '/services/industrial-cleaning',
+    },
+    {
+      id: 10,
+      title: 'Peinture & sablage',
+      shortDesc:
+        'Solutions de traitement de surface avec sablage et peinture professionnelle',
+      image: assets.Peinture_Sablage_Image,
+      path: '/services/painting-sandblasting',
+    },
   ];
 
   const containerVariants = {

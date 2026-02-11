@@ -173,6 +173,18 @@ const Navbar = () => {
         icon: <FiUsers className="w-5 h-5" />,
         category: "Main-d'uvre",
       },
+      {
+        label: 'Nettoyage industriel',
+        href: '/services/industrial-cleaning',
+        icon: <FiDroplet className="w-5 h-5" />,
+        category: 'Maintenance',
+      },
+      {
+        label: 'Peinture & sablage',
+        href: '/services/painting-sandblasting',
+        icon: <FiZap className="w-5 h-5" />,
+        category: 'Finition',
+      },
     ],
     [],
   );

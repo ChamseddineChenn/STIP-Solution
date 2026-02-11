@@ -2,7 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiBriefcase,
+  FiTool,
+  FiAward,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -66,15 +72,16 @@ const CustomManufacturing = () => {
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Fabrication sur mesure et Réparation
+              Fabrication sur Mesure
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              L'Ingénierie de Précision par STIP Solution. Chez STIP Solution,
-              nous ne nous contentons pas de souder : nous bâtissons la
-              fiabilité de vos infrastructures. Que ce soit pour des composantes
-              de haute précision ou des structures industrielles massives, notre
-              approche repose sur une synergie entre agilité technique et
-              capacité de production.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              STIP Solution, votre partenaire de confiance pour la
+              sous-traitance en soudage, la fabrication sur mesure et les
+              réparations.
+            </p>
+            <p className="text-lg text-white max-w-4xl leading-relaxed mt-4 opacity-95">
+              Nous excellons aussi bien dans les petits projets minutieux que
+              dans les grands projets complexes.
             </p>
           </motion.div>
         </div>
@@ -92,64 +99,23 @@ const CustomManufacturing = () => {
                 transition={{ ease: 'linear', duration: 0.6 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Fabrication Métallique sur Mesure : Du Prototype à la Série
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Chaque projet est unique
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Nous transformons vos concepts les plus complexes en réalités
-                  tangibles. Notre service de fabrication couvre 100 % du cycle
-                  de vie du produit.
-                </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Polyvalence d'échelle :
-                      </strong>{' '}
-                      Capacité d'intervention sur des micro-projets exigeant une
-                      précision au millimètre jusqu'à des assemblages
-                      structurels de grande envergure.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Expertise Multimatériaux :
-                      </strong>{' '}
-                      Maîtrise avancée du soudage sur acier, acier inoxydable et
-                      aluminium, garantissant une intégrité structurelle
-                      maximale.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Conception Collaborative :
-                      </strong>{' '}
-                      Une équipe de spécialistes qui allie créativité et
-                      faisabilité technique pour optimiser le design de vos
-                      pièces et réduire vos coûts de production.
-                    </span>
-                  </motion.li>
-                </ul>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Nous savons que chaque projet est unique. Notre équipe
+                    hautement qualifiée allie expertise technique et créativité
+                    pour répondre aux besoins spécifiques de chaque client.
+                  </p>
+                  <div className="bg-gradient-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium">
+                      Que vous ayez besoin de pièces sur mesure, de réparations
+                      précises ou de solutions de soudage innovantes, nous
+                      sommes là pour concrétiser vos idées.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -158,64 +124,105 @@ const CustomManufacturing = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Réparation et Remise à Neuf : Maximisez la Durée de Vie de vos
-                  Actifs
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Qualité et Excellence
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  L'usure industrielle ne doit pas freiner votre productivité.
-                  Nous intervenons pour restaurer vos équipements selon des
-                  standards souvent supérieurs à l'original.
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Forts d'une solide expérience dans le secteur, nous sommes
+                  fiers de notre engagement envers la qualité et l'excellence.
                 </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiBriefcase className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Compétences Techniques
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Avancées et reconnues dans l'industrie
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiTool className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Équipements de Pointe
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Technologie moderne et fiable
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Récupération de composants critiques :
-                      </strong>{' '}
-                      Redonnez une seconde vie à vos pièces d'usure plutôt que
-                      de les remplacer, permettant une économie directe sur vos
-                      CAPEX.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Interventions de précision :
-                      </strong>{' '}
-                      Réparations certifiées conformes aux normes de
-                      l'industrie, assurant la sécurité et la performance à long
-                      terme.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Réduction des temps d'arrêt :
-                      </strong>{' '}
-                      Un processus de réparation optimisé pour remettre vos
-                      machines en fonction dans les plus brefs délais.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiAward className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Résultats Exceptionnels
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      À chaque étape du projet
+                    </p>
+                  </motion.div>
+                </div>
+                <p className="text-gray-700 leading-relaxed text-lg font-medium">
+                  Nos compétences techniques avancées, nos équipements de pointe
+                  et notre approche professionnelle garantissent des résultats
+                  exceptionnels à chaque étape.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
+                className="mb-12 pl-6 border-l-4 border-accent"
+              >
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Vos projets, Notre Engagement
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Explorez notre portefeuille diversifié pour découvrir nos
+                    réalisations passées et imaginez les possibilités pour vos
+                    futurs projets.
+                  </p>
+                  <div className="bg-gradient-to-r from-accent/5 via-transparent to-accent/5 p-8 rounded-lg border border-accent/20">
+                    <p className="text-gray-800 leading-relaxed text-lg font-semibold">
+                      Des petits projets exigeants aux grands projets ambitieux,
+                      STIP Solution est votre partenaire de confiance pour des
+                      solutions de soudage sur mesure.
+                    </p>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-lg bg-amber-50 p-6 rounded-lg border-l-4 border-amber-400">
+                    <span className="font-semibold text-amber-900">
+                      Contactez-nous dès aujourd'hui
+                    </span>{' '}
+                    pour discuter de la manière dont nous pouvons collaborer et
+                    concrétiser vos projets les plus ambitieux.
+                  </p>
+                </div>
               </motion.div>
 
               {/* Features */}
@@ -225,14 +232,17 @@ const CustomManufacturing = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Pourquoi STIP Solution ?
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Fabrication Métallique Personnalisée',
-                    'Réparation et Remise à Neuf',
-                    'Expertise Multimatériaux',
-                    'Assemblage Structurel',
-                    'Conception Collaborative',
-                    'Production Haute Précision',
+                    'Sous-traitance en Soudage',
+                    'Fabrication sur Mesure',
+                    'Services de Réparation',
+                    'Projets Minutieux',
+                    'Grands Projets Complexes',
+                    'Partenaire de Confiance',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}

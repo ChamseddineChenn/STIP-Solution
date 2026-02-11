@@ -3,7 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiDroplet,
+  FiBox,
+  FiCheckCircle,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -17,7 +23,12 @@ const PaintingSandblasting = () => {
       path: '/services/custom-manufacturing',
     },
     {
-      id: 4,
+      id: 2,
+      title: 'Soudage et Assemblage',
+      path: '/services/welding-assembly',
+    },
+    {
+      id: 5,
       title: 'Maintenance Industrielle',
       path: '/services/industrial-maintenance',
     },
@@ -58,19 +69,20 @@ const PaintingSandblasting = () => {
                 className="h-1 bg-accent"
               />
               <span className="text-accent font-semibold">
-                Finition de Qualité
+                Traitement de surface
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Peinture et Sablage
+              Peinture & sablage
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              Solutions de finition et traitement de surface par STIP Solution.
-              Nous combinons le sablage industriel et les revêtements de
-              peinture de haute qualité pour protéger et préparer vos
-              équipements. De la préparation de surface au revêtement final,
-              notre expertise garantit une protection durable contre la
-              corrosion et une finition professionnelle.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              Finition des surfaces
+            </p>
+            <p className="text-lg text-white max-w-4xl leading-relaxed mt-4 opacity-95">
+              Protection professionnelle de vos équipements industriels contre
+              la corrosion et l'usure. Nous combinons préparation de surface
+              rigoureuse et revêtements de haute qualité pour assurer la
+              durabilité maximale.
             </p>
           </motion.div>
         </div>
@@ -83,81 +95,174 @@ const PaintingSandblasting = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ ease: 'linear', duration: 0.6 }}
+                className="mb-12 pl-6 border-l-4 border-accent"
+              >
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Solutions de traitement de surface
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    STIP propose des solutions de traitement de surface :
+                    sablage et peinture.
+                  </p>
+                  <div className="bg-linear-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                      Le sablage, ou grenaillage, est une technique de nettoyage
+                      industriel permettant de décaper en profondeur les
+                      surfaces métalliques et de les préparer aux revêtements
+                      ultérieurs.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
+                className="mb-12 pl-6 border-l-4 border-accent"
+              >
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Services de peinture professionnelle
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Notre atelier propose tous types de peintures pour la
+                    protection contre la corrosion et la détérioration.
+                  </p>
+                  <div className="bg-linear-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                      La peinture en poudre, également appelée peinture cuite au
+                      four, se distingue par son économie, son gain de temps
+                      (pas de temps de séchage) et son respect de
+                      l'environnement. La peinture liquide est appliquée au
+                      pistolet sur une ligne de production, dans une cabine sans
+                      poussière.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Advantages Cards */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.6 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
                 className="mb-12"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Traitement de Surface et Solutions de Finition
-                </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  STIP offre des solutions de traitement de surface : sablage et
-                  peinture. Le sablage, ou grenaillage, est une technique de
-                  nettoyage industriel qui permet un nettoyage en profondeur des
-                  surfaces métalliques et les prépare aux revêtements
-                  ultérieurs. Notre atelier propose tous types de peintures pour
-                  la protection contre la corrosion et la détérioration.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  La peinture en poudre, aussi appelée peinture cuite au four,
-                  se distingue par son économie, l'économie de temps (pas de
-                  temps de séchage) et le respect de l'environnement. La
-                  peinture liquide est appliquée au pistolet pulvérisateur sur
-                  une chaîne de production, dans une cabine sans poussière. Nous
-                  garantissons que chaque finition répond à vos spécifications
-                  et offre une protection durable pour vos équipements
-                  industriels.
-                </p>
+                <h3 className="text-3xl font-bold text-accent mb-8">
+                  Nos avantages
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiBox className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Préparation Complète
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Sablage professionnel et nettoyage en profondeur des
+                      surfaces
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiDroplet className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Revêtements Durables
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Protection contre la corrosion et la détérioration
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiCheckCircle className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Conformité Environnementale
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Processus respectueux de l'environnement
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Features */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
+                transition={{ ease: 'linear', duration: 0.15, delay: 0.3 }}
                 className="mb-12"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-12 bg-accent" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Notre Capacité Technique
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Capacités techniques
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Sablage Industriel',
-                    'Revêtements Protecteurs',
-                    'Préparation de Surface',
-                    'Inspection Qualité',
-                    'Finition Poudre',
-                    'Application de Peinture Liquide',
+                    'Sablage industriel',
+                    'Peinture en poudre',
+                    'Peinture liquide au pistolet',
+                    'Grenaillage de précision',
+                    'Cabine de pulvérisation sans poussière',
+                    'Contrôle qualité rigoureux',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
                       whileHover={{
                         scale: 1.05,
-                        backgroundColor: 'rgba(174, 143, 98, 0.15)',
+                        backgroundColor: 'rgba(174, 143, 98, 0.1)',
+                        borderLeftColor: '#ae8f62',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer "
+                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer border-l-2 border-transparent"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-gray-700 group-hover:text-accent transition-colors">
+                      <span className="text-gray-700 group-hover:text-accent transition-colors font-medium">
                         {feature}
                       </span>
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
+
               {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.15, delay: 0.1 }}
+                transition={{ ease: 'linear', duration: 0.15, delay: 0.4 }}
               >
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  <CTAButton text="Obtenir un devis" />
+                  <CTAButton text="Nous contacter" />
                 </Link>
               </motion.div>
             </div>
@@ -214,12 +319,11 @@ const PaintingSandblasting = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-0.5 w-8 bg-accent" />
                     <h4 className="text-lg font-bold text-gray-900">
-                      Besoin d'aide ?
+                      Service de finition ?
                     </h4>
                   </div>
                   <p className="text-gray-700 text-sm mb-6">
-                    Laissez nos experts en finition vous aider à protéger votre
-                    équipement.
+                    Contactez nos experts en traitement de surface.
                   </p>
                   <Link to="/contact">
                     <CTAButton text="Nous contacter" variant="full-width" />

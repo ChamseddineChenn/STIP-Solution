@@ -3,7 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiStar,
+  FiTrendingUp,
+  FiUsers,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -53,18 +59,16 @@ const IndustrialMaintenance = () => {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="h-1 bg-accent"
               />
-              <span className="text-accent font-semibold">Fiabilité 24/7</span>
+              <span className="text-accent font-semibold">
+                La flexibilité dont vous avez besoin
+              </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Maintenance Industrielle & Mécanique
+              Maintenance Industriel
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              Performance et Disponibilité 24/7. Dans un environnement de
-              production, chaque minute d'arrêt a un coût. Chez STIP Solution,
-              nous comprenons l'urgence de vos opérations. C'est pourquoi nous
-              offrons un service de maintenance agile, expert et disponible 24
-              heures sur 24, 7 jours sur 7, pour garantir la continuité de vos
-              actifs les plus critiques.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              La flexibilité dont vous avez besoin, quand vous en avez le plus
+              besoin, 24h/24 et 7j/7.
             </p>
           </motion.div>
         </div>
@@ -82,62 +86,20 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.6 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Une Expertise Multidisciplinaire pour une Usine Performante
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Notre Expertise en Mécanique Industrielle
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Notre approche de la maintenance ne se limite pas à la
-                  réparation. Nous intervenons sur l'ensemble du cycle de vie de
-                  vos machines grâce à une équipe de mécaniciens industriels et
-                  de techniciens polyvalents.
+                <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                  Nous avons développé une expertise reconnue en mécanique
+                  industrielle, grâce à nos méthodes éprouvées et au
+                  professionnalisme de nos équipes.
                 </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Disponibilité 24/7 :
-                      </strong>{' '}
-                      Nos équipes d'intervention rapide garantissent une réponse
-                      en moins de 2 heures pour les urgences critiques.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Expertise Polyvalente :
-                      </strong>{' '}
-                      Soudeurs, mécaniciens, électriciens et techniciens
-                      spécialisés dans une seule équipe coordonnée.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Gestion des Arrêts :
-                      </strong>{' '}
-                      Planification stratégique pour minimiser le temps d'arrêt
-                      de production et optimiser la rentabilité.
-                    </span>
-                  </motion.li>
-                </ul>
+                <div className="bg-gradient-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                  <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                    Nos fidèles partenaires commerciaux nous confèrent également
+                    une position stratégique de choix.
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div
@@ -146,50 +108,98 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  1. Maintenance Stratégique et Préventive
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Nos Domaines d'Intervention
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Anticipez les pannes avant qu'elles ne surviennent. Nous
-                  élaborons avec vous des plans de maintenance rigoureux pour :
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Nous vous accompagnons pour vos travaux de :
                 </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Augmenter le MTBF (temps moyen entre deux pannes).
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Maintenance Préventive
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Planification et maintenance régulière de vos équipements
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Optimiser le rendement énergétique et mécanique de vos
-                      installations.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Modification d'Équipements
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Adaptation et amélioration de vos installations
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Sécuriser vos lignes de production selon les normes en
-                      vigueur.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Installation et Démontage
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Installation ou démontage de nouvelles machines
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Sablage et Peinture
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Protection et finition de vos équipements
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Menuiserie Industrielle
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Structures et aménagements sur site
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Fabrication sur Site
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Production de pièces et équipements directement sur vos
+                      installations
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -198,111 +208,68 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  2. Installation, Modification et Relocalisation
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Nos Points Forts
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Que vous fassiez l'acquisition de nouvelles technologies ou
-                  que vous modernisiez vos lignes existantes, nous assurons :
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Une approche complète et professionnelle pour tous vos besoins
+                  de réparation et rénovation.
                 </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Installation et démontage de machines avec une précision
-                      millimetétrique.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Modification d'équipements pour adapter votre capacité de
-                      production.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      Fabrication sur site de pièces de rechange ou de
-                      structures de support.
-                    </span>
-                  </motion.li>
-                </ul>
-              </motion.div>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiStar className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Projets Spécialisés
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Solutions adaptées pour tout projet spécial
+                    </p>
+                  </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ ease: 'linear', duration: 0.6, delay: 0.3 }}
-                className="mb-12 pl-6 border-l-4 border-accent"
-              >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  3. Services Auxiliaires de Chantier
-                </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Pour vous offrir une solution véritablement «clés en main»,
-                  nous intégrons des métiers complémentaires indispensables à la
-                  remise à neuf de vos installations :
-                </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Sablage et Peinture industrielle :
-                      </strong>{' '}
-                      Protection anticorrosion haute durabilité.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Menuiserie et Coffrage industriel :
-                      </strong>{' '}
-                      Aménagements spécifiques et supports de machinerie.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Rénovation et Réparation :
-                      </strong>{' '}
-                      Remise en état complète après sinistre ou usure prolongée.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiTrendingUp className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Expertise Reconnue
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Méthodes éprouvées et professionnalisme
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
+                  >
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiUsers className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Équipes Polyvalentes
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Multiples compétences en une équipe coordonnée
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Features */}
@@ -312,33 +279,34 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-12 bg-accent" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Nos Services de Maintenance
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Nos Services de Maintenance
+                </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     'Maintenance Préventive',
-                    "Dépannage d'Urgence",
-                    "Révision d'Équipement",
-                    'Équipes Mobiles',
-                    "Modification d'Équipement",
+                    'Maintenance Corrective',
                     'Installation de Machines',
+                    "Modification d'Équipement",
+                    'Fabrication sur Site',
+                    'Réparation et Rénovation',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
                       whileHover={{
                         scale: 1.05,
-                        backgroundColor: 'rgba(174, 143, 98, 0.15)',
+                        backgroundColor: 'rgba(174, 143, 98, 0.1)',
+                        borderLeftColor: '#ae8f62',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer "
+                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer border-l-2 border-transparent"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-gray-700 group-hover:text-accent transition-colors">
+                      <span className="text-gray-700 group-hover:text-accent transition-colors font-medium">
                         {feature}
                       </span>
                     </motion.div>
@@ -352,7 +320,7 @@ const IndustrialMaintenance = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0.1 }}
               >
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  <CTAButton text="Demander un plan d'entretien" />
+                  <CTAButton text="Demander une intervention" />
                 </Link>
               </motion.div>
             </div>
@@ -413,7 +381,8 @@ const IndustrialMaintenance = () => {
                     </h4>
                   </div>
                   <p className="text-gray-700 text-sm mb-6">
-                    Contactez notre équipe de maintenance disponible 24/7.
+                    Discutez avec nos experts en maintenance de vos projets
+                    spéciaux.
                   </p>
                   <Link to="/contact">
                     <CTAButton text="Nous contacter" variant="full-width" />

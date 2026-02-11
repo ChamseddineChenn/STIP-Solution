@@ -3,7 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiShield,
+  FiCheckCircle,
+  FiUsers,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -12,11 +18,20 @@ const IndustrialCleaning = () => {
 
   const relatedServices = [
     {
-      id: 4,
+      id: 5,
       title: 'Maintenance Industrielle',
       path: '/services/industrial-maintenance',
     },
-    { id: 5, title: 'Soudage Mobile', path: '/services/mobile-welding' },
+    {
+      id: 1,
+      title: 'Fabrication sur mesure et Réparation',
+      path: '/services/custom-manufacturing',
+    },
+    {
+      id: 7,
+      title: 'Soudage Mobile',
+      path: '/services/mobile-welding',
+    },
   ];
 
   return (
@@ -54,19 +69,19 @@ const IndustrialCleaning = () => {
                 className="h-1 bg-accent"
               />
               <span className="text-accent font-semibold">
-                Nettoyage Professionnel
+                Nettoyage professionnel
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Nettoyage Industriel de Haute Performance
+              Nettoyage industriel
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              Hygiène, Sécurité et Conformité. Le nettoyage industriel ne se
-              limite pas à l'entretien de surface ; c'est un pilier de votre
-              stratégie de maintenance. Chez STIP Solution, nous intervenons là
-              où la propreté devient une question de sécurité et d'efficacité
-              opérationnelle. Nos équipes spécialisées traitent les
-              environnements les plus exigeants avec une rigueur mathématique.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              Professionnels qualifiés en nettoyage industriel
+            </p>
+            <p className="text-lg text-white max-w-4xl leading-relaxed mt-4 opacity-95">
+              Nous garantissons des services de qualité qui dépassent vos
+              attentes avec des équipes qualifiées et expérimentées, appliquant
+              des normes strictes à chaque intervention.
             </p>
           </motion.div>
         </div>
@@ -84,63 +99,23 @@ const IndustrialCleaning = () => {
                 transition={{ ease: 'linear', duration: 0.6 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  1. Expertise en Environnements à Haut Risque
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Domaines de compétences spécialisées
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Nous formons nos experts pour intervenir dans des zones
-                  critiques où l'erreur n'est pas permise. Chaque intervention
-                  est planifiée pour minimiser l'impact sur votre production.
-                </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Espaces Clos et Confinés :
-                      </strong>{' '}
-                      Maîtrise totale des protocoles d'entrée et de surveillance
-                      pour un nettoyage sécuritaire.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Travaux en Hauteur :
-                      </strong>{' '}
-                      Utilisation d'équipements d'accès spécialisés pour
-                      l'assainissement de structures complexes et de plafonds
-                      industriels.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Gestion des Produits Spécifiques :
-                      </strong>{' '}
-                      Sélection rigoureuse de solvants et d'agents de nettoyage
-                      adaptés à vos types de contaminants (graisses, poudres,
-                      résidus chimiques).
-                    </span>
-                  </motion.li>
-                </ul>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Le nettoyage industriel ne se limite pas à la maintenance de
+                    base. Il englobe plusieurs domaines qui requièrent des
+                    compétences spécifiques.
+                  </p>
+                  <div className="bg-linear-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                      Nos interventions couvrent le poste de travail (hauteurs,
+                      espaces confinés, zones critiques), le matériel spécialisé
+                      et les produits adaptés à vos besoins spécifiques.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -149,111 +124,147 @@ const IndustrialCleaning = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  2. La Sécurité : Notre Standard de Performance
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  UNE ÉQUIPE DE NETTOYAGE QUI NE COMPROMET PAS LA SÉCURITÉ NI LA
+                  SALETÉ
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Pour STIP Solution, une intervention réussie se mesure par
-                  l'absence totale d'incidents et un niveau de propreté
-                  dépassant les audits les plus stricts.
-                </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Par conséquent, des normes de sécurité très strictes et
+                    rigoureuses doivent être appliquées à chaque opération de
+                    nettoyage industriel. Ces points soulignent également
+                    l'importance de faire appel à des experts qualifiés et
+                    expérimentés comme les membres de notre équipe.
+                  </p>
+                  <div className="bg-linear-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                      Particulièrement dans le cadre des opérations de nettoyage
+                      industriel, la sécurité fait partie intégrante de tous nos
+                      processus et est régulièrement contrôlée. En plus de
+                      garantir une qualité et une efficacité inégalées, cela
+                      nous permet de respecter et de dépasser les normes lors de
+                      chacune de nos interventions.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Advantages Cards */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
+                className="mb-12"
+              >
+                <h3 className="text-3xl font-bold text-accent mb-8">
+                  Nos Forces
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Normes Rigoureuses :
-                      </strong>{' '}
-                      Application systématique des standards SST et des
-                      protocoles spécifiques.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiShield className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Sécurité Stricte
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Normes rigoureuses appliquées à chaque intervention
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Contrôles Qualité Fréquents :
-                      </strong>{' '}
-                      Audit post-intervention pour valider l'atteinte des
-                      objectifs de salubrité.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiCheckCircle className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Qualité & Efficacité
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Contrôles qualité fréquents et résultats garantis
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Formation Continue :
-                      </strong>{' '}
-                      Nos techniciens sont régulièrement recyclés sur les
-                      dernières normes de sécurité et les nouvelles technologies
-                      de nettoyage industriel.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiUsers className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Équipes Expertes
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Professionnels qualifiés et expérimentés
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Features */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
+                transition={{ ease: 'linear', duration: 0.15, delay: 0.3 }}
                 className="mb-12"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-12 bg-accent" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Nos Services de Nettoyage
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Spécialités et Services
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Nettoyage Haute Pression',
-                    'Dégraissage Chimique',
-                    'Nettoyage de Réservoirs',
-                    'Conformité Environnementale',
-                    'Opérations Certifiées Sécurité',
-                    'Intervention 24/7',
+                    'Espaces clos et confinés',
+                    'Travaux en hauteur',
+                    'Nettoyage haute pression',
+                    'Dégraissage chimique',
+                    'Conformité environnementale',
+                    'Intervention rapide',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
                       whileHover={{
                         scale: 1.05,
-                        backgroundColor: 'rgba(174, 143, 98, 0.15)',
+                        backgroundColor: 'rgba(174, 143, 98, 0.1)',
+                        borderLeftColor: '#ae8f62',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer "
+                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer border-l-2 border-transparent"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-gray-700 group-hover:text-accent transition-colors">
+                      <span className="text-gray-700 group-hover:text-accent transition-colors font-medium">
                         {feature}
                       </span>
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
+
               {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.15, delay: 0.1 }}
+                transition={{ ease: 'linear', duration: 0.15, delay: 0.5 }}
               >
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  <CTAButton text="Réserver un service" />
+                  <CTAButton text="Demander un service" />
                 </Link>
               </motion.div>
             </div>
@@ -310,11 +321,11 @@ const IndustrialCleaning = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-0.5 w-8 bg-accent" />
                     <h4 className="text-lg font-bold text-gray-900">
-                      Besoin d'aide ?
+                      Besoin de nettoyage ?
                     </h4>
                   </div>
                   <p className="text-gray-700 text-sm mb-6">
-                    Contactez nos spécialistes en nettoyage 24/7.
+                    Contactez notre équipe de nettoyage professionnel.
                   </p>
                   <Link to="/contact">
                     <CTAButton text="Nous contacter" variant="full-width" />

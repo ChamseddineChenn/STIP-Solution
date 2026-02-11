@@ -3,7 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiUsers,
+  FiAward,
+  FiGlobe,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -63,19 +69,21 @@ const LaborRental = () => {
                 className="h-1 bg-accent"
               />
               <span className="text-accent font-semibold">
-                Expertise Qualifiée
+                In the field of welding
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Location de Main-d'Œuvre Spécialisée
+              Location de Main-d'Œuvre
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              Une Solution Flexible pour Optimiser votre ROI. Faites face aux
-              fluctuations du marché et boostez votre capacité de production
-              sans alourdir votre structure fixe. STIP Solution offre un service
-              de location de main-d'œuvre hautement qualifiée, conçu pour les
-              entreprises exigeantes qui visent l'excellence opérationnelle, de
-              la production à l'unité jusqu'aux grandes séries.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              Vous souhaitez diversifier vos produits et augmenter votre volume
+              de production ?
+            </p>
+            <p className="text-lg text-white max-w-4xl leading-relaxed mt-4 opacity-95">
+              Vous recherchez une entreprise capable de vous proposer un service
+              complet de location de main-d'œuvre, de la simple opération à la
+              fabrication complète de pièces en aluminium, en acier inoxydable
+              ou en acier ?
             </p>
           </motion.div>
         </div>
@@ -93,64 +101,27 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.6 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Une Solution Flexible pour Optimiser votre ROI
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  La Solution : STIP !
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  L'externalisation de vos besoins en personnel avec STIP vous
-                  permet de transformer vos coûts fixes en coûts variables, tout
-                  en accélérant vos cycles de livraison.
-                </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Agilité de Production :
-                      </strong>{' '}
-                      Que ce soit pour une opération ponctuelle ou la prise en
-                      charge complète d'une ligne de fabrication (acier, acier
-                      inoxydable, aluminium).
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Scalabilité Immédiate :
-                      </strong>{' '}
-                      Adaptez la taille de votre équipe en fonction de vos
-                      contrats, que ce soit pour de la petite, moyenne ou grande
-                      série.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Réduction des Risques RH :
-                      </strong>{' '}
-                      Économisez sur le recrutement et la formation. Nous
-                      fournissons des experts opérationnels dès leur arrivée sur
-                      votre site.
-                    </span>
-                  </motion.li>
-                </ul>
+                <div className="space-y-6">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Nous sommes prêts à vous proposer un service de location de
+                    main-d'œuvre adapté à vos besoins, vous permettant ainsi de
+                    gagner du temps et de l'argent.
+                  </p>
+                  <div className="bg-gradient-to-r from-accent/10 to-transparent p-6 rounded-lg border-l-4 border-accent">
+                    <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                      Nous garantissons des services de qualité qui dépassent
+                      vos attentes, pour tous vos besoins de production, de
+                      petite, moyenne et grande série.
+                    </p>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Nous pouvons être votre partenaire de confiance et vous
+                    aider à atteindre vos objectifs plus rapidement.
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div
@@ -159,11 +130,93 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <p className="text-gray-700 leading-relaxed mb-8">
-                  Tous nos employés sont rigoureusement sélectionnés pour leur
-                  polyvalence et leur capacité à s'intégrer rapidement dans des
-                  environnements techniques complexes.
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Effectifs Disponibles dans Notre Entreprise
+                </h2>
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Une équipe polyvalente et mobilisable partout :
                 </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">Soudeur</h4>
+                    <p className="text-sm text-gray-700">
+                      Expertise en soudage sur tous types de métaux
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Soudeur/Ajusteur en lecture de plans
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Interprétation technique et exécution précise
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Superviseur en soudage
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Gestion d'équipe et contrôle qualité
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Mécanicien industriel (machines fixes et mobiles)
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Maintenance et dépannage d'équipements
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">Machiniste</h4>
+                    <p className="text-sm text-gray-700">
+                      Usinage de précision et fabrication
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Équipe Polyvalente
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Déployable partout au Canada
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -172,84 +225,68 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.2 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Nos Corps de Métiers Disponibles :
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Nos Avantages
                 </h2>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Soudeurs Certifiés :
-                      </strong>{' '}
-                      Maîtrise des procédés de pointe sur tous types de métaux.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Une solution complète et professionnelle pour tous vos besoins
+                  en ressources humaines.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Soudeurs-Ajusteurs (Lecture de plans) :
-                      </strong>{' '}
-                      Experts en interprétation technique pour une exécution
-                      sans erreur.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiUsers className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Équipes Qualifiées
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Personnel rigoureusement sélectionné et expérimenté
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Superviseurs en Soudage :
-                      </strong>{' '}
-                      Gestion d'équipe et contrôle qualité rigoureux sur le
-                      terrain.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiAward className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Polyvalence
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Adaptabilité et intégration rapide
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Mécaniciens Industriels (Fixes et Mobiles) :
-                      </strong>{' '}
-                      Maintenance proactive et dépannage d'équipements de
-                      production.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Machinistes de Précision :
-                      </strong>{' '}
-                      Usinage et fabrication de pièces aux tolérances critiques.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiGlobe className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Mobilité Nationale
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Déploiement partout au Canada
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Features */}
@@ -259,32 +296,33 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-12 bg-accent" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Notre Main d'Œuvre Qualifiée
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Spécialités et Compétences
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
                     'Soudeurs Qualifiés',
-                    'Mécaniciens Industriels',
-                    'Opérateurs CNC',
-                    'Techniciens de Production',
-                    'Contractants Polyvalents',
-                    'Personnel Certifié',
+                    'Ajusteurs en lecture de plans',
+                    'Superviseurs en soudage',
+                    'Mécaniciens industriels',
+                    'Machinistes de précision',
+                    'Personnel polyvalent mobile',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
                       whileHover={{
                         scale: 1.05,
-                        backgroundColor: 'rgba(174, 143, 98, 0.15)',
+                        backgroundColor: 'rgba(174, 143, 98, 0.1)',
+                        borderLeftColor: '#ae8f62',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer "
+                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer border-l-2 border-transparent"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-gray-700 group-hover:text-accent transition-colors">
+                      <span className="text-gray-700 group-hover:text-accent transition-colors font-medium">
                         {feature}
                       </span>
                     </motion.div>
@@ -299,7 +337,7 @@ const LaborRental = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0.1 }}
               >
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  <CTAButton text="Réserver de la main-d'œuvre qualifiée" />
+                  <CTAButton text="Réserver votre équipe" />
                 </Link>
               </motion.div>
             </div>
@@ -352,16 +390,16 @@ const LaborRental = () => {
                 </div>
 
                 {/* Contact Info */}
-                <div className="mt-8 bg-linear-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
+                <div className="mt-8 bg-gradient-to-br from-white to-amber-50 shadow-lg p-8 border-t-4 border-accent">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="h-0.5 w-8 bg-accent" />
                     <h4 className="text-lg font-bold text-gray-900">
-                      Prêt à réserver ?
+                      Besoin de talents ?
                     </h4>
                   </div>
                   <p className="text-gray-700 text-sm mb-6">
-                    Connectez-vous avec notre équipe pour discuter de vos
-                    besoins en personnel.
+                    Discutez avec nos experts en ressources humaines de vos
+                    besoins.
                   </p>
                   <Link to="/contact">
                     <CTAButton text="Nous contacter" variant="full-width" />

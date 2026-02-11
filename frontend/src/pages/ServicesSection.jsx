@@ -277,6 +277,46 @@ const ServicesSection = () => {
       image: assets.Location_Main_Oeuvre_Image,
       overlayType: 'black',
     },
+    {
+      id: 9,
+      title: 'Nettoyage industriel',
+      shortDescription:
+        'Services de nettoyage industriel avec normes strictes de sécurité et conformité environnementale.',
+      fullDescription:
+        'Solutions complètes de nettoyage industriel pour environnements à haut risque avec équipes qualifiées, normes rigoureuses et contrôles qualité fréquents.',
+      features: [
+        'Espaces clos et confinés',
+        'Travaux en hauteur',
+        'Gestion de produits spécifiques',
+        'Normes rigoureuses SST',
+      ],
+      stats: [
+        { label: 'Temps de réponse', value: '24/7' },
+        { label: 'Taux de conformité', value: '100%' },
+      ],
+      image: assets.Nettoyage_Industrielle_Image,
+      overlayType: 'blue',
+    },
+    {
+      id: 10,
+      title: 'Peinture & sablage',
+      shortDescription:
+        'Solutions de traitement de surface avec sablage industriel et peinture professionnelle.',
+      fullDescription:
+        'Services complets de finition incluant sablage pour préparation de surface et peinture en poudre ou liquide pour protection durable contre la corrosion.',
+      features: [
+        'Sablage industriel',
+        'Peinture en poudre',
+        'Peinture liquide',
+        'Cabine sans poussière',
+      ],
+      stats: [
+        { label: 'Préparation', value: '100%' },
+        { label: 'Protection', value: 'Durable' },
+      ],
+      image: assets.Peinture_Sablage_Image,
+      overlayType: 'blue',
+    },
   ];
 
   // Get visible services for the current slide
@@ -311,6 +351,7 @@ const ServicesSection = () => {
     5: '/services/industrial-maintenance',
     7: '/services/mobile-welding',
     8: '/services/labor-rental',
+    9: '/services/industrial-cleaning',
   };
 
   const handleServiceClick = (serviceId) => {
@@ -383,7 +424,7 @@ const ServicesSection = () => {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="relative overflow-hidden cursor-pointer sharp group"
+                  className="relative overflow-hidden cursor-pointer sharp group hover:cursor-pointer"
                   style={{
                     width: `calc(${100 / itemsPerView}% - 1rem)`,
                     height: '500px',

@@ -3,7 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiArrowRight } from 'react-icons/fi';
+import {
+  FiChevronLeft,
+  FiArrowRight,
+  FiBox,
+  FiLayers,
+  FiZap,
+} from 'react-icons/fi';
 import { assets } from '../../assets/assets';
 import CTAButton from '../../components/CTAButton';
 
@@ -63,14 +69,16 @@ const WeldingAssembly = () => {
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Soudage et Chaudronnerie Industrielle
+              Chaudronnerie Industrielle
             </h1>
-            <p className="text-xl text-white max-w-4xl leading-relaxed">
-              L'Ingénierie de l'Acier. Chez STIP Solution, nous transformons la
-              matière brute — tôles, tubes et profilés — en équipements
-              industriels de haute performance. Notre expertise en chaudronnerie
-              allie une maîtrise technique rigoureuse à une capacité de
-              production adaptée aux projets les plus complexes et volumineux.
+            <p className="text-xl text-white max-w-4xl leading-relaxed font-semibold">
+              La chaudronnerie utilise des tôles, des tubes et des profilés pour
+              créer des équipements destinés aux secteurs industriels.
+            </p>
+            <p className="text-lg text-white max-w-4xl leading-relaxed mt-4 opacity-95">
+              Confiez-nous la conception et la production de vos pièces,
+              complexes de chaudronnerie et de tous types d'équipements de
+              chaudronnerie.
             </p>
           </motion.div>
         </div>
@@ -83,36 +91,77 @@ const WeldingAssembly = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ ease: 'linear', duration: 0.6 }}
-                className="mb-12"
+                className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <p className="text-gray-700 leading-relaxed mb-8">
-                  Chez STIP Solution, nous ne nous contentons pas de souder :
-                  nous bâtissons la fiabilité de vos infrastructures. Que ce
-                  soit pour des composantes de haute précision ou des structures
-                  industrielles massives, notre approche repose sur une synergie
-                  entre agilité technique et capacité de production.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: 'linear', duration: 0.6 }}
-                className="mb-12"
-              >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Une Expertise Multidisciplinaire pour vos Infrastructures
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Nos Équipements de Chaudronnerie
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Nous prenons en charge l'intégralité du cycle de vie de vos
-                  équipements : de la conception assistée à la fabrication de
-                  précision, jusqu'à l'assemblage final. Notre approche garantit
-                  des structures capables de résister aux environnements
-                  industriels les plus hostiles.
+                <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                  Nous concevons et produisons une gamme complète d'équipements
+                  de chaudronnerie destinés aux secteurs industriels :
                 </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Réservoirs Atmosphériques
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Stockage sécurisé et performant pour tous types de fluides
+                      industriels
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Trémies et Cyclones
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Solutions de manutention et transfert des matériaux
+                      optimisées
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Goulottes et Mélangeurs
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Équipements de process complexes et précis
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    className="bg-accent/10 p-5 rounded-lg border-l-4 border-accent"
+                  >
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Conduits et Cheminées
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Systèmes d'évacuation et de circulation industriels
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -121,73 +170,68 @@ const WeldingAssembly = () => {
                 transition={{ ease: 'linear', duration: 0.6, delay: 0.1 }}
                 className="mb-12 pl-6 border-l-4 border-accent"
               >
-                <h2 className="text-3xl font-bold text-accent mb-6">
-                  Nos Réalisations de Chaudronnerie «Haute Performance»
+                <h2 className="text-3xl font-bold text-accent mb-8">
+                  Matériaux et Expertise
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Nous concevons et fabriquons une vaste gamme d'équipements sur
-                  mesure, répondant aux normes de sécurité et de durabilité les
-                  plus strictes :
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                  Notre maîtrise des matériaux et techniques de chaudronnerie
+                  garantit des réalisations durables et performantes.
                 </p>
-                <ul className="space-y-3">
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
-                  >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Stockage et Fluides :
-                      </strong>{' '}
-                      Réservoirs atmosphériques et cuves de stockage.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Manutention et Transfert :
-                      </strong>{' '}
-                      Trémies, goulottes, cyclones et systèmes de dosage.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiBox className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Tôles de Qualité
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Acier, inox et alliages spécialisés
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Process Industriel :
-                      </strong>{' '}
-                      Mélangeurs, conduits complexes et cheminées industrielles.
-                    </span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiLayers className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Tubes et Profilés
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Gamme complète de sections standards
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.4 }}
-                    className="flex gap-3 text-gray-700 leading-relaxed"
+                    whileHover={{ y: -4, borderColor: '#ae8f62' }}
+                    className="bg-white p-8 border border-gray-200 hover:border-accent transition-all duration-300 group"
                   >
-                    <span className="text-accent font-bold mt-1">■</span>
-                    <span>
-                      <strong className="text-accent">
-                        Structures sur Mesure :
-                      </strong>{' '}
-                      Pièces complexes de chaudronnerie selon vos plans et
-                      devis.
-                    </span>
-                  </motion.li>
-                </ul>
+                    <div className="text-5xl text-accent mb-4 flex items-center justify-center">
+                      <FiZap className="filter drop-shadow-sm" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 mb-3 text-center">
+                      Soudure Précise
+                    </h4>
+                    <p className="text-sm text-gray-600 text-center leading-relaxed">
+                      Techniques avancées et certifiées
+                    </p>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Features */}
@@ -197,32 +241,33 @@ const WeldingAssembly = () => {
                 transition={{ ease: 'linear', duration: 0.15, delay: 0 }}
                 className="mb-12"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-12 bg-accent" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Notre Expertise
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Spécialités en Chaudronnerie
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Soudage de Précision',
-                    'Assemblage Structurel',
-                    'Inspection de Qualité',
-                    'Intégration CAO/FAO',
-                    'Tank Fabrication',
-                    'Custom Equipment Design',
+                    'Réservoirs Atmosphériques',
+                    'Trémies et Cyclones',
+                    'Tôles Métalliques',
+                    'Tubes et Profilés',
+                    'Mélangeurs Industriels',
+                    'Conduits et Cheminées',
                   ].map((feature, idx) => (
                     <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08, duration: 0.4 }}
                       whileHover={{
                         scale: 1.05,
-                        backgroundColor: 'rgba(174, 143, 98, 0.15)',
+                        backgroundColor: 'rgba(174, 143, 98, 0.1)',
+                        borderLeftColor: '#ae8f62',
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer "
+                      className="group flex items-center gap-3 p-4 transition-all duration-100 cursor-pointer border-l-2 border-transparent"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-gray-700 group-hover:text-accent transition-colors">
+                      <span className="text-gray-700 group-hover:text-accent transition-colors font-medium">
                         {feature}
                       </span>
                     </motion.div>
@@ -298,7 +343,7 @@ const WeldingAssembly = () => {
                     </h4>
                   </div>
                   <p className="text-gray-700 text-sm mb-6">
-                    Contactez nos experts en soudage aujourd'hui.
+                    Discutez avec nos experts en chaudronnerie de vos projets.
                   </p>
                   <Link to="/contact">
                     <CTAButton text="Nous contacter" variant="full-width" />
