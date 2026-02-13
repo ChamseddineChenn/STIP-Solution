@@ -29,7 +29,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
           />
         </video> */}
-        
+
         {/* Background Image instead of video */}
         <img
           src={posterSrc}

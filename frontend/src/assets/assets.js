@@ -1,6 +1,7 @@
 import hero_bg_vid from './Cinematic Welding -Inspired by Peter Mckinnon.mp4';
 import STIP_Website_Thumbnail from './STIP_Website_Thumbnail.jpeg';
 import stip_logo from './LOGO STIP SOLUTION BLANC.svg';
+import blue_stip_logo from './LOGO STIP SOLUTION.svg';
 import laborer_vid_card from './welding laborer.mp4';
 import welding_vid_card from './welding video.mp4';
 import laser_vid_card from './laser video.mp4';
@@ -36,6 +37,7 @@ export const assets = {
   hero_bg_vid,
   STIP_Website_Thumbnail,
   stip_logo,
+  blue_stip_logo,
   laborer_vid_card,
   welding_vid_card,
   laser_vid_card,

@@ -87,12 +87,15 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="flex items-center space-x-3 mb-4">
-              <img
-                className="h-32"
-                src={assets.stip_logo}
-                alt="STIP Solution Logo"
-              />
+            <div className="flex items-center mb-4">
+              {/* Logo Container */}
+              <div className="rounded-lg bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden h-fit">
+                <img
+                  className="h-20 w-auto object-contain"
+                  src={assets.blue_stip_logo}
+                  alt="STIP Solution Logo"
+                />
+              </div>
             </div>
 
             <p className="text-text-secondary text-sm leading-relaxed">

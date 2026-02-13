@@ -379,7 +379,7 @@ const Navbar = () => {
         {sparks.map((spark) => (
           <motion.div
             key={spark.id}
-            className="fixed pointer-events-none z-100"
+            className="fixed pointer-events-none z-100 rounded-full blur-sm"
             initial={{
               x: spark.x,
               y: spark.y,
@@ -404,8 +404,6 @@ const Navbar = () => {
               width: spark.size,
               height: spark.size * 3,
               backgroundColor: spark.color,
-              borderRadius: '50%',
-              filter: 'blur(1px)',
               boxShadow: `0 0 10px ${spark.color}, 0 0 20px ${spark.color}`,
             }}
           />
@@ -413,7 +411,11 @@ const Navbar = () => {
       </AnimatePresence>
 
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24 ${
+          shouldShowBackground
+            ? 'bg-dark-blue/95 backdrop-blur-xl'
+            : 'bg-transparent'
+        }`}
         initial={{ y: -100 }}
         animate={{
           y: isVisible ? 0 : -100,
@@ -421,12 +423,6 @@ const Navbar = () => {
         transition={{
           duration: 0.3,
           ease: 'easeInOut',
-        }}
-        style={{
-          backgroundColor: shouldShowBackground
-            ? 'rgba(15, 23, 42, 0.95)'
-            : 'transparent',
-          backdropFilter: shouldShowBackground ? 'blur(10px)' : 'none',
         }}
       >
         {/* Full width content */}
@@ -438,16 +434,24 @@ const Navbar = () => {
             transition={{ type: 'spring', stiffness: 400 }}
           >
             <Link to="/">
-              <img
-                src={assets.stip_logo}
-                alt="STIP Solutions"
-                className="h-12 lg:h-30 w-auto object-contain"
-                style={{
-                  filter: shouldShowBackground
-                    ? 'brightness(1)'
-                    : 'brightness(2) drop-shadow(0 0 8px rgba(255,255,255,0.3))',
-                }}
-              />
+              {shouldShowBackground ? (
+                <div className="rounded-lg bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden h-fit">
+                  <img
+                    src={assets.blue_stip_logo}
+                    alt="STIP Solutions"
+                    className="h-12 lg:h-20 w-auto object-contain"
+                  />
+                </div>
+              ) : (
+                <img
+                  src={assets.blue_stip_logo}
+                  alt="STIP Solutions"
+                  className="h-12 lg:h-20 w-auto object-contain"
+                  style={{
+                    filter: 'brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.4)) drop-shadow(0 0 20px rgba(255,255,255,0.2))',
+                  }}
+                />
+              )}
             </Link>
           </motion.div>
 
