@@ -18,7 +18,7 @@ const OurLocations = () => {
   const locations = {
     headquarters: {
       id: 'headquarters',
-      title: 'Siège social et bureau principal',
+      title: 'Siège social',
       city: 'Montréal, Québec',
       address: '2828 Boul Laurier Tour 1 Étage 7, Québec, QC G1V 0B9',
       image: assets.STIP_Siege_Image,
@@ -29,7 +29,7 @@ const OurLocations = () => {
     },
     facility: {
       id: 'facility',
-      title: 'Centre opérationnel',
+      title: 'Succursale',
       city: 'Québec, Québec',
       address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       image: assets.Warehouse_Image,
@@ -40,7 +40,7 @@ const OurLocations = () => {
     },
     capsante: {
       id: 'capsante',
-      title: 'Espace manufacturier et entreposage',
+      title: 'Usine de fabrication',
       city: 'Cap-Santé, Québec',
       address: '23 Rte DelageCap-Santé, QC G0A 1L0',
       image: assets.Warehouse_Image,
@@ -154,14 +154,12 @@ const OurLocations = () => {
               </div>
               <div className="flex items-center">
                 <div className="w-4 h-4 bg-gray-800 mr-3" />
-                <span className="text-gray-900 font-medium">
-                  Centre opérationnel
-                </span>
+                <span className="text-gray-900 font-medium">Succursale</span>
               </div>
               <div className="flex items-center">
                 <div className="w-4 h-4 bg-accent mr-3" />
                 <span className="text-gray-900 font-medium">
-                  Espace manufacturier
+                  Usine de fabrication
                 </span>
               </div>
             </div>
@@ -171,7 +169,7 @@ const OurLocations = () => {
               <div className="flex items-center mb-4">
                 <FiGlobe className="w-6 h-6 text-primary mr-3" />
                 <h3 className="font-bold text-gray-900 text-base">
-                  Opérations au Québec
+                  Opérations au Québec & Canada
                 </h3>
               </div>
               <div className="grid grid-cols-2 gap-4">

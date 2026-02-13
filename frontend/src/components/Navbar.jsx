@@ -32,7 +32,7 @@ const ServicesDropdown = React.memo(
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="fixed top-16 left-0 right-0 z-40 bg-dark-blue shadow-2xl"
+        className="fixed top-32 left-0 right-0 z-40 bg-dark-blue shadow-2xl"
         onMouseEnter={() => setServicesOpen(true)}
         onMouseLeave={handleMouseLeave}
       >
@@ -379,7 +379,7 @@ const Navbar = () => {
         {sparks.map((spark) => (
           <motion.div
             key={spark.id}
-            className="fixed pointer-events-none z-100 rounded-full blur-sm"
+            className="fixed pointer-events-none z-100"
             initial={{
               x: spark.x,
               y: spark.y,
@@ -404,6 +404,7 @@ const Navbar = () => {
               width: spark.size,
               height: spark.size * 3,
               backgroundColor: spark.color,
+              borderRadius: '50%',
               boxShadow: `0 0 10px ${spark.color}, 0 0 20px ${spark.color}`,
             }}
           />
@@ -411,14 +412,14 @@ const Navbar = () => {
       </AnimatePresence>
 
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-32 ${
           shouldShowBackground
             ? 'bg-dark-blue/95 backdrop-blur-xl'
             : 'bg-transparent'
         }`}
-        initial={{ y: -100 }}
+        initial={{ y: -128 }}
         animate={{
-          y: isVisible ? 0 : -100,
+          y: isVisible ? 0 : -128,
         }}
         transition={{
           duration: 0.3,
@@ -426,7 +427,7 @@ const Navbar = () => {
         }}
       >
         {/* Full width content */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-24">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-32">
           {/* Logo - Using your assets */}
           <motion.div
             className="text-2xl font-bold tracking-wider"
@@ -439,17 +440,14 @@ const Navbar = () => {
                   <img
                     src={assets.blue_stip_logo}
                     alt="STIP Solutions"
-                    className="h-12 lg:h-20 w-auto object-contain"
+                    className="h-16 lg:h-28 w-auto object-contain"
                   />
                 </div>
               ) : (
                 <img
                   src={assets.blue_stip_logo}
                   alt="STIP Solutions"
-                  className="h-12 lg:h-20 w-auto object-contain"
-                  style={{
-                    filter: 'brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.4)) drop-shadow(0 0 20px rgba(255,255,255,0.2))',
-                  }}
+                  className="h-16 lg:h-28 w-auto object-contain logo-bright-glow"
                 />
               )}
             </Link>

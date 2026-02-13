@@ -31,6 +31,7 @@ import certified_image from './certified.svg';
 import precision_image from './precision.svg';
 import security_image from './security.svg';
 import cnesst_image from './CNESST_Icon.png';
+import cgp_image from './Logo_CGP.png';
 import cognibox_image from './COGNIBOX_Icon.png';
 
 export const assets = {
@@ -67,5 +68,6 @@ export const assets = {
   precision_image,
   security_image,
   cnesst_image,
+  cgp_image,
   cognibox_image,
 };

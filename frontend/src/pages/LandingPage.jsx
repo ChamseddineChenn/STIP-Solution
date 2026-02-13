@@ -4,6 +4,7 @@ import ServicesSection from './ServicesSection';
 import TempCertifications from './TempCertifications';
 import QuoteCTA from './QuoteCTA';
 import HowWeWork from './HowWeWork';
+import ForceSection from './ForceSection';
 import CaseStudies from './CaseStudies';
 import WhyChooseStip from './WhyChooseStip';
 import OurLocations from './OurLocations';
@@ -14,13 +15,14 @@ const LandingPage = () => {
       <HeroSection />
       <ServicesSection />
       <HowWeWork />
+      <ForceSection />
       <OurLocations />
       {/* 
       <CaseStudies /> 
       <WhyChooseStip />
       */}
-      <TempCertifications />
       <QuoteCTA />
+      <TempCertifications />
     </div>
   );
 };

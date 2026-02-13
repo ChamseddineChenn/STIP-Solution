@@ -16,6 +16,13 @@ const TempCertifications = () => {
     },
     {
       id: 2,
+      name: 'CANADA CGP',
+      description:
+        'Controller Goods Program - Canadian industrial security program',
+      image: assets.cgp_image,
+    },
+    {
+      id: 3,
       name: 'COGNIBOX',
       description: 'Certification de gestion des risques et conformité',
       image: assets.cognibox_image,
@@ -42,8 +49,8 @@ const TempCertifications = () => {
           </p>
         </motion.div>
 
-        {/* Two Fixed Certification Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto items-start">
+        {/* Three Certification Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
           {certifications.map((cert) => (
             <motion.div
               key={cert.id}
@@ -66,7 +73,7 @@ const TempCertifications = () => {
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="w-28 h-28 md:w-40 md:h-40 rounded-full object-contain"
+                    className="rounded-full object-contain 'w-24 h-24 md:w-32 md:h-32"
                   />
                 </motion.div>
 

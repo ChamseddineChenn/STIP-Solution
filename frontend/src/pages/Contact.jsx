@@ -38,7 +38,7 @@ const IndustrialSerpApiMap = () => {
     },
     quebec: {
       id: 'quebec',
-      title: 'Usine',
+      title: 'Succursale',
       address: '500 Rue St. George, Moncton, NB E1C 1Y3',
       coordinates: { lat: 46.08859577186401, lng: -64.79452728988272 },
       phone1: '+1 (418) 990-4459',
@@ -52,7 +52,7 @@ const IndustrialSerpApiMap = () => {
     },
     capsante: {
       id: 'capsante',
-      title: 'Espace manufacturier et entreposage',
+      title: 'Usine de fabrication',
       address: '23 Rte DelageCap-Santé, QC G0A 1L0',
       coordinates: { lat: 46.728339, lng: -71.801867 },
       phone1: '+1 (418) 990-4459',
@@ -200,8 +200,8 @@ const IndustrialSerpApiMap = () => {
             {key === 'montreal'
               ? 'Siège social'
               : key === 'quebec'
-                ? 'Usine de Québec'
-                : 'Cap-Santé'}
+                ? 'Succursale'
+                : 'Usine de Québec'}
           </motion.button>
         ))}
       </div>

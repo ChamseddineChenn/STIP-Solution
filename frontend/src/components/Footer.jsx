@@ -91,7 +91,7 @@ const Footer = () => {
               {/* Logo Container */}
               <div className="rounded-lg bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden h-fit">
                 <img
-                  className="h-20 w-auto object-contain"
+                  className="h-28 w-auto object-contain"
                   src={assets.blue_stip_logo}
                   alt="STIP Solution Logo"
                 />
@@ -310,7 +310,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-text-light text-sm font-semibold mb-1">
-                    Usine
+                    Succursale
                   </div>
                   <div className="text-text-secondary text-sm">
                     500 Rue St. George
@@ -327,7 +327,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-text-light text-sm font-semibold mb-1">
-                    Espace manufacturier
+                    Usine de fabrication
                   </div>
                   <div className="text-text-secondary text-sm">
                     23 Rte Delage
