@@ -50,7 +50,7 @@ const HowWeWork = () => {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-white mb-6">
       <div className="container mx-auto px-4 pt-20">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">

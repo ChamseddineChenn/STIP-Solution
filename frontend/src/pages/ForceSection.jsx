@@ -82,7 +82,7 @@ const ForceSection = () => {
       ]);
     }, 80);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeValue, rotation]);
 
   // Cleanup particles
@@ -98,7 +98,7 @@ const ForceSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-32 my-6 bg-dark-blue relative overflow-hidden min-h-screen flex items-center"
+      className="py-24 md:py-32 bg-dark-blue relative overflow-hidden min-h-screen flex items-center"
     >
       {/* Animated background grid */}
       <div className="absolute inset-0">
@@ -111,12 +111,22 @@ const ForceSection = () => {
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary-50/5"
           animate={{ scale: [1, 1.8, 1], opacity: [0.08, 0, 0.08] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
         />
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-primary-50/8"
           animate={{ scale: [1, 2, 1], opacity: [0.05, 0, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
         />
       </div>
 
@@ -233,11 +243,7 @@ const ForceSection = () => {
                 >
                   <motion.div
                     className="relative w-24 h-24 flex items-center justify-center"
-                    animate={
-                      isActive
-                        ? { scale: 1.3 }
-                        : { scale: 1 }
-                    }
+                    animate={isActive ? { scale: 1.3 } : { scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   >
                     {/* Glow ring behind */}
@@ -295,7 +301,10 @@ const ForceSection = () => {
                       className="relative z-10 text-4xl font-black"
                       animate={
                         isActive
-                          ? { color: value.color, textShadow: `0 0 20px ${value.color}` }
+                          ? {
+                              color: value.color,
+                              textShadow: `0 0 20px ${value.color}`,
+                            }
                           : { color: '#f8fafc', textShadow: 'none' }
                       }
                       transition={{ duration: 0.3 }}
@@ -438,7 +447,11 @@ const ForceSection = () => {
                               boxShadow: 'none',
                             }
                       }
-                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 20,
+                      }}
                     >
                       {isActive && (
                         <motion.div

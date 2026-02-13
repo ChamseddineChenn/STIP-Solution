@@ -8,10 +8,10 @@ import {
   HiOutlineWrench,
   HiOutlineRocketLaunch,
 } from 'react-icons/hi2';
+import ForceSection from './ForceSection';
 
 const About = () => {
   const navigate = useNavigate();
-  const [activeValue, setActiveValue] = useState(0);
 
   // Story sections
   const storySections = [
@@ -34,35 +34,6 @@ const About = () => {
       content2:
         "Nous construisons des partenariats durables axés sur l'atteinte de vos objectifs opérationnels avec précision et fiabilité.",
       accent: "Plus qu'un service — un partenariat stratégique.",
-    },
-  ];
-
-  // Values
-  const values = [
-    {
-      letter: 'F',
-      word: 'Fun',
-      desc: 'Favoriser un environnement positif qui stimule la créativité et la productivité.',
-    },
-    {
-      letter: 'O',
-      word: 'Ouverture',
-      desc: 'Adopter de nouvelles idées, méthodes et approches collaboratives.',
-    },
-    {
-      letter: 'R',
-      word: 'Respect',
-      desc: "Valoriser les clients, les membres de l'équipe, la sécurité et chaque projet que nous entreprenons.",
-    },
-    {
-      letter: 'C',
-      word: 'Communication',
-      desc: 'Maintenir la clarté et la transparence à chaque phase du projet.',
-    },
-    {
-      letter: 'E',
-      word: 'Excellence',
-      desc: "Poursuivre les normes les plus élevées dans l'exécution technique et les partenariats.",
     },
   ];
 
@@ -599,105 +570,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section - Interactive */}
-      <section className="py-32 bg-dark-blue relative overflow-hidden">
-        {/* Background accent */}
-        <motion.div
-          className="absolute inset-0 opacity-5"
-          animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          style={{
-            backgroundImage: `linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%)`,
-            backgroundSize: '80px 80px',
-          }}
-        />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <motion.div
-                className="h-1 w-20 bg-primary mx-auto mb-8"
-                initial={{ width: 0 }}
-                whileInView={{ width: 80 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tighter">
-                Nos principes directeurs
-              </h2>
-              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                F.O.R.C.E. — Les valeurs qui définissent notre approche pour
-                chaque projet et partenariat
-              </p>
-            </motion.div>
-
-            {/* Values Grid - Interactive */}
-            <div className="grid md:grid-cols-5 gap-6">
-              {values.map((value, idx) => (
-                <motion.div
-                  key={value.letter}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  onMouseEnter={() => setActiveValue(idx)}
-                  onClick={() => setActiveValue(idx)}
-                  className="cursor-pointer group"
-                >
-                  <motion.div
-                    className="bg-card-bg border border-primary/30 hover:border-primary transition-all duration-300 p-8 h-full flex flex-col relative overflow-hidden"
-                    whileHover={{
-                      borderColor: '#3b82f6',
-                      boxShadow: '0 0 30px rgba(59, 130, 246, 0.3)',
-                    }}
-                  >
-                    {/* Animated top accent */}
-                    <motion.div
-                      className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-primary via-primary-light to-transparent"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-
-                    <div className="relative z-10">
-                      <motion.div
-                        className="text-6xl font-bold text-primary mb-4"
-                        animate={
-                          activeValue === idx ? { scale: [1, 1.15, 1] } : {}
-                        }
-                        transition={{ duration: 0.5 }}
-                      >
-                        {value.letter}
-                      </motion.div>
-
-                      <h3 className="text-lg font-bold text-text-light mb-3 uppercase tracking-wider group-hover:text-primary transition-colors duration-300">
-                        {value.word}
-                      </h3>
-
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        {value.desc}
-                      </p>
-
-                      {/* Animated line */}
-                      <motion.div
-                        className="h-px bg-primary/50 mt-6 group-hover:bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: '100%' }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </div>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Force Section - Using new component */}
+      <ForceSection />
 
       {/* Timeline Section - Cinematic - COMMENTED OUT FOR LATER USE */}
       {false && (
