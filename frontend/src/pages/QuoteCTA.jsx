@@ -25,7 +25,7 @@ const QuoteCTA = () => {
     {
       icon: <FiClock className="w-5 h-5" />,
       label: 'Réponse',
-      value: 'Sous 4 heures',
+      value: 'dans les plus brefs délais',
       href: null,
     },
   ];

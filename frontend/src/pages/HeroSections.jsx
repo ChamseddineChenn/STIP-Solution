@@ -12,9 +12,9 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video - COMMENTED OUT, showing image instead */}
       <div className="absolute inset-0">
-        <video
+        {/* <video
           className="w-full h-full object-cover"
           autoPlay
           muted
@@ -28,7 +28,14 @@ const HeroSection = () => {
             alt="Industrial manufacturing facility"
             className="w-full h-full object-cover"
           />
-        </video>
+        </video> */}
+        
+        {/* Background Image instead of video */}
+        <img
+          src={posterSrc}
+          alt="Industrial manufacturing facility"
+          className="w-full h-full object-cover"
+        />
 
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/60" />

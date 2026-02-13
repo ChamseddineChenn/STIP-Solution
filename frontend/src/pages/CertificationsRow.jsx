@@ -114,7 +114,7 @@ const CertificationsRow = () => {
                   onMouseLeave={() => setHoveredCert(null)}
                 >
                   {/* Logo Container */}
-                  <div className="w-48 h-48 md:w-56 md:h-56 flex items-center justify-center p-6 mb-4 bg-gray-50 transition-all duration-300">
+                  <div className="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center p-3 mb-2 bg-gray-50 transition-all duration-300">
                     <img
                       src={cert.image}
                       alt={cert.name}
@@ -125,7 +125,7 @@ const CertificationsRow = () => {
                   {/* Certification Name */}
                   <div className="text-center">
                     <h4
-                      className={`text-lg font-bold transition-colors duration-300 ${
+                      className={`text-sm font-bold transition-colors duration-300 ${
                         hoveredCert === cert.id
                           ? 'text-blue-600'
                           : 'text-gray-900'

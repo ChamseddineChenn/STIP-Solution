@@ -1125,10 +1125,6 @@ const DetailedQuoteForm = () => {
                 +1 (418) 990-4459
               </a>
             </p>
-            <p className="text-sm text-text-secondary">
-              Temps de réponse moyen pour les demandes de devis:
-              <span className="font-semibold ml-2">24 heures ouvrées</span>
-            </p>
           </div>
         </motion.div>
       </div>
@@ -1157,7 +1153,7 @@ const ContactInformation = () => {
       title: 'Email',
       main: 'contact@stip.ca',
       color: 'bg-primary-dark',
-      description: 'Réponse dans les 2 heures ouvrées',
+      description: 'Réponse dans les plus brefs délais',
       type: 'email',
       href: 'mailto:contact@stip.ca',
     },
@@ -1448,7 +1444,7 @@ const Contact = () => {
                 href="#quote-form"
                 className="px-8 py-3 bg-primary hover:bg-primary-dark text-white font-semibold uppercase tracking-wider text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Demander un devis
+                Demander une soumission
               </a>
               <a
                 href="#contact-info"
@@ -1487,10 +1483,10 @@ const Contact = () => {
 
       {/* Departments Banner - Full Width Separator */}
       <div ref={departmentsRef}>
-        <DepartmentsBanner
+        {/**<DepartmentsBanner
           departments={departments}
           isInView={departmentsInView}
-        />
+        /> */}
       </div>
 
       {/* Serpapi Google Maps Section */}

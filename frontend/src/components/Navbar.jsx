@@ -91,7 +91,7 @@ const ServicesDropdown = React.memo(
                 }}
                 className="inline-block"
               >
-                <Button text="Demander un devis" duration={0.5} />
+                <Button text="Demander une soumission" duration={0.5} />
               </button>
 
               {/* Discover Services Button */}

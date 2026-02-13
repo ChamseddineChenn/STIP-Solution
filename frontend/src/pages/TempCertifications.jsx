@@ -43,7 +43,7 @@ const TempCertifications = () => {
         </motion.div>
 
         {/* Two Fixed Certification Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto items-start">
           {certifications.map((cert) => (
             <motion.div
               key={cert.id}
@@ -60,23 +60,23 @@ const TempCertifications = () => {
               <div className="flex flex-col items-center justify-start">
                 {/* Logo Container */}
                 <motion.div
-                  className="w-full flex items-center justify-center p-8 mb-6 bg-white transition-all duration-300 group-hover:bg-primary-50/10"
+                  className="w-full flex items-center justify-center p-6 mb-4 bg-white transition-all duration-300 group-hover:bg-primary-50/10"
                   whileHover={{ scale: 1.02 }}
                 >
                   <img
                     src={cert.image}
                     alt={cert.name}
-                    className="w-32 h-32 md:w-48 rounded-full md:h-48 object-contain"
+                    className="w-28 h-28 md:w-40 md:h-40 rounded-full object-contain"
                   />
                 </motion.div>
 
                 {/* Certification Info */}
                 <div className="text-center w-full">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                     {cert.name}
                   </h3>
 
-                  <p className="text-gray-600 text-sm md:text-base mb-4">
+                  <p className="text-gray-600 text-sm md:text-base mb-3">
                     {cert.description}
                   </p>
 
