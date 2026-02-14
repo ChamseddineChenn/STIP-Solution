@@ -9,17 +9,18 @@ const TempCertifications = () => {
   const certifications = [
     {
       id: 1,
-      name: 'CNESST',
-      description:
-        "Commission des normes, de l'équité, de la santé et de la sécurité du travail",
-      image: assets.cnesst_image,
-    },
-    {
-      id: 2,
       name: 'CANADA CGP',
       description:
         'Controller Goods Program - Canadian industrial security program',
       image: assets.cgp_image,
+    },
+    {
+      id: 2,
+      name: 'CNESST',
+      number: 'AP-2403924',
+      description:
+        "Commission des normes, de l'équité, de la santé et de la sécurité du travail",
+      image: assets.cnesst_image,
     },
     {
       id: 3,
@@ -82,6 +83,11 @@ const TempCertifications = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                     {cert.name}
                   </h3>
+                  {cert.number && (
+                    <h4 className="text-xl md:text-lg font-bold text-gray-900 mb-2">
+                      {cert.number}
+                    </h4>
+                  )}
 
                   <p className="text-gray-600 text-sm md:text-base mb-3">
                     {cert.description}
